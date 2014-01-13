@@ -1,0 +1,41 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+
+<h2>Manage search engines and socials</h2>
+
+    <input type="text" name="url" id="urlToCheck" size="50" /> <button id="checkurl">Check</button>
+
+    <div class="detectionresult">Detected Engine: <img src="plugins/Referrers/images/searchEngines/xx.png" /><span class="engine"></span>  Detected Keywords: <span class="keywords"></span></div>
+
+<table class="dataTable entityTable">
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Parameter</th>
+    <th>Backlink pattern</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+    {% for name,infos in searchEngineInfos %}
+        {% for i,url in infos %}
+        <tr>
+            {% if i == 0 %}
+            <td rowspan="{{ infos|length }}">
+                <img src="{{ attribute(searchEngineLogos, name) }}">
+                {{ name }}
+            </td>
+            {% endif %}
+            <td>{{ url.url }}</td>
+            <td>{{ url.parameters }}</td>
+            <td title="{{ url.backlink }}">{{ url.backlink|truncate(25) }}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
