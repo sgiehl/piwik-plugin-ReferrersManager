@@ -16,10 +16,13 @@ $(document).ready(function () {
                 $('.detectionresult .keywords').text(response.keywords);
                 $('.detectionresult img').attr('src', response.image);
 
+            } else {
+                $('.detectionresult .engine').text('');
+                $('.detectionresult .keywords').text('');
+                $('.detectionresult img').attr('src', 'plugins/Referrers/images/searchEngines/xx.png');
             }
 
         });
         ajaxHandler.send(true);
     });
-
 });

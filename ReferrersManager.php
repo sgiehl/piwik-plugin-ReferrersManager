@@ -29,6 +29,7 @@ class ReferrersManager extends Plugin
             'Menu.Admin.addItems'              => 'addMenu',
             'Referer.addSearchEngineUrls'      => 'addSearchEngineUrls',
             'AssetManager.getJavaScriptFiles'  => 'getJsFiles',
+            'AssetManager.getStylesheetFiles'  => 'getStylesheetFiles',
         );
     }
 
@@ -45,6 +46,11 @@ class ReferrersManager extends Plugin
     public function getJsFiles(&$jsFiles)
     {
         $jsFiles[] = "plugins/ReferrersManager/javascripts/ReferrersManager.js";
+    }
+
+    public function getStylesheetFiles(&$stylesheets)
+    {
+        $stylesheets[] = "plugins/ReferrersManager/stylesheets/styles.less";
     }
 
     /**

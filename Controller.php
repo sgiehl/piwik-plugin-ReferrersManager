@@ -23,24 +23,10 @@ use Piwik\View;
  */
 class Controller extends ControllerAdmin
 {
-    public function checkUrl()
-    {
-        $this->checkTokenInUrl();
-
-        $urlToCheck = Common::getRequestVar('url', null, 'string');
-
-        $detectedEngine = UrlHelper::extractSearchEngineInformationFromUrl($urlToCheck);
-
-        if (!empty($detectedEngine['name'])) {
-            $detectedEngine['image'] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl(\Piwik\Plugins\Referrers\getSearchEngineUrlFromName($detectedEngine['name']));
-        }
-
-        Json::sendHeaderJSON();
-        return Common::json_encode($detectedEngine);
-
-    }
-
-
+    /**
+     * Index action
+     * @return string
+     */
     public function index()
     {
         Piwik::checkUserIsSuperUser();
@@ -52,6 +38,32 @@ class Controller extends ControllerAdmin
         return $view->render();
     }
 
+    /**
+     * Ajax action to check an url for search engine information that can be extracted
+     *
+     * @return string
+     */
+    public function checkUrl()
+    {
+        $this->checkTokenInUrl();
+
+        $urlToCheck = Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string'));
+
+        $detectedEngine = UrlHelper::extractSearchEngineInformationFromUrl($urlToCheck);
+
+        if (!empty($detectedEngine['name'])) {
+            $detectedEngine['image'] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl(\Piwik\Plugins\Referrers\getSearchEngineUrlFromName($detectedEngine['name']));
+        }
+
+        Json::sendHeaderJSON();
+        return json_encode($detectedEngine);
+    }
+
+    /**
+     * Returns all search engine informations known to piwik
+     *
+     * @return array
+     */
     protected function getSearchEngineInfos()
     {
 
@@ -61,10 +73,9 @@ class Controller extends ControllerAdmin
 
         foreach ($searchEngineInfos AS $url => $infos) {
 
-            $name = $infos[0];
-            $parameters = @$infos[1];
-            $backlink = @$infos[2];
-            $charset = @$infos[3];
+            $infos = array_merge($infos, array('', '', '', ''));
+
+            list($name, $parameters, $backlink, $charset) = $infos;
 
             if (is_array($parameters)) {
                 $parameters = implode(', ', $parameters);
@@ -88,6 +99,11 @@ class Controller extends ControllerAdmin
         return $mergedSearchInfos;
     }
 
+    /**
+     * Returns an array containing all logos for search engines
+     *
+     * @return array (name => logo-src)
+     */
     protected function getSearchEngineLogos()
     {
         $searchEngineLogos = array();

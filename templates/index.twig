@@ -4,11 +4,20 @@
 
 <h2>Manage search engines and socials</h2>
 
+
+    <h3>Check URL for search engine information</h3>
+
+    <p>Here you can paste any referer url in order to check if piwik would recognize it as a search engine:</p>
+
     <input type="text" name="url" id="urlToCheck" size="50" /> <button id="checkurl">Check</button>
 
-    <div class="detectionresult">Detected Engine: <img src="plugins/Referrers/images/searchEngines/xx.png" /><span class="engine"></span>  Detected Keywords: <span class="keywords"></span></div>
+    <p class="detectionresult">Detected Engine: <img src="plugins/Referrers/images/searchEngines/xx.png" /><span class="engine"></span>  Detected Keywords: <span class="keywords"></span></p>
 
+    <h3>List of all search engines known to piwik</h3>
+
+    <p class="ui-inline-help">Note: Brackets "{}" can be used as kind of wildcard. {}.domain.tld will match any subdomain of domain.tld and to match all tlds use domain.{}.</p>
 <table class="dataTable entityTable">
+
 <thead>
 <tr>
     <th>Name</th>
