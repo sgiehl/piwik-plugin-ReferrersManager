@@ -15,7 +15,12 @@
 
     <h3>List of all search engines known to piwik</h3>
 
-    <p class="ui-inline-help">Note: Brackets "{}" can be used as kind of wildcard. {}.domain.tld will match any subdomain of domain.tld and to match all tlds use domain.{}.</p>
+    <p class="ui-inline-help">
+        For region-specific search engines, the URL, "{}.example.com" will match
+        any ISO3166-1 alpha2 country code against "{}".  Similarly, "example.{}"
+        will match against valid country TLDs, but should be used sparingly to
+        avoid false positives.
+    </p>
 <table class="dataTable entityTable">
 
 <thead>

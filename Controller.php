@@ -31,7 +31,7 @@ class Controller extends ControllerAdmin
     {
         Piwik::checkUserIsSuperUser();
 
-        $view = new View('@ReferrersManager/index');
+        $view = new View('@ReferrersManager/engines');
         $this->setBasicVariablesView($view);
         $view->searchEngineInfos = $this->getSearchEngineInfos();
         $view->searchEngineLogos = $this->getSearchEngineLogos();
