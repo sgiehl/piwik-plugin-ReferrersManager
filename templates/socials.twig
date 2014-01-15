@@ -1,0 +1,28 @@
+    <h3>List of all socials known to piwik</h3>
+
+<table class="dataTable entityTable">
+
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+    {% for name,infos in socialInfos %}
+        {% for i,url in infos %}
+        <tr>
+            {% if i == 0 %}
+            <td rowspan="{{ infos|length }}">
+                <img src="{{ attribute(socialLogos, name) }}">
+                {{ name }}
+            </td>
+            {% endif %}
+            <td>{{ url }}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    {% endfor %}
+</tbody>
+</table>

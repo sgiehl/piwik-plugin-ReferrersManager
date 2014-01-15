@@ -31,10 +31,15 @@ class Controller extends ControllerAdmin
     {
         Piwik::checkUserIsSuperUser();
 
-        $view = new View('@ReferrersManager/engines');
+        $view = new View('@ReferrersManager/index');
         $this->setBasicVariablesView($view);
+
         $view->searchEngineInfos = $this->getSearchEngineInfos();
         $view->searchEngineLogos = $this->getSearchEngineLogos();
+
+        $view->socialInfos = $this->getSocialsInfos();
+        $view->socialLogos = $this->getSocialsLogos();
+
         return $view->render();
     }
 
@@ -113,6 +118,47 @@ class Controller extends ControllerAdmin
             $searchEngineLogos[$name] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl($url);
         }
         return $searchEngineLogos;
+    }
+
+    /**
+     * Returns all social informations known to piwik
+     *
+     * @return array
+     */
+    protected function getSocialsInfos()
+    {
+        require PIWIK_INCLUDE_PATH . '/core/DataFiles/Socials.php';
+
+        $socials = $GLOBALS['Piwik_socialUrl'];
+
+        $mergedSocials = array();
+
+        foreach ($socials AS $url => $name) {
+
+            $mergedSocials[$name][] = $url;
+        }
+
+        ksort($mergedSocials, SORT_NATURAL|SORT_FLAG_CASE);
+
+        return $mergedSocials;
+    }
+
+    /**
+     * Returns an array containing all logos for socials
+     *
+     * @return array (name => logo-src)
+     */
+    protected function getSocialsLogos()
+    {
+        require PIWIK_INCLUDE_PATH . '/core/DataFiles/Socials.php';
+
+        $socialsLogos = array();
+
+        $socials = $GLOBALS['Piwik_socialUrl'];
+        foreach($socials AS $url => $name) {
+            $socialsLogos[$name] = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
+        }
+        return $socialsLogos;
     }
 
 }
