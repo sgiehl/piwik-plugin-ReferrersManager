@@ -13,7 +13,7 @@ $(document).ready(function () {
             if (response && response.name) {
 
                 $('.detectionresult .engine').text(response.name);
-                $('.detectionresult .keywords').text(response.keywords);
+                $('.detectionresult .keywords').html(response.keywords);
                 $('.detectionresult img').attr('src', response.image);
 
             } else {
@@ -25,4 +25,6 @@ $(document).ready(function () {
         });
         ajaxHandler.send(true);
     });
+
+    $('#tabs').tabs();
 });

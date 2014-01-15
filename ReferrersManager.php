@@ -36,7 +36,7 @@ class ReferrersManager extends Plugin
     public function addMenu()
     {
         MenuAdmin::getInstance()->add(
-            'General_Settings', 'ReferrersManager_ReferrersManager',
+            'General_Settings', 'ReferrersManager_SearchEnginesAndSocials',
             array('module' => 'ReferrersManager', 'action' => 'index'),
             Piwik::isUserIsSuperUser(),
             $order = 20

@@ -58,6 +58,9 @@ class Controller extends ControllerAdmin
 
         if (!empty($detectedEngine['name'])) {
             $detectedEngine['image'] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl(\Piwik\Plugins\Referrers\getSearchEngineUrlFromName($detectedEngine['name']));
+            if ($detectedEngine['keywords'] === false) {
+                $detectedEngine['keywords'] = '<i>'.Piwik::translate('General_NotDefined', Piwik::translate('General_ColumnKeyword')).'</i>';
+            }
         }
 
         Json::sendHeaderJSON();
