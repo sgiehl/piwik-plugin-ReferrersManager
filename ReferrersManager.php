@@ -27,7 +27,8 @@ class ReferrersManager extends Plugin
     {
         return array(
             'Menu.Admin.addItems'              => 'addMenu',
-            'Referer.addSearchEngineUrls'      => 'addSearchEngineUrls',
+            'Referrer.addSearchEngineUrls'     => 'addSearchEngineUrls',
+            'Referrer.addSocialUrls'           => 'addSocialUrls',
             'AssetManager.getJavaScriptFiles'  => 'getJsFiles',
             'AssetManager.getStylesheetFiles'  => 'getStylesheetFiles',
         );
@@ -58,6 +59,15 @@ class ReferrersManager extends Plugin
      * @param $searchEngines
      */
     public function addSearchEngineUrls(&$searchEngines)
+    {
+
+    }
+
+    /**
+     * Adds the user defined social networks
+     * @param $socials
+     */
+    public function addSocialUrls(&$socials)
     {
 
     }

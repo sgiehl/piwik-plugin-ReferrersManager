@@ -151,7 +151,7 @@ class Controller extends ControllerAdmin
 
         foreach (Common::getSocialUrls() AS $url => $name) {
 
-            $mergedSocials[$name][] = $url;
+            $mergedSocials[urldecode($name)][] = $url;
         }
 
         ksort($mergedSocials, SORT_NATURAL|SORT_FLAG_CASE);
@@ -170,7 +170,7 @@ class Controller extends ControllerAdmin
 
         foreach(Common::getSocialUrls() AS $url => $name) {
 
-            $socialsLogos[$name] = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
+            $socialsLogos[urldecode($name)] = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
         }
         return $socialsLogos;
     }
