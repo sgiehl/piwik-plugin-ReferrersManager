@@ -36,4 +36,11 @@ $(document).ready(function () {
     });
 
     $('#tabs').tabs();
+
+    $('[role="addSocial"]').click(function() {
+        $('[role=addSocialForm]').dialog({
+            modal: true,
+            width: '75%'
+        });
+    });
 });

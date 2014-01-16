@@ -2,6 +2,10 @@
 
 <p></p>
 
+<span class="icoAdd" role="addSocial">
+    Add new social network
+</span>
+
 <table class="dataTable entityTable">
 
     <thead>
@@ -24,11 +28,11 @@
                     <td>{{ url }}</td>
                 {% if i == 0 %}
                     <td rowspan="{{ infos|length }}">
-                        <span class="link_but icoDelete">
+                        <span class="icoDelete" role="removeSocial">
                             {{ 'General_Delete'|translate }}
                         </span>
                                 <br />
-                        <span class="link_but icoEdit">
+                        <span class="icoEdit" role="editSocial">
                             {{ 'General_Edit'|translate }}
                         </span>
                     </td>
@@ -38,3 +42,16 @@
     {% endfor %}
     </tbody>
 </table>
+
+<form role="addSocialForm" style="display: none;">
+
+    <h2>Add new social network</h2>
+    Please provide the data for the new social network.
+
+        <p>Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.</p>
+
+        <label for="socialName">Name:</label><input type="text" name="socialName" id="socialName" />
+        <label for="socialHost">Hostname:</label><input type="text" name="socialHost" id="socialHost" />
+
+        <button role="submitAddSocial">Check</button>
+</form>

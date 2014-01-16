@@ -8,6 +8,10 @@
     avoid false positives.
 </p>
 
+<span class="icoAdd" role="addSearchEngine">
+    Add new search engine definition
+</span>
+
 <table class="dataTable entityTable">
 
 <thead>
@@ -34,11 +38,11 @@
             <td title="{{ url.backlink }}">{{ url.backlink|truncate(25) }}</td>
             {% if i == 0 %}
             <td rowspan="{{ infos|length }}">
-                <span class="link_but icoDelete">
+                <span class="icoDelete" role="removeSearchEngine">
                     {{ 'General_Delete'|translate }}
                 </span>
                 <br />
-                <span class="link_but icoEdit">
+                <span class="icoEdit" role="editSearchEngine">
                     {{ 'General_Edit'|translate }}
                 </span>
             </td>
