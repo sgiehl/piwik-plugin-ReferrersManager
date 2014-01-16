@@ -63,8 +63,25 @@ class Controller extends ControllerAdmin
             }
         }
 
+        $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($urlToCheck);
+
+        if (!empty($detectedSocial) && $detectedSocial != Piwik::translate('General_Unknown')) {
+
+            $detectedSocial = array(
+                'name' => $detectedSocial,
+                'image' => \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($urlToCheck)
+            );
+        } else {
+
+            $detectedSocial = false;
+        }
+
+
         Json::sendHeaderJSON();
-        return json_encode($detectedEngine);
+        return json_encode(array(
+            'searchengine' => $detectedEngine,
+            'social'       => $detectedSocial
+        ));
     }
 
     /**
@@ -130,13 +147,9 @@ class Controller extends ControllerAdmin
      */
     protected function getSocialsInfos()
     {
-        require PIWIK_INCLUDE_PATH . '/core/DataFiles/Socials.php';
-
-        $socials = $GLOBALS['Piwik_socialUrl'];
-
         $mergedSocials = array();
 
-        foreach ($socials AS $url => $name) {
+        foreach (Common::getSocialUrls() AS $url => $name) {
 
             $mergedSocials[$name][] = $url;
         }
@@ -153,12 +166,10 @@ class Controller extends ControllerAdmin
      */
     protected function getSocialsLogos()
     {
-        require PIWIK_INCLUDE_PATH . '/core/DataFiles/Socials.php';
-
         $socialsLogos = array();
 
-        $socials = $GLOBALS['Piwik_socialUrl'];
-        foreach($socials AS $url => $name) {
+        foreach(Common::getSocialUrls() AS $url => $name) {
+
             $socialsLogos[$name] = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
         }
         return $socialsLogos;

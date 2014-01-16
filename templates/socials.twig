@@ -21,19 +21,16 @@
                         {{ name }}
                     </td>
                 {% endif %}
-                <td>{{ url }}</td>
+                    <td>{{ url }}</td>
                 {% if i == 0 %}
                     <td rowspan="{{ infos|length }}">
-                <span class="link_but">
-                    <img src="plugins/Morpheus/images/ico_delete.png" title="{{ 'General_Delete'|translate }}"
-                         border="0">
-                    <span>{{ 'General_Delete'|translate }}</span>
-                </span>
-                        <br/>
-                <span class="link_but">
-                    <img src="plugins/Morpheus/images/ico_edit.png" title="{{ 'General_Edit'|translate }}" border="0">
-                    <span>{{ 'General_Edit'|translate }}</span>
-                </span>
+                        <span class="link_but icoDelete">
+                            {{ 'General_Delete'|translate }}
+                        </span>
+                                <br />
+                        <span class="link_but icoEdit">
+                            {{ 'General_Edit'|translate }}
+                        </span>
                     </td>
                 {% endif %}
             </tr>
