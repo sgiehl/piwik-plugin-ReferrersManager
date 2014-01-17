@@ -1,6 +1,14 @@
 <h3>List of all socials known to piwik</h3>
 
-<p></p>
+<p>
+{% if ownSocialDefinitions %}
+    <span> <img src="plugins/Zeitgeist/images/warning.png"> Attention: Piwik's built-in list of social networks is disabled.</span>
+    <a href="">Activate Piwik's social network list</a>
+{% else %}
+    <span>You are using Piwik's built-in social network list.</span>
+    <a href="">Disable Piwik's social network list</a>
+{% endif %}
+</p>
 
 <span class="icoAdd" role="addSocial">
     Add new social network
@@ -46,7 +54,7 @@
 <form role="addSocialForm" style="display: none;">
 
     <h2>Add new social network</h2>
-    Please provide the data for the new social network.
+        Please provide the data for the new social network.
 
         <p>Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.</p>
 

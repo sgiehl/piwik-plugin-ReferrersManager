@@ -40,6 +40,8 @@ class Controller extends ControllerAdmin
         $view->socialInfos = $this->getSocialsInfos();
         $view->socialLogos = $this->getSocialsLogos();
 
+        $view->ownSocialDefinitions = true;
+
         return $view->render();
     }
 
