@@ -10,3 +10,25 @@
  */
 namespace Piwik\Plugins\ReferrersManager;
 
+use Piwik\Option;
+
+const OPTION_KEY_DISABLE_DEFAULT_SOCIALS = 'disable_default_socials';
+
+/**
+ * Returns if Piwik's built-in social list is used or not
+ *
+ * @return false|string
+ */
+function areDefaultSocialsDisabled()
+{
+    return Option::get(OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
+}
+
+/**
+ * Sets if Piwik's built-in social list should be used or not
+ * @param bool $disabled
+ */
+function setDefaultSocialsDisabled($disabled = true)
+{
+    Option::set(OPTION_KEY_DISABLE_DEFAULT_SOCIALS, $disabled);
+}

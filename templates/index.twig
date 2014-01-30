@@ -13,13 +13,13 @@
     <p class="socialresult">Detected Social Network: <img src="plugins/Referrers/images/socials/xx.png" /><span class="social"></span></p>
     <div id="tabs">
         <ul>
-            <li><a href="#tabs-1">Manage search engines</a></li>
-            <li><a href="#tabs-2">Manage social networks</a></li>
+            <li><a href="#searchengineTab">Manage search engines</a></li>
+            <li><a href="#socialTab">Manage social networks</a></li>
         </ul>
-        <div id="tabs-1">
+        <div id="searchengineTab">
             {% include "@ReferrersManager/engines.twig" %}
         </div>
-        <div id="tabs-2">
+        <div id="socialTab">
             {% include "@ReferrersManager/socials.twig" %}
         </div>
     </div>

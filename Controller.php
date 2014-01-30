@@ -40,9 +40,20 @@ class Controller extends ControllerAdmin
         $view->socialInfos = $this->getSocialsInfos();
         $view->socialLogos = $this->getSocialsLogos();
 
-        $view->ownSocialDefinitions = true;
+        $view->ownSocialDefinitions = areDefaultSocialsDisabled();
 
         return $view->render();
+    }
+
+    /**
+     * Sets if default social should be used or not
+     */
+    public function setDefaultSocialsDisabled()
+    {
+        $state = Common::getRequestVar('state', 0, 'int');
+        setDefaultSocialsDisabled((bool) $state);
+        Json::sendHeaderJSON();
+        return 1;
     }
 
     /**

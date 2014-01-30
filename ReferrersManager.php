@@ -15,6 +15,11 @@ use Piwik\Piwik;
 use Piwik\Plugin;
 
 /**
+ * @see plugins/ReferrersManager/functions.php
+ */
+require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
+
+/**
  *
  * @package ReferrersManager
  */
@@ -69,6 +74,8 @@ class ReferrersManager extends Plugin
      */
     public function addSocialUrls(&$socials)
     {
-
+        if(areDefaultSocialsDisabled()) {
+            $socials = array();
+        }
     }
 }

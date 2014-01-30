@@ -3,10 +3,10 @@
 <p>
 {% if ownSocialDefinitions %}
     <span> <img src="plugins/Zeitgeist/images/warning.png"> Attention: Piwik's built-in list of social networks is disabled.</span>
-    <a href="">Activate Piwik's social network list</a>
+    <a href="#" role="noDefaultSocials" state="0">Activate Piwik's social network list</a>
 {% else %}
     <span>You are using Piwik's built-in social network list.</span>
-    <a href="">Disable Piwik's social network list</a>
+    <a href="#" role="noDefaultSocials" state="1">Disable Piwik's social network list</a>
 {% endif %}
 </p>
 

@@ -43,4 +43,15 @@ $(document).ready(function () {
             width: '75%'
         });
     });
+
+    $('[role="noDefaultSocials"]').click(function(){
+        var ajaxHandler = new ajaxHelper();
+        ajaxHandler.addParams({
+            module: 'ReferrersManager',
+            action: 'setDefaultSocialsDisabled',
+            state: $(this).attr('state')
+        }, 'GET');
+        ajaxHandler.redirectOnSuccess({});
+        ajaxHandler.send(true);
+    });
 });
