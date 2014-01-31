@@ -38,10 +38,22 @@ $(document).ready(function () {
     $('#tabs').tabs();
 
     $('[role="addSocial"]').click(function() {
-        $('[role=addSocialForm]').dialog({
+        $('[role="addSocialForm"]').dialog({
             modal: true,
             width: '75%'
         });
+    });
+
+    $('[role="submitAddSocial"]').click(function(e) {
+        var ajaxHandler = new ajaxHelper();
+        ajaxHandler.addParams({
+            module: 'ReferrersManager',
+            action: 'addSocial',
+            name: $('#socialName').val(),
+            url: $('#socialHost').val()
+        }, 'GET');
+        ajaxHandler.redirectOnSuccess({});
+        ajaxHandler.send(true);
     });
 
     $('[role="noDefaultSocials"]').click(function(){

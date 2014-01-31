@@ -44,7 +44,7 @@ class ReferrersManager extends Plugin
         MenuAdmin::getInstance()->add(
             'General_Settings', 'ReferrersManager_SearchEnginesAndSocialNetworks',
             array('module' => 'ReferrersManager', 'action' => 'index'),
-            Piwik::isUserIsSuperUser(),
+            Piwik::hasUserSuperUserAccess(),
             $order = 20
         );
     }
@@ -77,5 +77,7 @@ class ReferrersManager extends Plugin
         if(areDefaultSocialsDisabled()) {
             $socials = array();
         }
+
+        $socials = array_merge($socials, getUserDefinedSocials());
     }
 }

@@ -41,6 +41,7 @@ class Controller extends ControllerAdmin
         $view->socialLogos = $this->getSocialsLogos();
 
         $view->ownSocialDefinitions = areDefaultSocialsDisabled();
+        $view->userDefinedSocials = getUserDefinedSocials();
 
         return $view->render();
     }
@@ -96,6 +97,22 @@ class Controller extends ControllerAdmin
             'social'       => $detectedSocial
         ));
     }
+
+
+
+    public function addSocial()
+    {
+        $this->checkTokenInUrl();
+
+        $name = Common::getRequestVar('name', null, 'string');
+        $url  = Common::getRequestVar('url', null, 'string');
+
+        $socials = getUserDefinedSocials();
+        $socials[$url] = $name;
+        setUserDefinedSocials($socials);
+    }
+
+
 
     /**
      * Returns all search engine informations known to piwik

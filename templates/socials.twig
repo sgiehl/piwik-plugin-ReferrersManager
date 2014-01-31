@@ -3,10 +3,10 @@
 <p>
 {% if ownSocialDefinitions %}
     <span> <img src="plugins/Zeitgeist/images/warning.png"> Attention: Piwik's built-in list of social networks is disabled.</span>
-    <a href="#" role="noDefaultSocials" state="0">Activate Piwik's social network list</a>
+    <a href="#socialTab" role="noDefaultSocials" state="0">Activate Piwik's social network list</a>
 {% else %}
     <span>You are using Piwik's built-in social network list.</span>
-    <a href="#" role="noDefaultSocials" state="1">Disable Piwik's social network list</a>
+    <a href="#socialTab" role="noDefaultSocials" state="1">Disable Piwik's social network list</a>
 {% endif %}
 </p>
 
@@ -19,39 +19,35 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th>Url</th>
-        <th>Actions</th>
+        <th>Host</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
     {% for name,infos in socialInfos %}
-        {% for i,url in infos %}
+        {% for i,host in infos %}
             <tr>
                 {% if i == 0 %}
                     <td rowspan="{{ infos|length }}">
-                        <img src="{{ attribute(socialLogos, name) }}">
+                        <img src="{{ attribute(socialLogos, name) }}" alt="{{ name }}" />
                         {{ name }}
                     </td>
                 {% endif %}
-                    <td>{{ url }}</td>
-                {% if i == 0 %}
-                    <td rowspan="{{ infos|length }}">
-                        <span class="icoDelete" role="removeSocial">
+                    <td>{{ host }}</td>
+                    <td>
+                        {% if attribute(userDefinedSocials, host) is defined %}
+                        <span class="icoDelete" role="removeSocial" host="{{ host }}">
                             {{ 'General_Delete'|translate }}
                         </span>
-                                <br />
-                        <span class="icoEdit" role="editSocial">
-                            {{ 'General_Edit'|translate }}
-                        </span>
+                        {% endif %}
                     </td>
-                {% endif %}
             </tr>
         {% endfor %}
     {% endfor %}
     </tbody>
 </table>
 
-<form role="addSocialForm" style="display: none;">
+<div role="addSocialForm" style="display: none;">
 
     <h2>Add new social network</h2>
         Please provide the data for the new social network.
@@ -61,5 +57,5 @@
         <label for="socialName">Name:</label><input type="text" name="socialName" id="socialName" />
         <label for="socialHost">Hostname:</label><input type="text" name="socialHost" id="socialHost" />
 
-        <button role="submitAddSocial">Check</button>
-</form>
+        <button role="submitAddSocial">{{ 'General_Save'|translate }}</button>
+</div>
