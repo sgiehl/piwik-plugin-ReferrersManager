@@ -17,7 +17,7 @@
 <thead>
 <tr>
     <th>{{ 'General_Name'|translate }}</th>
-    <th>Url</th>
+    <th>{{ 'ReferrersManager_Hostname'|translate }}</th>
     <th>Parameter</th>
     <th>Backlink pattern</th>
     <th>Charset</th>
@@ -35,7 +35,7 @@
             </td>
             {% endif %}
             <td>{{ url.url }}</td>
-            <td>{{ url.parameters }}</td>
+            <td title="{{ url.parameters }}">{{ url.parameters|truncate(25) }}</td>
             <td title="{{ url.backlink }}">{{ url.backlink|truncate(25) }}</td>
             <td>{{ url.charset }}</td>
             <td>
@@ -60,8 +60,8 @@
 
     <div role="addEngineError" class="error" style="display: none">Error while adding the search engine. Please check your inputs and retry.</div>
 
-    <label for="engineName">Name:</label><input type="text" name="engineName" id="engineName" />
-    <label for="engineHost">Hostname:</label><input type="text" name="engineHost" id="engineHost" />
+    <label for="engineName">{{ 'General_Name'|translate }}:</label><input type="text" name="engineName" id="engineName" />
+    <label for="engineHost">{{ 'ReferrersManager_Hostname'|translate }}:</label><input type="text" name="engineHost" id="engineHost" />
     <label for="engineParameter">Parameters (comma seperated):</label><input type="text" name="engineParameter" id="engineParameter" />
     <label for="engineBacklink">Backlink pattern:</label><input type="text" name="engineBacklink" id="engineBacklink" />
     <label for="engineCharset">Charset:</label><input type="text" name="engineCharset" id="engineCharset" />

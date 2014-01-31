@@ -11,7 +11,7 @@
 </p>
 
 <span class="icoAdd" role="addSocial">
-    Add new social network
+    {{ 'ReferrersManager_AddSocial'|translate }}
 </span>
 
 <table class="dataTable entityTable">
@@ -19,7 +19,7 @@
     <thead>
     <tr>
         <th>{{ 'General_Name'|translate }}</th>
-        <th>Host</th>
+        <th>{{ 'ReferrersManager_Hostname'|translate }}</th>
         <th></th>
     </tr>
     </thead>
@@ -49,15 +49,15 @@
 
 <div role="addSocialForm" style="display: none;">
 
-    <h2>Add new social network</h2>
+    <h2>{{ 'ReferrersManager_AddSocial'|translate }}</h2>
         Please provide the data for the new social network.
 
         <p>Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.</p>
 
         <div role="addSocialError" class="error" style="display: none">Error while adding the social. Please check your inputs and retry.</div>
 
-        <label for="socialName">Name:</label><input type="text" name="socialName" id="socialName" />
-        <label for="socialHost">Hostname:</label><input type="text" name="socialHost" id="socialHost" />
+        <label for="socialName">{{ 'General_Name'|translate }}:</label><input type="text" name="socialName" id="socialName" />
+        <label for="socialHost">{{ 'ReferrersManager_Hostname'|translate }}:</label><input type="text" name="socialHost" id="socialHost" />
 
         <button role="submitAddSocial">{{ 'General_Save'|translate }}</button>
 </div>

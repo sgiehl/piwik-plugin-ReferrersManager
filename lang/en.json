@@ -1,6 +1,8 @@
 {
     "ReferrersManager": {
-        "SearchEnginesAndSocialNetworks": "Search engines and social networks"
+        "SearchEnginesAndSocialNetworks": "Search engines and social networks",
+        "AddSocial": "Add new social network",
+        "Hostname": "Hostname"
     }
 
 }
