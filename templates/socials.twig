@@ -1,12 +1,12 @@
-<h3>List of all socials known to piwik</h3>
+<h3>{{ 'ReferrersManager_SocialsList'|translate }}</h3>
 
 <p>
 {% if ownSocialDefinitions %}
-    <span> <img src="plugins/Zeitgeist/images/warning.png"> Attention: Piwik's built-in list of social networks is disabled.</span>
-    <a href="#socialTab" role="noDefaultSocials" state="0">Activate Piwik's social network list</a>
+    <span> <img src="plugins/Zeitgeist/images/warning.png"> {{ 'ReferrersManager_SocialListDisabled'|translate }}</span>
+    <a href="#socialTab" role="noDefaultSocials" state="0">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
 {% else %}
-    <span>You are using Piwik's built-in social network list.</span>
-    <a href="#socialTab" role="noDefaultSocials" state="1">Disable Piwik's social network list</a>
+    <span>{{ 'ReferrersManager_UsingDefaultSocials'|translate }}</span>
+    <a href="#socialTab" role="noDefaultSocials" state="1">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
 {% endif %}
 </p>
 
@@ -20,7 +20,7 @@
     <tr>
         <th>{{ 'General_Name'|translate }}</th>
         <th>{{ 'ReferrersManager_Hostname'|translate }}</th>
-        <th></th>
+        {% if userDefinedSocials|length > 0 %}<th></th>{% endif %}
     </tr>
     </thead>
     <tbody>
@@ -34,6 +34,7 @@
                     </td>
                 {% endif %}
                     <td>{{ host }}</td>
+                {% if userDefinedSocials|length > 0 %}
                     <td>
                         {% if attribute(userDefinedSocials, host) is defined %}
                         <span class="icoDelete" role="removeSocial" host="{{ host }}">
@@ -41,6 +42,7 @@
                         </span>
                         {% endif %}
                     </td>
+                {% endif %}
             </tr>
         {% endfor %}
     {% endfor %}
@@ -50,11 +52,11 @@
 <div role="addSocialForm" style="display: none;">
 
     <h2>{{ 'ReferrersManager_AddSocial'|translate }}</h2>
-        Please provide the data for the new social network.
+        {{ 'ReferrersManager_ProvideSocialData'|translate }}
 
-        <p>Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.</p>
+        <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
 
-        <div role="addSocialError" class="error" style="display: none">Error while adding the social. Please check your inputs and retry.</div>
+        <div role="addSocialError" class="error" style="display: none">{{ 'ReferrersManager_AddSocialError'|translate }}</div>
 
         <label for="socialName">{{ 'General_Name'|translate }}:</label><input type="text" name="socialName" id="socialName" />
         <label for="socialHost">{{ 'ReferrersManager_Hostname'|translate }}:</label><input type="text" name="socialHost" id="socialHost" />

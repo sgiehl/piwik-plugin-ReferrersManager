@@ -1,20 +1,20 @@
 {% extends 'admin.twig' %}
 
 {% block content %}
-    <h2>Manage search engines and social networks</h2>
+    <h2>{{ 'ReferrersManager_ManageSocialsAndEngines'|translate }}</h2>
 
-    <h3>Check URL for search engine and social network information</h3>
+    <h3>{{ 'ReferrersManager_CheckUrl'|translate }}</h3>
 
-    <p>Here you can paste any referer url in order to check if piwik would recognize it as a search engine and/or a social network:</p>
+    <p>{{ 'ReferrersManager_CheckUrlDesc'|translate }}</p>
 
     <input type="text" name="url" id="urlToCheck" size="50" /> <button id="checkurl">Check</button>
 
-    <p class="detectionresult">Detected Engine: <img src="plugins/Referrers/images/searchEngines/xx.png" /><span class="engine"></span>  Detected Keywords: <span class="keywords"></span></p>
-    <p class="socialresult">Detected Social Network: <img src="plugins/Referrers/images/socials/xx.png" /><span class="social"></span></p>
+    <p class="detectionresult">{{ 'ReferrersManager_DetectedEngine'|translate }}: <img src="plugins/Referrers/images/searchEngines/xx.png" /><span class="engine"></span>  {{ 'ReferrersManager_DetectedKeywords'|translate }}: <span class="keywords"></span></p>
+    <p class="socialresult">{{ 'ReferrersManager_DetectedSocial'|translate }}: <img src="plugins/Referrers/images/socials/xx.png" /><span class="social"></span></p>
     <div id="tabs">
         <ul>
-            <li><a href="#searchengineTab">Manage search engines</a></li>
-            <li><a href="#socialTab">Manage social networks</a></li>
+            <li><a href="#searchengineTab">{{ 'ReferrersManager_ManageSearchEngines'|translate }}</a></li>
+            <li><a href="#socialTab">{{ 'ReferrersManager_ManageSocials'|translate }}</a></li>
         </ul>
         <div id="searchengineTab">
             {% include "@ReferrersManager/engines.twig" %}
@@ -25,7 +25,7 @@
     </div>
 
     <div class="ui-confirm" id="removeDataConfirm">
-        <h2>Do your really want to remove <span class="name"></span> from the list.</h2>
+        <h2>{{ 'ReferrersManager_ConfirmRemove'|translate('<span class="name"></span>')|raw }}</h2>
 
         <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
         <input role="no" type="button" value="{{ 'General_Cancel'|translate }}"/>

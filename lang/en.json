@@ -2,7 +2,32 @@
     "ReferrersManager": {
         "SearchEnginesAndSocialNetworks": "Search engines and social networks",
         "AddSocial": "Add new social network",
-        "Hostname": "Hostname"
+        "Hostname": "Hostname",
+        "SearchEnginesList": "List of all search engines known to piwik",
+        "SocialsList": "List of all socials known to piwik",
+        "ManageSocialsAndEngines": "Manage search engines and social networks",
+        "ConfirmRemove": "Do your really want to remove %s from the list.",
+        "ManageSearchEngines": "Manage search engines",
+        "ManageSocials": "Manage social networks",
+        "DetectedEngine": "Detected Engine",
+        "DetectedKeywords": "Detected Keywords",
+        "DetectedSocial": "Detected Social Network",
+        "CheckUrl": "Check URL for search engine and social network information",
+        "CheckUrlDesc": "Here you can paste any referrer url in order to check if piwik would recognize it as a search engine and/or a social network",
+        "AddSearchEngine": "Add new search engine definition",
+        "Parameters": "Parameters",
+        "BacklinkPattern": "Backlink pattern",
+        "Charset": "Charset",
+        "AddEngineError": "Error while adding the search engine. Please check your inputs and retry.",
+        "CommaSeparated": "(comma separated)",
+        "AddSocialError": "Error while adding the social. Please check your inputs and retry.",
+        "SocialListDisabled": "Attention: Piwik's built-in list of social networks is disabled.",
+        "EnableSocialList": "Activate Piwik's social network list",
+        "DisableSocialList": "Disable Piwik's social network list",
+        "UsingDefaultSocials": "You are using Piwik's built-in social network list.",
+        "ProvideSocialData": "Please provide the data for the new social network.",
+        "DuplicateHostnameInfo": "Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.",
+        "ProvideEngineData": "Please provide the data for the search engine.",
+        "HostnameWildcardDesc": "For region-specific search engines, the URL, \"{}.example.com\" will match any ISO3166-1 alpha2 country code against \"{}\".  Similarly, \"example.{}\" will match against valid country TLDs, but should be used sparingly to avoid false positives."
     }
-
 }

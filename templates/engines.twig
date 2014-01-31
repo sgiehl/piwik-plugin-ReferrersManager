@@ -1,15 +1,12 @@
 
-<h3>List of all search engines known to piwik</h3>
+<h3>{{ 'ReferrersManager_SearchEnginesList'|translate }}</h3>
 
 <p>
-    For region-specific search engines, the URL, "{}.example.com" will match
-    any ISO3166-1 alpha2 country code against "{}".  Similarly, "example.{}"
-    will match against valid country TLDs, but should be used sparingly to
-    avoid false positives.
+    {{ 'ReferrersManager_HostnameWildcardDesc'|translate }}
 </p>
 
 <span class="icoAdd" role="addEngine">
-    Add new search engine definition
+    {{ 'ReferrersManager_AddSearchEngine'|translate }}
 </span>
 
 <table class="dataTable entityTable">
@@ -18,10 +15,10 @@
 <tr>
     <th>{{ 'General_Name'|translate }}</th>
     <th>{{ 'ReferrersManager_Hostname'|translate }}</th>
-    <th>Parameter</th>
-    <th>Backlink pattern</th>
-    <th>Charset</th>
-    <th></th>
+    <th>{{ 'ReferrersManager_Parameters'|translate }}</th>
+    <th>{{ 'ReferrersManager_BacklinkPattern'|translate }}</th>
+    <th>{{ 'ReferrersManager_Charset'|translate }}</th>
+    {% if userDefinedSearchEngines|length > 0 %}<th>{% endif %}
 </tr>
 </thead>
 <tbody>
@@ -38,6 +35,7 @@
             <td title="{{ url.parameters }}">{{ url.parameters|truncate(25) }}</td>
             <td title="{{ url.backlink }}">{{ url.backlink|truncate(25) }}</td>
             <td>{{ url.charset }}</td>
+            {% if userDefinedSearchEngines|length > 0 %}
             <td>
                 {% if attribute(userDefinedSearchEngines, url.url) is defined %}
                 <span class="icoDelete" role="removeEngine" host="{{ url.url }}">
@@ -45,6 +43,7 @@
                 </span>
                 {% endif %}
             </td>
+            {% endif %}
         </tr>
         {% endfor %}
     {% endfor %}
@@ -53,18 +52,18 @@
 
 <div role="addEngineForm" style="display: none;">
 
-    <h2>Add new search engine</h2>
-    Please provide the data for the search engine.
+    <h2>{{ 'ReferrersManager_AddSearchEngine'|translate }}</h2>
+    {{ 'ReferrersManager_ProvideEngineData'|translate }}
 
-    <p>Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.</p>
+    <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
 
-    <div role="addEngineError" class="error" style="display: none">Error while adding the search engine. Please check your inputs and retry.</div>
+    <div role="addEngineError" class="error" style="display: none">{{ 'ReferrersManager_AddEngineError'|translate }}</div>
 
     <label for="engineName">{{ 'General_Name'|translate }}:</label><input type="text" name="engineName" id="engineName" />
     <label for="engineHost">{{ 'ReferrersManager_Hostname'|translate }}:</label><input type="text" name="engineHost" id="engineHost" />
-    <label for="engineParameter">Parameters (comma seperated):</label><input type="text" name="engineParameter" id="engineParameter" />
-    <label for="engineBacklink">Backlink pattern:</label><input type="text" name="engineBacklink" id="engineBacklink" />
-    <label for="engineCharset">Charset:</label><input type="text" name="engineCharset" id="engineCharset" />
+    <label for="engineParameter">{{ 'ReferrersManager_Parameters'|translate }} {{ 'ReferrersManager_CommaSeparated'|translate }}:</label><input type="text" name="engineParameter" id="engineParameter" />
+    <label for="engineBacklink">{{ 'ReferrersManager_BacklinkPattern'|translate }}:</label><input type="text" name="engineBacklink" id="engineBacklink" />
+    <label for="engineCharset">{{ 'ReferrersManager_Charset'|translate }}:</label><input type="text" name="engineCharset" id="engineCharset" />
 
     <button role="submitAddEngine">{{ 'General_Save'|translate }}</button>
 </div>

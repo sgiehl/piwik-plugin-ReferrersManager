@@ -1,0 +1,33 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Suchmaschinen und soziale Netzwerke",
+        "AddSocial": "Soziales Netzwerk hinzufügen",
+        "Hostname": "Hostname",
+        "SearchEnginesList": "Liste aller Suchmaschinen, die Piwik bekannt sind",
+        "SocialsList": "Liste aller sozialen Netzwerke, die Piwik bekannt sind",
+        "ManageSocialsAndEngines": "Suchmaschinen und soziale Netzwerke verwalten",
+        "ConfirmRemove": "Sind Sie sicher, dass Sie %s aus der Liste entfernen möchten?",
+        "ManageSearchEngines": "Suchmaschinen verwalten",
+        "ManageSocials": "Soziale Netzwerke verwalten",
+        "DetectedEngine": "Erkannte Suchmaschine",
+        "DetectedKeywords": "Erkannte Suchbegriffe",
+        "DetectedSocial": "Erkanntes soziales Netzwerk",
+        "CheckUrl": "URL auf Informationen zu Suchmaschinen und sozialen Netzwerken überprüfen",
+        "CheckUrlDesc": "Hier können Sie eine Referrer-Url einfügen um zu überprüfen ob Piwik diese als Suchmaschine oder soziales Netzwerk erkennen würde.",
+        "AddSearchEngine": "Neue Suchmaschinendefinition hinzufügen",
+        "Parameters": "Parameter",
+        "BacklinkPattern": "Link-Muster",
+        "Charset": "Zeichensatz",
+        "AddEngineError": "Fehler beim hinzufügen der Suchmaschine. Bitte überprüfen Sie Ihre Eingaben und probieren Sie es erneut.",
+        "CommaSeparated": "(kommasepariert)",
+        "AddSocialError": "Fehler beim hinzufügen des sozialen Netzwerks. Bitte überprüfen Sie Ihre Eingaben und probieren Sie es erneut.",
+        "SocialListDisabled": "Achtung: Piwik's integrierte Liste sozialer Netzwerke ist deaktiviert.",
+        "EnableSocialList": "Piwik's Liste solzialer Netzwerke aktivieren",
+        "DisableSocialList": "Piwik's Liste solzialer Netzwerke deaktivieren",
+        "UsingDefaultSocials": "Sie verwenden Piwik's integrierte Liste sozialer Netzwerke.",
+        "ProvideSocialData": "Bitte geben Sie die Daten für das neue soziale Netzwerk an.",
+        "DuplicateHostnameInfo": "Bitte beachten Sie dass Hostnamen eindeutig sind. Doppelte Hostnamen überschreiben sich einander.",
+        "ProvideEngineData": "Bitte geben Sie die Daten für die neue Suchmaschine an.",
+        "HostnameWildcardDesc": "Für länderspezifische Suchmaschine: In der URL, \"{}.example.com\" wird \"{}\" jedem ISO3166-1 alpha2 Länder-Code entsprechen. Ebenso wird \"example.{}\" jeder gültigen Länder-TLD entsprechen. Verwenden Sie dies sparsam um Falscherkennungen zu vermeiden."
+    }
+}
