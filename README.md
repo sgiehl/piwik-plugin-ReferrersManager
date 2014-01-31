@@ -16,6 +16,15 @@ This plugin allows to view and manage custom search engines and social networks 
 
 ## Support
 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sgiehl&url=https://github.com/sgiehl/piwik-plugin-ReferrersManager&title=Piwik Plugin Referrers Manager&language=&tags=github&category=software) 
+
 Please direct any feedback to [stefan@piwik.org](mailto:stefan@piwik.org)
 
+## Contribute
+
 Feel free to create issues and pull requests.
+
+## License
+
+GPLv3 or later
+
