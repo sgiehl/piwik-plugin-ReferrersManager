@@ -4,6 +4,10 @@
 
 This plugin allows to view and manage custom search engines and social networks that are recognized with piwik.
 
+### Requirements
+
+Piwik(https://github.com/piwik/piwik) 2.0.4 or higher is required.
+
 ### Features
 
 - Shows a list of all search engines and social networks defined in Piwik core.
