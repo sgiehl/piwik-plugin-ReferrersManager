@@ -2,7 +2,13 @@
 
 ## Description
 
-This plugin allows to view and manage search engines and social networks that are recognized with piwik.
+This plugin allows to view and manage custom search engines and social networks that are recognized with piwik.
+
+### Features
+
+- Shows a list of all search engines and social networks defined in Piwik core.
+- Abillity to manage custom search engines and social networks
+- Abillity to disable/enable Piwik's default social network list
 
 ## Changelog
 
@@ -12,4 +18,4 @@ This plugin allows to view and manage search engines and social networks that ar
 
 Please direct any feedback to [stefan@piwik.org](mailto:stefan@piwik.org)
 
-Please feel free to create Issues or pull requests.
+Feel free to create issues and pull requests.
