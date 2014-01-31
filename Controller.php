@@ -104,12 +104,38 @@ class Controller extends ControllerAdmin
     {
         $this->checkTokenInUrl();
 
-        $name = Common::getRequestVar('name', null, 'string');
-        $url  = Common::getRequestVar('url', null, 'string');
+        Json::sendHeaderJSON();
+
+        $name = Common::getRequestVar('name', '', 'string');
+        $host = Common::getRequestVar('host', '', 'string');
+
+        if (empty($host) || empty($name)) {
+            return 0;
+        }
 
         $socials = getUserDefinedSocials();
-        $socials[$url] = $name;
+        $socials[$host] = $name;
         setUserDefinedSocials($socials);
+        return 1;
+    }
+
+
+    public function removeSocial()
+    {
+        $this->checkTokenInUrl();
+
+        Json::sendHeaderJSON();
+
+        $host = Common::getRequestVar('host', '', 'string');
+
+        if (empty($host)) {
+            return 0;
+        }
+
+        $socials = getUserDefinedSocials();
+        unset($socials[$host]);
+        setUserDefinedSocials($socials);
+        return 1;
     }
 
 
