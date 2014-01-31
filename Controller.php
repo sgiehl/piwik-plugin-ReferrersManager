@@ -67,7 +67,7 @@ class Controller extends ControllerAdmin
     {
         $this->checkTokenInUrl();
 
-        $urlToCheck = Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string'));
+        $urlToCheck = trim(Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string')));
 
         $detectedEngine = UrlHelper::extractSearchEngineInformationFromUrl($urlToCheck);
 
