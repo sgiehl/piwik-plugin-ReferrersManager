@@ -50,7 +50,7 @@
 </tbody>
 </table>
 
-<div role="addEngineForm" style="display: none;">
+<div role="addEngineForm" style="display: none;" class="admin">
 
     <h2>{{ 'ReferrersManager_AddSearchEngine'|translate }}</h2>
     {{ 'ReferrersManager_ProvideEngineData'|translate }}
@@ -59,11 +59,28 @@
 
     <div role="addEngineError" class="error" style="display: none">{{ 'ReferrersManager_AddEngineError'|translate }}</div>
 
-    <label for="engineName">{{ 'General_Name'|translate }}:</label><input type="text" name="engineName" id="engineName" />
-    <label for="engineHost">{{ 'ReferrersManager_Hostname'|translate }}:</label><input type="text" name="engineHost" id="engineHost" />
-    <label for="engineParameter">{{ 'ReferrersManager_Parameters'|translate }} {{ 'ReferrersManager_CommaSeparated'|translate }}:</label><input type="text" name="engineParameter" id="engineParameter" />
-    <label for="engineBacklink">{{ 'ReferrersManager_BacklinkPattern'|translate }}:</label><input type="text" name="engineBacklink" id="engineBacklink" />
-    <label for="engineCharset">{{ 'ReferrersManager_Charset'|translate }}:</label><input type="text" name="engineCharset" id="engineCharset" />
+    <table class="adminTable">
+        <tr>
+            <td><label for="engineName">{{ 'General_Name'|translate }}:</label></td>
+            <td><input type="text" name="engineName" id="engineName" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineHost">{{ 'ReferrersManager_Hostname'|translate }}:</label></td>
+            <td><input type="text" name="engineHost" id="engineHost" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineParameter">{{ 'ReferrersManager_Parameters'|translate }} {{ 'ReferrersManager_CommaSeparated'|translate }}:</label></td>
+            <td><input type="text" name="engineParameter" id="engineParameter" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineBacklink">{{ 'ReferrersManager_BacklinkPattern'|translate }}:</label></td>
+            <td><input type="text" name="engineBacklink" id="engineBacklink" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineCharset">{{ 'ReferrersManager_Charset'|translate }}:</label></td>
+            <td><input type="text" name="engineCharset" id="engineCharset" /></td>
+        </tr>
+    </table>
 
     <button role="submitAddEngine">{{ 'General_Save'|translate }}</button>
 </div>

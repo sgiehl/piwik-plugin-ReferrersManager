@@ -49,17 +49,25 @@
     </tbody>
 </table>
 
-<div role="addSocialForm" style="display: none;">
+<div role="addSocialForm" style="display: none;" class="admin">
 
     <h2>{{ 'ReferrersManager_AddSocial'|translate }}</h2>
         {{ 'ReferrersManager_ProvideSocialData'|translate }}
 
-        <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
+    <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
 
-        <div role="addSocialError" class="error" style="display: none">{{ 'ReferrersManager_AddSocialError'|translate }}</div>
+    <div role="addSocialError" class="error" style="display: none">{{ 'ReferrersManager_AddSocialError'|translate }}</div>
 
-        <label for="socialName">{{ 'General_Name'|translate }}:</label><input type="text" name="socialName" id="socialName" />
-        <label for="socialHost">{{ 'ReferrersManager_Hostname'|translate }}:</label><input type="text" name="socialHost" id="socialHost" />
+    <table class="adminTable">
+        <tr>
+            <td><label for="socialName">{{ 'General_Name'|translate }}:</label></td>
+            <td><input type="text" name="socialName" id="socialName" /></td>
+        </tr>
+        <tr>
+            <td><label for="socialHost">{{ 'ReferrersManager_Hostname'|translate }}:</label></td>
+            <td><input type="text" name="socialHost" id="socialHost" /></td>
+        </tr>
+    </table>
 
-        <button role="submitAddSocial">{{ 'General_Save'|translate }}</button>
+    <button role="submitAddSocial">{{ 'General_Save'|translate }}</button>
 </div>

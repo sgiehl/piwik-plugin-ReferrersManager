@@ -40,7 +40,7 @@ $(document).ready(function () {
     $('[role="addSocial"]').click(function() {
         $('[role="addSocialForm"]').dialog({
             modal: true,
-            width: '75%'
+            width: 'auto'
         });
     });
 
@@ -93,7 +93,7 @@ $(document).ready(function () {
     $('[role="addEngine"]').click(function() {
         $('[role="addEngineForm"]').dialog({
             modal: true,
-            width: '75%'
+            width: 'auto'
         });
     });
 

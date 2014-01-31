@@ -15,5 +15,9 @@
             "email": "stefan@piwik.org",
             "homepage": "http://github.com/sgiehl"
         }
-    ]
+    ],
+    "donate": {
+        "paypal": "stefangiehl@web.de",
+        "flattr": "sgiehl"
+    }
 }
