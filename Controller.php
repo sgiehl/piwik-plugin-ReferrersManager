@@ -42,6 +42,7 @@ class Controller extends ControllerAdmin
 
         $view->ownSocialDefinitions = areDefaultSocialsDisabled();
         $view->userDefinedSocials = getUserDefinedSocials();
+        $view->userDefinedSearchEngines = getUserDefinedSearchEngines();
 
         return $view->render();
     }
@@ -140,6 +141,53 @@ class Controller extends ControllerAdmin
 
 
 
+    public function addSearchEngine()
+    {
+        $this->checkTokenInUrl();
+
+        Json::sendHeaderJSON();
+
+        $name = Common::getRequestVar('name', '', 'string');
+        $host = Common::getRequestVar('host', '', 'string');
+        $backlink = Common::getRequestVar('backlink', '', 'string');
+        $parameters = Common::getRequestVar('parameters', '', 'string');
+        $charset = Common::getRequestVar('charset', '', 'string');
+
+        if (empty($host) || empty($name)) {
+            return 0;
+        }
+
+        if (!empty($parameters)) {
+            $parameters = explode(',', $parameters);
+        }
+
+        $engines = getUserDefinedSearchEngines();
+        $engines[$host] = array($name, $parameters, $backlink, $charset);
+        setUserDefinedSearchEngines($engines);
+        return 1;
+    }
+
+
+    public function removeSearchEngine()
+    {
+        $this->checkTokenInUrl();
+
+        Json::sendHeaderJSON();
+
+        $host = Common::getRequestVar('host', '', 'string');
+
+        if (empty($host)) {
+            return 0;
+        }
+
+        $engines = getUserDefinedSearchEngines();
+        unset($engines[$host]);
+        setUserDefinedSearchEngines($engines);
+        return 1;
+    }
+
+
+
     /**
      * Returns all search engine informations known to piwik
      *
@@ -160,6 +208,10 @@ class Controller extends ControllerAdmin
 
             if (is_array($parameters)) {
                 $parameters = implode(', ', $parameters);
+            }
+
+            if (is_array($charset)) {
+                $charset = implode(', ', $charset);
             }
 
             if (empty($mergedSearchInfos[$name])) {

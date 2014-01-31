@@ -8,7 +8,7 @@
     avoid false positives.
 </p>
 
-<span class="icoAdd" role="addSearchEngine">
+<span class="icoAdd" role="addEngine">
     Add new search engine definition
 </span>
 
@@ -16,11 +16,12 @@
 
 <thead>
 <tr>
-    <th>Name</th>
+    <th>{{ 'General_Name'|translate }}</th>
     <th>Url</th>
     <th>Parameter</th>
     <th>Backlink pattern</th>
-    <th>Actions</th>
+    <th>Charset</th>
+    <th></th>
 </tr>
 </thead>
 <tbody>
@@ -36,19 +37,34 @@
             <td>{{ url.url }}</td>
             <td>{{ url.parameters }}</td>
             <td title="{{ url.backlink }}">{{ url.backlink|truncate(25) }}</td>
-            {% if i == 0 %}
-            <td rowspan="{{ infos|length }}">
-                <span class="icoDelete" role="removeSearchEngine">
+            <td>{{ url.charset }}</td>
+            <td>
+                {% if attribute(userDefinedSearchEngines, url.url) is defined %}
+                <span class="icoDelete" role="removeEngine" host="{{ url.url }}">
                     {{ 'General_Delete'|translate }}
                 </span>
-                <br />
-                <span class="icoEdit" role="editSearchEngine">
-                    {{ 'General_Edit'|translate }}
-                </span>
+                {% endif %}
             </td>
-            {% endif %}
         </tr>
         {% endfor %}
     {% endfor %}
 </tbody>
 </table>
+
+<div role="addEngineForm" style="display: none;">
+
+    <h2>Add new search engine</h2>
+    Please provide the data for the search engine.
+
+    <p>Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.</p>
+
+    <div role="addEngineError" class="error" style="display: none">Error while adding the search engine. Please check your inputs and retry.</div>
+
+    <label for="engineName">Name:</label><input type="text" name="engineName" id="engineName" />
+    <label for="engineHost">Hostname:</label><input type="text" name="engineHost" id="engineHost" />
+    <label for="engineParameter">Parameters (comma seperated):</label><input type="text" name="engineParameter" id="engineParameter" />
+    <label for="engineBacklink">Backlink pattern:</label><input type="text" name="engineBacklink" id="engineBacklink" />
+    <label for="engineCharset">Charset:</label><input type="text" name="engineCharset" id="engineCharset" />
+
+    <button role="submitAddEngine">{{ 'General_Save'|translate }}</button>
+</div>

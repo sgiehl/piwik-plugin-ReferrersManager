@@ -12,8 +12,9 @@ namespace Piwik\Plugins\ReferrersManager;
 
 use Piwik\Option;
 
-const OPTION_KEY_DISABLE_DEFAULT_SOCIALS = 'disable_default_socials';
-const OPTION_KEY_USERDEFINED_SOCIALS     = 'userdefined_socials';
+const OPTION_KEY_DISABLE_DEFAULT_SOCIALS     = 'disable_default_socials';
+const OPTION_KEY_USERDEFINED_SOCIALS         = 'userdefined_socials';
+const OPTION_KEY_USERDEFINED_SEARCHENGINES   = 'userdefined_searchengines';
 
 /**
  * Returns if Piwik's built-in social list is used or not
@@ -38,7 +39,7 @@ function setDefaultSocialsDisabled($disabled = true)
 /**
  * Returns the list of userdefined socials
  *
- * @return false|string
+ * @return array
  */
 function getUserDefinedSocials()
 {
@@ -60,4 +61,31 @@ function getUserDefinedSocials()
 function setUserDefinedSocials($socialList = array())
 {
     Option::set(OPTION_KEY_USERDEFINED_SOCIALS, json_encode($socialList));
+}
+
+/**
+ * Returns the list of userdefined search engines
+ *
+ * @return array
+ */
+function getUserDefinedSearchEngines()
+{
+    $eninges = json_decode(Option::get(OPTION_KEY_USERDEFINED_SEARCHENGINES));
+
+    if (!empty($eninges)) {
+
+        return (array) $eninges;
+    }
+
+    return array();
+}
+
+/**
+ * Sets user defined search engines
+ *
+ * @param array $engineList
+ */
+function setUserDefinedSearchEngines($engineList = array())
+{
+    Option::set(OPTION_KEY_USERDEFINED_SEARCHENGINES, json_encode($engineList));
 }
