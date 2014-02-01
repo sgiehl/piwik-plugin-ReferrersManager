@@ -82,7 +82,7 @@ class ReferrersManager extends Plugin
                 $socials = array();
             }
 
-            $userSocials = getUserDefinedSocials():
+            $userSocials = getUserDefinedSocials();
             $socials = array_merge($socials, $userSocials);
         } catch (\Exception $e) {}
     }
