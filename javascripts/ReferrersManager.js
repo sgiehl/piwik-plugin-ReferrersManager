@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    $('#tabs').tabs();
+
     $('#checkurl').bind('click', function(){
         var ajaxHandler = new ajaxHelper();
         ajaxHandler.addParams({
@@ -34,8 +36,6 @@ $(document).ready(function () {
         });
         ajaxHandler.send(true);
     });
-
-    $('#tabs').tabs();
 
     $('[role="addSocial"]').click(function() {
         $('[role="addSocialForm"]').dialog({
@@ -125,7 +125,6 @@ $(document).ready(function () {
         ajaxHandler.send(true);
     });
 
-
     $('[role="removeEngine"]').click(function(e) {
         var host = $(this).attr('host');
         $('#removeDataConfirm').find('h2 .name').text(host);
@@ -143,9 +142,4 @@ $(document).ready(function () {
             ajaxHandler.send(true);
         }});
     });
-
-
-
-
-
 });

@@ -65,10 +65,6 @@ class ReferrersManager extends Plugin
      */
     public function addSearchEngineUrls(&$searchEngines)
     {
-        #if(areDefaultSocialsDisabled()) {
-        #    $socials = array();
-        #}
-
         $searchEngines = array_merge($searchEngines, getUserDefinedSearchEngines());
     }
 

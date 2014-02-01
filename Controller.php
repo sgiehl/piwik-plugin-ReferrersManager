@@ -29,7 +29,7 @@ class Controller extends ControllerAdmin
      */
     public function index()
     {
-        Piwik::checkUserIsSuperUser();
+        Piwik::checkUserHasSuperUserAccess();
 
         $view = new View('@ReferrersManager/index');
         $this->setBasicVariablesView($view);
@@ -48,7 +48,7 @@ class Controller extends ControllerAdmin
     }
 
     /**
-     * Sets if default social should be used or not
+     * Sets if default socials should be used or not
      */
     public function setDefaultSocialsDisabled()
     {
@@ -99,8 +99,10 @@ class Controller extends ControllerAdmin
         ));
     }
 
-
-
+    /**
+     * Ajax Action to add a news social network
+     * @return int
+     */
     public function addSocial()
     {
         $this->checkTokenInUrl();
@@ -120,7 +122,10 @@ class Controller extends ControllerAdmin
         return 1;
     }
 
-
+    /**
+     * Ajax action to remove a user defined social
+     * @return int
+     */
     public function removeSocial()
     {
         $this->checkTokenInUrl();
@@ -139,8 +144,10 @@ class Controller extends ControllerAdmin
         return 1;
     }
 
-
-
+    /**
+     * Ajax action to add a ne search engine definition
+     * @return int
+     */
     public function addSearchEngine()
     {
         $this->checkTokenInUrl();
@@ -167,7 +174,10 @@ class Controller extends ControllerAdmin
         return 1;
     }
 
-
+    /**
+     * Ajax action to remove a user defined search engine definition
+     * @return int
+     */
     public function removeSearchEngine()
     {
         $this->checkTokenInUrl();
@@ -186,8 +196,6 @@ class Controller extends ControllerAdmin
         return 1;
     }
 
-
-
     /**
      * Returns all search engine informations known to piwik
      *
@@ -195,7 +203,6 @@ class Controller extends ControllerAdmin
      */
     protected function getSearchEngineInfos()
     {
-
         $mergedSearchInfos = array();
 
         $searchEngineInfos = Common::getSearchEngineUrls();
@@ -224,7 +231,6 @@ class Controller extends ControllerAdmin
                 'backlink'   => $backlink,
                 'charset'    => $charset
             );
-
         }
 
         ksort($mergedSearchInfos, SORT_NATURAL|SORT_FLAG_CASE);
