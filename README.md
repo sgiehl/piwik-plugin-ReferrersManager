@@ -1,5 +1,8 @@
 # Piwik Referrers Manager Plugin
 
+[![Build Status](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager.png?branch=master)](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager)
+
+
 ## Description
 
 This plugin allows to view and manage custom search engines and social networks that are recognized with piwik.
