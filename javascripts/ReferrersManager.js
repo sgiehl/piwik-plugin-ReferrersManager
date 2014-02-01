@@ -55,6 +55,7 @@ $(document).ready(function () {
         }, 'GET');
         ajaxHandler.setCallback(function(response){
             if (response == 1) {
+                location.hash = 'socialTab';
                 piwikHelper.refreshAfter(1);
             } else {
                 $('[role="addSocialError"]').show();
@@ -74,7 +75,10 @@ $(document).ready(function () {
                 action: 'removeSocial',
                 host: host
             }, 'GET');
-            ajaxHandler.redirectOnSuccess({});
+            ajaxHandler.setCallback(function(){
+                location.hash = 'socialTab';
+                piwikHelper.refreshAfter(1);
+            });
             ajaxHandler.send(true);
         }});
     });
@@ -111,6 +115,7 @@ $(document).ready(function () {
         }, 'GET');
         ajaxHandler.setCallback(function(response){
             if (response == 1) {
+                location.hash = 'searchengineTab';
                 piwikHelper.refreshAfter(1);
             } else {
                 $('[role="addEngineError"]').show();
@@ -131,7 +136,10 @@ $(document).ready(function () {
                 action: 'removeSearchEngine',
                 host: host
             }, 'GET');
-            ajaxHandler.redirectOnSuccess({});
+            ajaxHandler.setCallback(function(){
+                location.hash = 'searchengineTab';
+                piwikHelper.refreshAfter(1);
+            });
             ajaxHandler.send(true);
         }});
     });

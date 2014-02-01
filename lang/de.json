@@ -14,7 +14,7 @@
         "DetectedSocial": "Erkanntes soziales Netzwerk",
         "CheckUrl": "URL auf Informationen zu Suchmaschinen und sozialen Netzwerken überprüfen",
         "CheckUrlDesc": "Hier können Sie eine Referrer-Url einfügen um zu überprüfen ob Piwik diese als Suchmaschine oder soziales Netzwerk erkennen würde.",
-        "AddSearchEngine": "Neue Suchmaschinendefinition hinzufügen",
+        "AddSearchEngine": "Suchmaschinendefinition hinzufügen",
         "Parameters": "Parameter",
         "BacklinkPattern": "Link-Muster",
         "Charset": "Zeichensatz",
