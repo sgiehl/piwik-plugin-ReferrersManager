@@ -65,7 +65,10 @@ class ReferrersManager extends Plugin
      */
     public function addSearchEngineUrls(&$searchEngines)
     {
-        $searchEngines = array_merge($searchEngines, getUserDefinedSearchEngines());
+        try {
+            $userEngines = getUserDefinedSearchEngines();
+            $searchEngines = array_merge($searchEngines, $userEngines);
+        } catch (\Exception $e) {}
     }
 
     /**
@@ -74,10 +77,13 @@ class ReferrersManager extends Plugin
      */
     public function addSocialUrls(&$socials)
     {
-        if(areDefaultSocialsDisabled()) {
-            $socials = array();
-        }
+        try {
+            if(areDefaultSocialsDisabled()) {
+                $socials = array();
+            }
 
-        $socials = array_merge($socials, getUserDefinedSocials());
+            $userSocials = getUserDefinedSocials():
+            $socials = array_merge($socials, $userSocials);
+        } catch (\Exception $e) {}
     }
 }
