@@ -4,9 +4,6 @@
  *
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
- *
- * @category Piwik_Plugins
- * @package VisitorGenerator
  */
 namespace Piwik\Plugins\ReferrersManager;
 
@@ -21,7 +18,6 @@ require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
 
 /**
  *
- * @package ReferrersManager
  */
 class ReferrersManager extends Plugin
 {
