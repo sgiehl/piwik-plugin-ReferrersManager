@@ -229,7 +229,7 @@ class Controller extends ControllerAdmin
             );
         }
 
-        ksort($mergedSearchInfos, SORT_NATURAL|SORT_FLAG_CASE);
+        ksort($mergedSearchInfos, SORT_LOCALE_STRING);
 
         return $mergedSearchInfos;
     }
@@ -264,7 +264,7 @@ class Controller extends ControllerAdmin
             $mergedSocials[urldecode($name)][] = $url;
         }
 
-        ksort($mergedSocials, SORT_NATURAL|SORT_FLAG_CASE);
+        ksort($mergedSocials, SORT_LOCALE_STRING);
 
         return $mergedSocials;
     }
