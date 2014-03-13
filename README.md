@@ -6,7 +6,7 @@
 ## Description
 
 This plugin allows to view and manage custom search engines and social networks that are recognized with piwik.
-Note: You can find the configuration panel for this plugin within the global administration.
+Note: You can find the configuration panel for this plugin within the global administration. There are no changes done to the piwik frontend/dashboard.
 
 ### Requirements
 
