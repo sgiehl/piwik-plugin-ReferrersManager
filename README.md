@@ -20,6 +20,8 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ## Changelog
 
+- 1.2 Compatibility fix for PHP < 5.4
+- 1.1 Minor Changes
 - 1.0 Initial release
 
 ## Support
