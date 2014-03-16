@@ -45,11 +45,19 @@ class ReferrersManager extends Plugin
         );
     }
 
+    /**
+     * Adds required JS files
+     * @param $jsFiles
+     */
     public function getJsFiles(&$jsFiles)
     {
         $jsFiles[] = "plugins/ReferrersManager/javascripts/ReferrersManager.js";
     }
 
+    /**
+     * Adds required CSS files
+     * @param $stylesheets
+     */
     public function getStylesheetFiles(&$stylesheets)
     {
         $stylesheets[] = "plugins/ReferrersManager/stylesheets/styles.less";
