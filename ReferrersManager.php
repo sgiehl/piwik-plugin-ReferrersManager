@@ -35,6 +35,9 @@ class ReferrersManager extends Plugin
         );
     }
 
+    /**
+     * Adds new item to admin menu
+     */
     public function addMenu()
     {
         MenuAdmin::getInstance()->add(
