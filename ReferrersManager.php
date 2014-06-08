@@ -27,24 +27,10 @@ class ReferrersManager extends Plugin
     public function getListHooksRegistered()
     {
         return array(
-            'Menu.Admin.addItems'              => 'addMenu',
             'Referrer.addSearchEngineUrls'     => 'addSearchEngineUrls',
             'Referrer.addSocialUrls'           => 'addSocialUrls',
             'AssetManager.getJavaScriptFiles'  => 'getJsFiles',
             'AssetManager.getStylesheetFiles'  => 'getStylesheetFiles',
-        );
-    }
-
-    /**
-     * Adds new item to admin menu
-     */
-    public function addMenu()
-    {
-        MenuAdmin::getInstance()->add(
-            'General_Settings', 'ReferrersManager_SearchEnginesAndSocialNetworks',
-            array('module' => 'ReferrersManager', 'action' => 'index'),
-            Piwik::hasUserSuperUserAccess(),
-            $order = 20
         );
     }
 
