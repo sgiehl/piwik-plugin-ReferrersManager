@@ -123,7 +123,7 @@ before_script:
 after_script:
   # change directory back to root travis dir
   - cd $PIWIK_ROOT_DIR
-  - find $TRAVIS_BUILD_DIR -name clover.xml
+
   - if ([ -z "$TEST_SUITE" ] || [ -n "$PLUGIN_NAME" ]);
     then php vendor/bin/coveralls -v;
     fi
