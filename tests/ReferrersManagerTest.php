@@ -13,7 +13,9 @@ namespace Piwik\Plugins\ReferrersManager\tests;
  */
 require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
 
+use Piwik\Cache;
 use Piwik\Common;
+use Piwik\Option;
 use Piwik\Plugins\ReferrersManager;
 use Piwik\Tests\Framework\TestCase\SystemTestCase;
 use Piwik\UrlHelper;
@@ -54,6 +56,7 @@ class ReferrersManagerTest extends SystemTestCase
      */
     public function testCustomSearchEngineDetection($enginesToAdd, $referrer, $result)
     {
+        Cache::flushAll();
         ReferrersManager\setUserDefinedSearchEngines($enginesToAdd);
         $detectedEngines = UrlHelper::extractSearchEngineInformationFromUrl($referrer);
         $this->assertEquals($result, $detectedEngines);
@@ -97,6 +100,7 @@ class ReferrersManagerTest extends SystemTestCase
      */
     public function testCustomSocialDetection($socialsToAdd, $referrer, $result)
     {
+        Cache::flushAll();
         ReferrersManager\setUserDefinedSocials($socialsToAdd);
         $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($referrer);
         $this->assertEquals($result, $detectedSocial);
