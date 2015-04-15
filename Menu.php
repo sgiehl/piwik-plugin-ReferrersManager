@@ -11,15 +11,12 @@ namespace Piwik\Plugins\ReferrersManager;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Piwik;
 
-/**
- * This class allows you to add, remove or rename menu items.
- * To configure a menu (such as Admin Menu, Reporting Menu, User Menu...) simply call the corresponding methods as
- * described in the API-Reference http://developer.piwik.org/api-reference/Piwik/Menu/MenuAbstract
- */
 class Menu extends \Piwik\Plugin\Menu
 {
     public function configureAdminMenu(MenuAdmin $menu)
     {
-        $menu->add('General_Settings', 'ReferrersManager_SearchEnginesAndSocialNetworks', array('module' => 'ReferrersManager', 'action' => 'index'), Piwik::hasUserSuperUserAccess(), $orderId = 20);
+        if (Piwik::hasUserSuperUserAccess()) {
+            $menu->addSettingsItem('ReferrersManager_SearchEnginesAndSocialNetworks', $this->urlForAction('index'), $order = 20);
+        }
     }
 }

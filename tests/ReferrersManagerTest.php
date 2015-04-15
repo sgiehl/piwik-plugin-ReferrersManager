@@ -15,13 +15,14 @@ require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
 
 use Piwik\Common;
 use Piwik\Plugins\ReferrersManager;
+use Piwik\Tests\Framework\TestCase\SystemTestCase;
 use Piwik\UrlHelper;
 
 /**
  * @group Plugins
  * @group ReferrersManager
  */
-class ReferrersManagerTest extends \DatabaseTestCase
+class ReferrersManagerTest extends SystemTestCase
 {
     public function setUp()
     {
@@ -51,10 +52,10 @@ class ReferrersManagerTest extends \DatabaseTestCase
     /**
      * @dataProvider getCustomEngineTestData
      */
-    public function testCustomSearchEngineDetection($enginesToAdd, $referer, $result)
+    public function testCustomSearchEngineDetection($enginesToAdd, $referrer, $result)
     {
         ReferrersManager\setUserDefinedSearchEngines($enginesToAdd);
-        $detectedEngines = UrlHelper::extractSearchEngineInformationFromUrl($referer);
+        $detectedEngines = UrlHelper::extractSearchEngineInformationFromUrl($referrer);
         $this->assertEquals($result, $detectedEngines);
     }
 
@@ -94,10 +95,10 @@ class ReferrersManagerTest extends \DatabaseTestCase
     /**
      * @dataProvider getCustomSocialsTestData
      */
-    public function testCustomSocialDetection($socialsToAdd, $referer, $result)
+    public function testCustomSocialDetection($socialsToAdd, $referrer, $result)
     {
         ReferrersManager\setUserDefinedSocials($socialsToAdd);
-        $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($referer);
+        $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($referrer);
         $this->assertEquals($result, $detectedSocial);
     }
 
