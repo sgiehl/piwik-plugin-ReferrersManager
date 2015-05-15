@@ -1,0 +1,33 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Moteurs de recherche et réseaux sociaux",
+        "AddSocial": "Ajouter un nouveau réseau social",
+        "Hostname": "Nom d'hôte",
+        "SearchEnginesList": "Liste des moteurs de recherche connus de Piwik",
+        "SocialsList": "List des réseaux sociaux connus de Piwik",
+        "ManageSocialsAndEngines": "Gérer les moteurs de recherche et réseaux sociaux",
+        "ConfirmRemove": "Souhaitez-vous vraiment supprimer %s de la liste?",
+        "ManageSearchEngines": "Gérer les moteurs de recherche",
+        "ManageSocials": "Gérer les réseaux sociaux",
+        "DetectedEngine": "Moteur détecté",
+        "DetectedKeywords": "Mots clefs détectés",
+        "DetectedSocial": "Réseaux sociaux détectés",
+        "CheckUrl": "Analyser l'URL à la recherche d'informations de réseaux sociaux et de moteurs de recherche",
+        "CheckUrlDesc": "Vous pouvez coller ici n'importe quelle url de référant afin de vérifier si Piwik le reconnait comme moteur de recherche et\/ou réseau social.",
+        "AddSearchEngine": "Ajouter une définition de moteur de recherche",
+        "Parameters": "Paramètres",
+        "BacklinkPattern": "Modèle de lien de retour",
+        "Charset": "Codage",
+        "AddEngineError": "Erreur lors de l'ajout du moteur de recherche. Veuillez vérifier ce qui a été saisi et réessayer.",
+        "CommaSeparated": "(séparés par virgules)",
+        "AddSocialError": "Erreur lors de l'ajout du réseau social. Veuillez vérifier les informations saisies et réessayer.",
+        "SocialListDisabled": "Attention: la liste par défaut des résaux sociaux de Piwik est désactivée.",
+        "EnableSocialList": "Activer la liste de réseaux sociaux de Piwik",
+        "DisableSocialList": "Désactiver la liste de réseaux sociaux de Piwik",
+        "UsingDefaultSocials": "Vous utilisez la liste de réseaux sociaux fournie par Piwik.",
+        "ProvideSocialData": "Veuillez fournir les données du nouveau réseau social.",
+        "DuplicateHostnameInfo": "Gardez à l'esprit que le nom d'hôte doit être unique. Un duplicat écrasera l'autre.",
+        "ProvideEngineData": "Veuillez fournir les données du moteur de recherche.",
+        "HostnameWildcardDesc": "Pour des moteurs de recherche spécifiques à la localisation, l'URL \"{}.exemple.com\" détectera n'importe quel code de pays de type ISO3166-1 alpha2 à la place de \"{}\". De manière similaire \"exemple.{}\" détectera les TLD valides de pays mais devrait être utilisé avec parcimonie pour éviter les faux positifs."
+    }
+}
