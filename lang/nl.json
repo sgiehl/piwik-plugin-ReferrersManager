@@ -1,0 +1,20 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Zoekmachines en sociale netwerken",
+        "AddSocial": "Voeg een nieuw sociaal netwerk toe.",
+        "Hostname": "Hostnaam",
+        "SearchEnginesList": "Lijst van alle zoekmachines die bekend zijn bij Piwik",
+        "SocialsList": "Lijst van alle socialen bekend bij Piwik",
+        "ManageSocialsAndEngines": "Beheer zoekmachines en sociale netwerken",
+        "ConfirmRemove": "Wil je echt %s verwijderen van de lijst?",
+        "ManageSearchEngines": "Beheer zoekmachines",
+        "ManageSocials": "Beheer sociale netwerken",
+        "DetectedEngine": "Gedetecteerde engine",
+        "DetectedKeywords": "Gedetecteerde sleutelwoorden",
+        "Parameters": "Parameters",
+        "Charset": "Karakterset",
+        "CommaSeparated": "(komma gescheiden)",
+        "EnableSocialList": "Activeer Piwik's sociale netwerken lijst",
+        "DisableSocialList": "Schakel Piwik's sociale netwerken lijst uit."
+    }
+}
