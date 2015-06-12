@@ -1,0 +1,30 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Ricerca motori e social networks",
+        "AddSocial": "Aggiungi un nuovo social network",
+        "Hostname": "Nome host",
+        "SearchEnginesList": "Elenco di tutti i motori di ricerca noti a Piwik",
+        "SocialsList": "Elenco di tutti i social noti a Piwik",
+        "ManageSocialsAndEngines": "Gestione motori di ricerca e social networks",
+        "ConfirmRemove": "Puoi veramente rimuovere %s dall'elenco?",
+        "ManageSearchEngines": "Gestione motori di ricerca",
+        "ManageSocials": "Gestione social networks",
+        "DetectedEngine": "Motore Rilevato",
+        "DetectedKeywords": "Parole chiave Rilevate",
+        "DetectedSocial": "Social Network Rilevato",
+        "CheckUrlDesc": "Qui puoi incollare un qualunque referrer url per verificare se Piwik lo riconosce come motore di ricerca e\/o social network",
+        "AddSearchEngine": "Aggiungi la definizione per un motore di ricerca",
+        "Parameters": "Parametri",
+        "Charset": "Charset",
+        "AddEngineError": "Errore durante l'aggiunta del motore di ricerca. Si prega di controllare i dati inseriti e di riprovare.",
+        "CommaSeparated": "(separati da virgola)",
+        "AddSocialError": "Errore durante l'aggiunta del social. Si prega di controllare i dati inseriti e di riprovare.",
+        "SocialListDisabled": "Attenzione: l'elenco predefinito di Piwik dei social networks è disabilitato.",
+        "EnableSocialList": "Attiva l'elenco di social networks di Piwik",
+        "DisableSocialList": "Disabilita l'elenco di social networks di Piwik",
+        "UsingDefaultSocials": "Stai utilizzando l'elenco di social networks di Piwik.",
+        "ProvideSocialData": "Si prega di fornire i dati del nuovo social network.",
+        "DuplicateHostnameInfo": "Ricorda che il nome host deve essere unico. Un nome host duplicato sovrascriverà l'altro.",
+        "ProvideEngineData": "Si prega di fornire i dati del motore di ricerca."
+    }
+}

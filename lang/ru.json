@@ -3,8 +3,6 @@
         "SearchEnginesAndSocialNetworks": "Поисковые системы и социальные сети",
         "AddSocial": "Добавить новую социальную сеть",
         "Hostname": "Имя хоста",
-        "SearchEnginesList": "Список всех поисковых систем, известных piwik",
-        "SocialsList": "Список всех социальных сетей, известных piwik",
         "ManageSocialsAndEngines": "Управлять поисковыми системами и социальными сетями",
         "ConfirmRemove": "Вы действительно хотите удалить %s из списка.",
         "ManageSearchEngines": "Управлять поисковыми системами",
