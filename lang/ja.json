@@ -1,0 +1,32 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "サーチエンジンとソーシャルネットワーク",
+        "AddSocial": "新しいソーシャルネットワークを追加",
+        "Hostname": "ホスト名",
+        "SearchEnginesList": "Piwikが知っている全てのサーチエンジンのリスト",
+        "SocialsList": "Piwik に知られているすべてのソーシャルリスト",
+        "ManageSocialsAndEngines": "検索エンジンやソーシャル ネットワークを管理",
+        "ConfirmRemove": "本当にリストから %s を削除しますか",
+        "ManageSearchEngines": "サーチエンジンの管理",
+        "ManageSocials": "ソーシャルネットワークの管理",
+        "DetectedEngine": "検出されたエンジン",
+        "DetectedKeywords": "検出されたキーワード",
+        "DetectedSocial": "検出されたソーシャルネットワーク",
+        "CheckUrl": "検索エンジンとソーシャル ネットワーク情報の URL をチェックします",
+        "CheckUrlDesc": "ここには、Piwik がそれをサーチエンジンおよび（または）ソーシャルネットワークとして認識するかどうかチェックするためにあらゆるリファラー URL を貼ることができます",
+        "AddSearchEngine": "サーチエンジンの定義を追加",
+        "Parameters": "パラメーター",
+        "BacklinkPattern": "バックリンクパターン",
+        "Charset": "Charset",
+        "AddEngineError": "検索エンジンの追加時にエラーが発生しました。入力値を確認して、再試行してください。",
+        "CommaSeparated": "( カンマで区切られました )",
+        "SocialListDisabled": "注意：Piwik 内のソーシャルネットワークリストが無効です。",
+        "EnableSocialList": "Piwikのソーシャルネットワークリストをアクティブにします",
+        "DisableSocialList": "Piwikのソーシャルネットワークリストを無効にします",
+        "UsingDefaultSocials": "Piwik のソーシャル ネットワークのビルトインリストを使用しています。",
+        "ProvideSocialData": "新しいソーシャル ネットワークにデータを提供してください。",
+        "DuplicateHostnameInfo": "ホスト名は一意である必要がある点に注意してください。重複したホスト名は上書きされます。",
+        "ProvideEngineData": "サーチエンジンのデータを提供してください。",
+        "HostnameWildcardDesc": "地域固有の検索エンジンは、URL \"{}.example.com\" は \"{}\" に対して ISO3166-1 alpha2 国コードと一致します。同様に、 \"example.{}\" は有効な国の TLD に対して一致しますが、誤検出を避けるため慎重に使用する必要があります。"
+    }
+}

@@ -1,6 +1,7 @@
 {
     "ReferrersManager": {
         "SearchEnginesAndSocialNetworks": "Søkemotorer og sosiale nettverk",
-        "AddSocial": "Legg til nytt sosialt nettverk"
+        "AddSocial": "Legg til nytt sosialt nettverk",
+        "CommaSeparated": "(kommaseparert)"
     }
 }

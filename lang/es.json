@@ -21,13 +21,13 @@
         "AddEngineError": "Fallo mientras se agregaba el motor de búsqueda. Por favor compruebe sus entradas y vuelva a intentarlo.",
         "CommaSeparated": "(separado por coma)",
         "AddSocialError": "Fallo mientras se agregaba la red social. Por favor compruebe sus entradas y vuelva a intentarlo.",
-        "SocialListDisabled": "Atención: La lista de redes sociales incluída en Piwik está deshabilitada.",
+        "SocialListDisabled": "Atención: La lista de redes sociales incluida en Piwik está deshabilitada.",
         "EnableSocialList": "Habilitar la lista de redes sociales de Piwik",
         "DisableSocialList": "Deshabilitar la lista de redes sociales de Piwik",
-        "UsingDefaultSocials": "Está utilizando la list de redes sociales incluído en Piwik.",
+        "UsingDefaultSocials": "Está utilizando la lista de redes sociales incluido en Piwik.",
         "ProvideSocialData": "Por favor suministre la información de la nueva red social.",
         "DuplicateHostnameInfo": "Tenga en cuenta que el nombre del host necesariamente debe ser único. Un nombre de host duplicado sobreescribirá al otro.",
         "ProvideEngineData": "Por favor suministre la información del motor de búsqueda.",
-        "HostnameWildcardDesc": "Para los motores de búsqueda específicos de una región, la URL, \"{} .ejemplo.com\" coincidirá con cualquier código de país ISO3166-1 alfa2 contra \"{}\". Del mismo modo, \"ejemplo.{}\" coincidirá contra los TLD de países válidos, pero deben utilizarse con moderación para evitar falsos positivos."
+        "HostnameWildcardDesc": "Para los motores de búsqueda específicos de una región, la URL, \"{}.ejemplo.com\" coincidirá con cualquier código de país ISO3166-1 alfa2 contra \"{}\". Del mismo modo, \"ejemplo.{}\" coincidirá contra los TLD de países válidos, pero deben utilizarse con moderación para evitar falsos positivos."
     }
 }

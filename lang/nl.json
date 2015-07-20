@@ -3,6 +3,8 @@
         "SearchEnginesAndSocialNetworks": "Zoekmachines en sociale netwerken",
         "AddSocial": "Voeg een nieuw sociaal netwerk toe.",
         "Hostname": "Hostnaam",
+        "SearchEnginesList": "Lijst van alle zoekmachines die bekend zijn in Piwik",
+        "SocialsList": "Lijst van alle social netwerken bekend in Piwik",
         "ManageSocialsAndEngines": "Beheer zoekmachines en sociale netwerken",
         "ConfirmRemove": "Wil je echt %s verwijderen van de lijst?",
         "ManageSearchEngines": "Beheer zoekmachines",
@@ -11,10 +13,19 @@
         "DetectedKeywords": "Gedetecteerde sleutelwoorden",
         "DetectedSocial": "Sociaal netwerk gedetecteerd",
         "CheckUrl": "Controleer de URL voor zoekmachine en sociale netwerk",
+        "AddSearchEngine": "Voeg zoekmachine definities toe",
         "Parameters": "Parameters",
+        "BacklinkPattern": "Referer patroon",
         "Charset": "Karakterset",
+        "AddEngineError": "Fout opgtereden tijdens het toevoegen van de zoekmachine. Gelieve je invoer te controleren en opnieuw te proberen.",
         "CommaSeparated": "(komma gescheiden)",
+        "AddSocialError": "Fout opgetereden tijdens het toevoegen van het sociaal netwerk. Controleer wat je hebt opgegeven en probeer opnieuw.",
+        "SocialListDisabled": "Opmerking; Piwik's ingebouwde lijst van sociale netwerken is uitgeschakeld.",
         "EnableSocialList": "Activeer Piwik's sociale netwerken lijst",
-        "DisableSocialList": "Schakel Piwik's sociale netwerken lijst uit."
+        "DisableSocialList": "Schakel Piwik's sociale netwerken lijst uit.",
+        "UsingDefaultSocials": "Je gebruikt de ingebouwde sociale netwerk lijst in Piwik.",
+        "ProvideSocialData": "Verstrek a.u.b. de data het nieuwe sociale netwerk.",
+        "DuplicateHostnameInfo": "Onthoud goed dat een hostname uniek moet zijn. Een dubbele hostname overschrijft de andere.",
+        "ProvideEngineData": "Verstrek a.u.b. de data voor de zoekmachine."
     }
 }
