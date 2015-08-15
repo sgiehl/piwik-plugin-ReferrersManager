@@ -16,7 +16,23 @@ class Menu extends \Piwik\Plugin\Menu
     public function configureAdminMenu(MenuAdmin $menu)
     {
         if (Piwik::hasUserSuperUserAccess()) {
-            $menu->addSettingsItem('ReferrersManager_SearchEnginesAndSocialNetworks', $this->urlForAction('index'), $order = 20);
+            if (!method_exists($menu, 'addSettingsItem')) {
+                // menu fallback for piwik < 1.11
+                $menu->add(
+                    'General_Settings',
+                    'ReferrersManager_SearchEnginesAndSocialNetworks',
+                    array('module' => 'ReferrersManager', 'action' => 'index'),
+                    true,
+                    $order = 20
+                );
+                return;
+            }
+
+            $menu->addSettingsItem(
+                'ReferrersManager_SearchEnginesAndSocialNetworks',
+                $this->urlForAction('index'),
+                $order = 20
+            );
         }
     }
 }

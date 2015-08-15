@@ -10,7 +10,7 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ### Requirements
 
-[Piwik](https://github.com/piwik/piwik) 2.0.4 or higher is required.
+[Piwik](https://github.com/piwik/piwik) 2.4.0 or higher is required.
 
 ### Features
 

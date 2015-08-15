@@ -15,7 +15,6 @@ require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
 
 use Piwik\Cache;
 use Piwik\Common;
-use Piwik\Option;
 use Piwik\Plugins\ReferrersManager;
 use Piwik\Tests\Framework\TestCase\SystemTestCase;
 use Piwik\UrlHelper;
