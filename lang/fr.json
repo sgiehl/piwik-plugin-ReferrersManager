@@ -1,5 +1,6 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "Ce composant permet de visualiser et de gérer les moteurs de recherche et les réseaux sociaux qui sont reconnus avec Piwik.",
         "SearchEnginesAndSocialNetworks": "Moteurs de recherche et réseaux sociaux",
         "AddSocial": "Ajouter un nouveau réseau social",
         "Hostname": "Nom d'hôte",

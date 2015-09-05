@@ -2,6 +2,12 @@
     "ReferrersManager": {
         "SearchEnginesAndSocialNetworks": "Søkemotorer og sosiale nettverk",
         "AddSocial": "Legg til nytt sosialt nettverk",
+        "Hostname": "Vertsnavn",
+        "SearchEnginesList": "Liste over alle søkemotorer kjent av Piwik",
+        "ManageSearchEngines": "Behandle søkemotorer",
+        "ManageSocials": "Behandle sosiale nettverk",
+        "DetectedKeywords": "Gjenkjente nøkkelord",
+        "Parameters": "Parametere",
         "CommaSeparated": "(kommaseparert)"
     }
 }

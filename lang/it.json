@@ -1,6 +1,7 @@
 {
     "ReferrersManager": {
-        "SearchEnginesAndSocialNetworks": "Ricerca motori e social networks",
+        "PluginDescription": "Questo plugin consente di visualizzare e gestire i motori di ricerca e i social networks che sono riconosciuti da Piwik.",
+        "SearchEnginesAndSocialNetworks": "Motori di ricerca e social networks",
         "AddSocial": "Aggiungi un nuovo social network",
         "Hostname": "Nome host",
         "SearchEnginesList": "Elenco di tutti i motori di ricerca noti a Piwik",
@@ -19,7 +20,7 @@
         "AddEngineError": "Errore durante l'aggiunta del motore di ricerca. Si prega di controllare i dati inseriti e di riprovare.",
         "CommaSeparated": "(separati da virgola)",
         "AddSocialError": "Errore durante l'aggiunta del social. Si prega di controllare i dati inseriti e di riprovare.",
-        "SocialListDisabled": "Attenzione: l'elenco predefinito di Piwik dei social networks è disabilitato.",
+        "SocialListDisabled": "Attenzione: l'elenco predefinito di social networks di Piwik è disabilitato.",
         "EnableSocialList": "Attiva l'elenco di social networks di Piwik",
         "DisableSocialList": "Disabilita l'elenco di social networks di Piwik",
         "UsingDefaultSocials": "Stai utilizzando l'elenco di social networks di Piwik.",

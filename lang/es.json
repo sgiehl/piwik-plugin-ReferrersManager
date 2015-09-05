@@ -1,5 +1,6 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "Este complemento permite ver y gestionar motores de búsquedas y redes sociales que son reconocidas por Piwik.",
         "SearchEnginesAndSocialNetworks": "Motores de búsqueda y redes sociales",
         "AddSocial": "Añadir una nueva red social",
         "Hostname": "Hostname",

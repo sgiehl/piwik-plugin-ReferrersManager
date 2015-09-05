@@ -1,5 +1,6 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "Dieses Plugin bietet die Möglichkeit die Suchmaschinen und sozialen Netzwerke, die von Piwik erkannt werden, anzusehen und zu verwalten.",
         "SearchEnginesAndSocialNetworks": "Suchmaschinen und soziale Netzwerke",
         "AddSocial": "Soziales Netzwerk hinzufügen",
         "Hostname": "Hostname",
