@@ -1,0 +1,33 @@
+{
+    "ReferrersManager": {
+        "PluginDescription": "Este plugin permite visualizar e gerenciar os motores de busca e redes sociais que são reconhecidos com o Piwik.",
+        "SearchEnginesAndSocialNetworks": "Mecanismos de buscas e redes sociais",
+        "AddSocial": "Adicionar nova rede social",
+        "Hostname": "Hostname | Nome do Host",
+        "SearchEnginesList": "Lista de todos os motores de busca conhecidos pelo Piwik",
+        "SocialsList": "Lista de todas as sociais conhecidas do Piwik",
+        "ManageSocialsAndEngines": "Gerencia mecanismos de buscas e redes sociais",
+        "ConfirmRemove": "Você realmente deseja remover %s da lista?",
+        "ManageSearchEngines": "Gerenciar motores de busca",
+        "ManageSocials": "Gerenciar redes sociais",
+        "DetectedEngine": "Mecanismo Detectado",
+        "DetectedKeywords": "Palavras-chave detectadas",
+        "DetectedSocial": "Rede Social Detectada",
+        "CheckUrl": "Verifique URL para informações de motor de busca e rede social.",
+        "CheckUrlDesc": "Aqui você pode colar qualquer URL de um referenciador para verificar se o Piwik reconhece-o como um motor de busca e\/ou uma rede social",
+        "AddSearchEngine": "Adicionar definição do motor de busca",
+        "Parameters": "Parâmetros",
+        "BacklinkPattern": "Padrão de link externo",
+        "Charset": "Conjunto de caracteres",
+        "AddEngineError": "Erro ao adicionar o motor de busca. Por favor verifique suas entradas e tente novamente.",
+        "CommaSeparated": "(vírgula separada)",
+        "AddSocialError": "Erro ao adicionar a social. Por favor verifique suas entradas e tente novamente.",
+        "SocialListDisabled": "Atenção: a lista interna das redes sociais do Piwik está desativada.",
+        "EnableSocialList": "Ative a llista de redes sociais do Piwik",
+        "DisableSocialList": "Desativar lista de redes sociais do Piwik",
+        "UsingDefaultSocials": "Você está utilizando uma lista embutida de rede sociais do Piwik.",
+        "ProvideSocialData": "Por favor, forneça os dados para a nova rede social.",
+        "DuplicateHostnameInfo": "Tenha em mente que o nome do host precisa ser único. Um nome de host duplicado irá sobrescrever o outro.",
+        "ProvideEngineData": "Por favor, forneça os dados para o motor de busca."
+    }
+}

@@ -1,8 +1,11 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "Pomoću ovog dodatka možete da upravljate pretraživačima i društvenim mrežama koje Pivik poznaje.",
         "SearchEnginesAndSocialNetworks": "Pretraživači i društvene mreže",
         "AddSocial": "Dodavanje društvene mreže",
         "Hostname": "Naziv hosta",
+        "SearchEnginesList": "Spisak svih društvenih mreža za koje Pivik zna",
+        "SocialsList": "Spisak društvenih mreža za koje Pivik zna",
         "ManageSocialsAndEngines": "Upravljanje pretraživačima i društvenim mrežama",
         "ConfirmRemove": "Da li zaista želite da uklonite %s sa liste?",
         "ManageSearchEngines": "Upravljanje pretraživačima",
@@ -11,6 +14,7 @@
         "DetectedKeywords": "Prepoznate ključne reči",
         "DetectedSocial": "Prepoznate društvene mreže",
         "CheckUrl": "Provera URL-a za informacije o pretraživačima i društvenim mrežama",
+        "CheckUrlDesc": "Ovde možete da upišete bilo koji URL kako biste proverili da li će ga Pivik prepoznati kao pretraživač ili društvenu mrežu.",
         "AddSearchEngine": "Dodavanje definicije pretraživača",
         "Parameters": "Parametri",
         "BacklinkPattern": "Šablon povratnog linka",

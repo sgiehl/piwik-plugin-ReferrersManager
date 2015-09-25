@@ -1,5 +1,6 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "Met deze plugin kunnen de zoekmachines en social media netwerken, welke herkent worden door Piwik bekeken en beheert worden.",
         "SearchEnginesAndSocialNetworks": "Zoekmachines en sociale netwerken",
         "AddSocial": "Voeg een nieuw sociaal netwerk toe.",
         "Hostname": "Hostnaam",

@@ -1,0 +1,10 @@
+{
+    "ReferrersManager": {
+        "AddSocial": "Lägg till ett nytt socialt nätverk",
+        "Hostname": "Värdnamn",
+        "DetectedKeywords": "Hittade nyckelord",
+        "Parameters": "Parametrar",
+        "Charset": "teckenuppsättning",
+        "CommaSeparated": "(kommaseparerad)"
+    }
+}
