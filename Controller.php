@@ -11,7 +11,6 @@ use Piwik\Common;
 use Piwik\DataTable\Renderer\Json;
 use Piwik\Piwik;
 use Piwik\Plugin\ControllerAdmin;
-use Piwik\UrlHelper;
 use Piwik\View;
 
 /**
@@ -30,15 +29,15 @@ class Controller extends ControllerAdmin
         $view = new View('@ReferrersManager/index');
         $this->setBasicVariablesView($view);
 
-        $view->searchEngineInfos = $this->getSearchEngineInfos();
-        $view->searchEngineLogos = $this->getSearchEngineLogos();
+        $view->searchEngineInfos = Model::getInstance()->getSearchEngineInfos();
+        $view->searchEngineLogos = Model::getInstance()->getSearchEngineLogos();
 
-        $view->socialInfos = $this->getSocialsInfos();
-        $view->socialLogos = $this->getSocialsLogos();
+        $view->socialInfos = Model::getInstance()->getSocialsInfos();
+        $view->socialLogos = Model::getInstance()->getSocialsLogos();
 
-        $view->ownSocialDefinitions = areDefaultSocialsDisabled();
-        $view->userDefinedSocials = getUserDefinedSocials();
-        $view->userDefinedSearchEngines = getUserDefinedSearchEngines();
+        $view->ownSocialDefinitions = Model::getInstance()->areDefaultSocialsDisabled();
+        $view->userDefinedSocials = Model::getInstance()->getUserDefinedSocials();
+        $view->userDefinedSearchEngines = Model::getInstance()->getUserDefinedSearchEngines();
 
         return $view->render();
     }
@@ -49,7 +48,7 @@ class Controller extends ControllerAdmin
     public function setDefaultSocialsDisabled()
     {
         $state = Common::getRequestVar('state', 0, 'int');
-        setDefaultSocialsDisabled((bool) $state);
+        Model::getInstance()->setDefaultSocialsDisabled((bool) $state);
         Json::sendHeaderJSON();
         return 1;
     }
@@ -65,33 +64,10 @@ class Controller extends ControllerAdmin
 
         $urlToCheck = trim(Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string')));
 
-        $detectedEngine = UrlHelper::extractSearchEngineInformationFromUrl($urlToCheck);
-
-        if (!empty($detectedEngine['name'])) {
-            $detectedEngine['image'] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl(\Piwik\Plugins\Referrers\getSearchEngineUrlFromName($detectedEngine['name']));
-            if ($detectedEngine['keywords'] === false) {
-                $detectedEngine['keywords'] = '<i>'.Piwik::translate('General_NotDefined', Piwik::translate('General_ColumnKeyword')).'</i>';
-            }
-        }
-
-        $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($urlToCheck);
-
-        if (!empty($detectedSocial) && $detectedSocial != Piwik::translate('General_Unknown')) {
-
-            $detectedSocial = array(
-                'name' => $detectedSocial,
-                'image' => \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($urlToCheck)
-            );
-        } else {
-
-            $detectedSocial = false;
-        }
-
-
         Json::sendHeaderJSON();
         return json_encode(array(
-            'searchengine' => $detectedEngine,
-            'social'       => $detectedSocial
+            'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
+            'social'       => Model::getInstance()->detectSocial($urlToCheck)
         ));
     }
 
@@ -112,9 +88,9 @@ class Controller extends ControllerAdmin
             return 0;
         }
 
-        $socials = getUserDefinedSocials();
+        $socials = Model::getInstance()->getUserDefinedSocials();
         $socials[$host] = $name;
-        setUserDefinedSocials($socials);
+        Model::getInstance()->setUserDefinedSocials($socials);
         return 1;
     }
 
@@ -134,9 +110,9 @@ class Controller extends ControllerAdmin
             return 0;
         }
 
-        $socials = getUserDefinedSocials();
+        $socials = Model::getInstance()->getUserDefinedSocials();
         unset($socials[$host]);
-        setUserDefinedSocials($socials);
+        Model::getInstance()->setUserDefinedSocials($socials);
         return 1;
     }
 
@@ -164,9 +140,9 @@ class Controller extends ControllerAdmin
             $parameters = explode(',', $parameters);
         }
 
-        $engines = getUserDefinedSearchEngines();
+        $engines = Model::getInstance()->getUserDefinedSearchEngines();
         $engines[$host] = array($name, $parameters, $backlink, $charset);
-        setUserDefinedSearchEngines($engines);
+        Model::getInstance()->setUserDefinedSearchEngines($engines);
         return 1;
     }
 
@@ -186,103 +162,9 @@ class Controller extends ControllerAdmin
             return 0;
         }
 
-        $engines = getUserDefinedSearchEngines();
+        $engines = Model::getInstance()->getUserDefinedSearchEngines();
         unset($engines[$host]);
-        setUserDefinedSearchEngines($engines);
+        Model::getInstance()->setUserDefinedSearchEngines($engines);
         return 1;
     }
-
-    /**
-     * Returns all search engine informations known to piwik
-     *
-     * @return array
-     */
-    protected function getSearchEngineInfos()
-    {
-        $mergedSearchInfos = array();
-
-        $searchEngineInfos = Common::getSearchEngineUrls();
-
-        foreach ($searchEngineInfos AS $url => $infos) {
-
-            $infos = array_merge($infos, array('', '', '', ''));
-
-            list($name, $parameters, $backlink, $charset) = $infos;
-
-            if (is_array($parameters)) {
-                $parameters = implode(', ', $parameters);
-            }
-
-            if (is_array($charset)) {
-                $charset = implode(', ', $charset);
-            }
-
-            if (empty($mergedSearchInfos[$name])) {
-                $mergedSearchInfos[$name] = array();
-            }
-
-            $mergedSearchInfos[$name][] = array(
-                'url'        => $url,
-                'parameters' => $parameters,
-                'backlink'   => $backlink,
-                'charset'    => $charset
-            );
-        }
-
-        ksort($mergedSearchInfos, SORT_LOCALE_STRING);
-
-        return $mergedSearchInfos;
-    }
-
-    /**
-     * Returns an array containing all logos for search engines
-     *
-     * @return array (name => logo-src)
-     */
-    protected function getSearchEngineLogos()
-    {
-        $searchEngineLogos = array();
-
-        $searchEngineNames = Common::getSearchEngineNames();
-        foreach($searchEngineNames AS $name => $url) {
-            $searchEngineLogos[$name] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl($url);
-        }
-        return $searchEngineLogos;
-    }
-
-    /**
-     * Returns all social informations known to piwik
-     *
-     * @return array
-     */
-    protected function getSocialsInfos()
-    {
-        $mergedSocials = array();
-
-        foreach (Common::getSocialUrls() AS $url => $name) {
-
-            $mergedSocials[urldecode($name)][] = $url;
-        }
-
-        ksort($mergedSocials, SORT_LOCALE_STRING);
-
-        return $mergedSocials;
-    }
-
-    /**
-     * Returns an array containing all logos for socials
-     *
-     * @return array (name => logo-src)
-     */
-    protected function getSocialsLogos()
-    {
-        $socialsLogos = array();
-
-        foreach(Common::getSocialUrls() AS $url => $name) {
-
-            $socialsLogos[urldecode($name)] = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
-        }
-        return $socialsLogos;
-    }
-
 }

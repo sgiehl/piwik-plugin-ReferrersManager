@@ -12,11 +12,6 @@ use Piwik\Piwik;
 use Piwik\Plugin;
 
 /**
- * @see plugins/ReferrersManager/functions.php
- */
-require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
-
-/**
  *
  */
 class ReferrersManager extends Plugin
@@ -59,7 +54,7 @@ class ReferrersManager extends Plugin
     public function addSearchEngineUrls(&$searchEngines)
     {
         try {
-            $userEngines = getUserDefinedSearchEngines();
+            $userEngines = Model::getInstance()->getUserDefinedSearchEngines();
             $searchEngines = array_merge($searchEngines, $userEngines);
         } catch (\Exception $e) {}
     }
@@ -71,11 +66,11 @@ class ReferrersManager extends Plugin
     public function addSocialUrls(&$socials)
     {
         try {
-            if(areDefaultSocialsDisabled()) {
+            if(Model::getInstance()->areDefaultSocialsDisabled()) {
                 $socials = array();
             }
 
-            $userSocials = getUserDefinedSocials();
+            $userSocials = Model::getInstance()->getUserDefinedSocials();
             $socials = array_merge($socials, $userSocials);
         } catch (\Exception $e) {}
     }

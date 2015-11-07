@@ -8,45 +8,45 @@
 
 namespace Piwik\Plugins\ReferrersManager\tests;
 
-/**
- * @see plugins/ReferrersManager/functions.php
- */
-require_once PIWIK_INCLUDE_PATH . '/plugins/ReferrersManager/functions.php';
-
 use Piwik\Cache;
-use Piwik\Common;
-use Piwik\Plugins\ReferrersManager;
+use Piwik\Plugins\ReferrersManager\Model;
 use Piwik\Tests\Framework\TestCase\SystemTestCase;
-use Piwik\UrlHelper;
 
 /**
  * @group Plugins
  * @group ReferrersManager
  */
-class ReferrersManagerTest extends SystemTestCase
+class ModelTest extends SystemTestCase
 {
     public function setUp()
     {
         parent::setUp();
         \Piwik\Plugin\Manager::getInstance()->loadPlugin('ReferrersManager');
-        include PIWIK_INCLUDE_PATH . '/core/DataFiles/SearchEngines.php';
-        include PIWIK_INCLUDE_PATH . '/core/DataFiles/Socials.php';
+        $this->invalidateCaches();
+    }
+
+    protected function invalidateCaches()
+    {
+        Cache::flushAll();
+        if (class_exists('\Piwik\Plugins\Referrers\SearchEngine')) {
+            \Piwik\Plugins\Referrers\SearchEngine::unsetInstance();
+        }
     }
 
     public function testGetCustomSearchEnginesEmpty()
     {
-        $engines = ReferrersManager\getUserDefinedSearchEngines();
+        $engines = Model::getInstance()->getUserDefinedSearchEngines();
         $this->assertEquals(array(), $engines);
     }
 
     public function testSetCustomSearchEngines()
     {
         $customEngines = array('www.test.de' => array('Test', array('x')));
-        ReferrersManager\setUserDefinedSearchEngines($customEngines);
-        $engines = ReferrersManager\getUserDefinedSearchEngines();
+        Model::getInstance()->setUserDefinedSearchEngines($customEngines);
+        $engines = Model::getInstance()->getUserDefinedSearchEngines();
         $this->assertEquals($customEngines, $engines);
 
-        $allEngines = Common::getSearchEngineUrls();
+        $allEngines = Model::getInstance()->getSearchEngines();
         $this->assertArrayHasKey('www.test.de', $allEngines);
     }
 
@@ -55,9 +55,9 @@ class ReferrersManagerTest extends SystemTestCase
      */
     public function testCustomSearchEngineDetection($enginesToAdd, $referrer, $result)
     {
-        Cache::flushAll();
-        ReferrersManager\setUserDefinedSearchEngines($enginesToAdd);
-        $detectedEngines = UrlHelper::extractSearchEngineInformationFromUrl($referrer);
+        Model::getInstance()->setUserDefinedSearchEngines($enginesToAdd);
+        $detectedEngines = Model::getInstance()->detectSearchEngine($referrer);
+        unset($detectedEngines['image']);
         $this->assertEquals($result, $detectedEngines);
     }
 
@@ -79,18 +79,18 @@ class ReferrersManagerTest extends SystemTestCase
 
     public function testGetCustomSocialsEmpty()
     {
-        $socials = ReferrersManager\getUserDefinedSocials();
+        $socials = Model::getInstance()->getUserDefinedSocials();
         $this->assertEquals(array(), $socials);
     }
 
     public function testSetCustomSocials()
     {
         $customSocials = array('www.test.de' => 'test');
-        ReferrersManager\setUserDefinedSocials($customSocials);
-        $engines = ReferrersManager\getUserDefinedSocials();
+        Model::getInstance()->setUserDefinedSocials($customSocials);
+        $engines = Model::getInstance()->getUserDefinedSocials();
         $this->assertEquals($customSocials, $engines);
 
-        $allSocials = Common::getSocialUrls();
+        $allSocials = Model::getInstance()->getSocials();
         $this->assertArrayHasKey('www.test.de', $allSocials);
     }
 
@@ -99,10 +99,9 @@ class ReferrersManagerTest extends SystemTestCase
      */
     public function testCustomSocialDetection($socialsToAdd, $referrer, $result)
     {
-        Cache::flushAll();
-        ReferrersManager\setUserDefinedSocials($socialsToAdd);
-        $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($referrer);
-        $this->assertEquals($result, $detectedSocial);
+        Model::getInstance()->setUserDefinedSocials($socialsToAdd);
+        $detectedSocial = Model::getInstance()->detectSocial($referrer);
+        $this->assertEquals($result, $detectedSocial['name']);
     }
 
     public function getCustomSocialsTestData()
