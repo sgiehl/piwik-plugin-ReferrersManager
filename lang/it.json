@@ -13,6 +13,7 @@
         "DetectedEngine": "Motore Rilevato",
         "DetectedKeywords": "Parole chiave Rilevate",
         "DetectedSocial": "Social Network Rilevato",
+        "CheckUrl": "Controlla l'URL del motore di ricerca e le informazioni del social network",
         "CheckUrlDesc": "Qui puoi incollare un qualunque referrer url per verificare se Piwik lo riconosce come motore di ricerca e\/o social network",
         "AddSearchEngine": "Aggiungi la definizione per un motore di ricerca",
         "Parameters": "Parametri",
