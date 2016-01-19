@@ -2,6 +2,8 @@
     "ReferrersManager": {
         "AddSocial": "Lägg till ett nytt socialt nätverk",
         "Hostname": "Värdnamn",
+        "ManageSearchEngines": "Hantera sökmotorer",
+        "ManageSocials": "Hantera sociala nätverk",
         "DetectedKeywords": "Hittade nyckelord",
         "Parameters": "Parametrar",
         "Charset": "teckenuppsättning",

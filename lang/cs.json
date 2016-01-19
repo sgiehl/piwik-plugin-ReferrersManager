@@ -21,7 +21,7 @@
         "Charset": "Znaková sada",
         "AddEngineError": "Chyba při přidávání vašeho vyhledávače. Zkontrolujte vstupy a zkuste to znovu.",
         "CommaSeparated": "(oddělovaný čárkou)",
-        "AddSocialError": "Chyba při přidávání soc. sítě. Zkontrolujte vstupy a zkuste to znovu.",
+        "AddSocialError": "Chyba při přidávání sociální sítě. Zkontrolujte vstupní údaje a zkuste to znovu.",
         "SocialListDisabled": "Pozor: Vestavěný seznam sociálních sítí je zakázán.",
         "EnableSocialList": "Aktivovat seznam sociálních sítí Piwiku",
         "DisableSocialList": "Zakázat seznam sociálních sítí Piwiku",

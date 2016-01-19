@@ -1,5 +1,6 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "このプラグインは、表示および検索エンジンや Piwik で認識されているソーシャルネットワークを管理することができます。",
         "SearchEnginesAndSocialNetworks": "サーチエンジンとソーシャルネットワーク",
         "AddSocial": "新しいソーシャルネットワークを追加",
         "Hostname": "ホスト名",
@@ -20,6 +21,7 @@
         "Charset": "Charset",
         "AddEngineError": "検索エンジンの追加時にエラーが発生しました。入力値を確認して、再試行してください。",
         "CommaSeparated": "( カンマで区切られました )",
+        "AddSocialError": "ソーシャルを追加中にエラーが発生しました。入力値を確認して、再試行してください。",
         "SocialListDisabled": "注意：Piwik 内のソーシャルネットワークリストが無効です。",
         "EnableSocialList": "Piwikのソーシャルネットワークリストをアクティブにします",
         "DisableSocialList": "Piwikのソーシャルネットワークリストを無効にします",
