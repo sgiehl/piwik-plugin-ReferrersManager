@@ -2,6 +2,7 @@
     "ReferrersManager": {
         "SearchEnginesAndSocialNetworks": "Paieškos sistemos ir socialiniai tinklai",
         "AddSocial": "Pridėti naują socialinį tinklą",
+        "ManageSearchEngines": "Tvarkyti paieškos sistemas",
         "Parameters": "Parametrai"
     }
 }

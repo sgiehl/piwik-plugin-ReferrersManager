@@ -1,5 +1,6 @@
 {
     "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Sökmotorer och sociala nätverk",
         "AddSocial": "Lägg till ett nytt socialt nätverk",
         "Hostname": "Värdnamn",
         "ManageSearchEngines": "Hantera sökmotorer",

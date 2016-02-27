@@ -1,0 +1,12 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Motorë kërkimesh dhe rrjete shoqërore",
+        "AddSocial": "Shtoni rrjet të ri shoqëror",
+        "Hostname": "Strehëemër",
+        "SocialsList": "Listë e krejt shoqëroreve të njohura nga Piwik-u",
+        "ManageSearchEngines": "Administroni motorë kërkimesh",
+        "ManageSocials": "Administroni rrjete shoqërore",
+        "DetectedEngine": "Motor i Zbuluar",
+        "DetectedKeywords": "Fjalëkyça të Zbuluar"
+    }
+}
