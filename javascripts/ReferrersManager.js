@@ -2,6 +2,12 @@ $(document).ready(function () {
 
     $('#tabs').tabs();
 
+    $('#urlToCheck').on('change', function(){
+        $('.detectionresult .engine').text('');
+        $('.detectionresult .keywords').text('');
+        $('.detectionresult img').attr('src', 'plugins/Referrers/images/searchEngines/xx.png');
+    });
+
     $('#checkurl').bind('click', function(){
         var ajaxHandler = new ajaxHelper();
         ajaxHandler.addParams({
@@ -90,7 +96,10 @@ $(document).ready(function () {
             action: 'setDefaultSocialsDisabled',
             state: $(this).attr('state')
         }, 'GET');
-        ajaxHandler.redirectOnSuccess({});
+        ajaxHandler.setCallback(function(){
+            location.hash = 'socialTab';
+            piwikHelper.refreshAfter(1);
+        });
         ajaxHandler.send(true);
     });
 

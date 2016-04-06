@@ -1,14 +1,16 @@
 <h3>{{ 'ReferrersManager_SocialsList'|translate }}</h3>
 
-<p>
 {% if ownSocialDefinitions %}
-    <span> <img src="plugins/Zeitgeist/images/warning.png"> {{ 'ReferrersManager_SocialListDisabled'|translate }}</span>
+<p class="notification system notification-warning">
+    <span>{{ 'ReferrersManager_SocialListDisabled'|translate }}</span>
     <a href="#socialTab" role="noDefaultSocials" state="0">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
+</p>
 {% else %}
+<p class="notification system notification-success">
     <span>{{ 'ReferrersManager_UsingDefaultSocials'|translate }}</span>
     <a href="#socialTab" role="noDefaultSocials" state="1">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
-{% endif %}
 </p>
+{% endif %}
 
 <span class="icoAdd" role="addSocial">
     {{ 'ReferrersManager_AddSocial'|translate }}
