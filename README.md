@@ -20,6 +20,7 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ## Changelog
 
+- 1.7 Fix Compatibility with Piwik 2.16
 - 1.6 Compatibility for Piwik > 2.15 / translation updates
 - 1.5 Compatibility issues for older Piwik versions
 - 1.4 Translation updates
