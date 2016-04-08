@@ -7,6 +7,7 @@
  */
 namespace Piwik\Plugins\ReferrersManager;
 
+use Piwik\Cache;
 use Piwik\Common;
 use Piwik\Option;
 use Piwik\Piwik;
@@ -44,6 +45,11 @@ class Model extends Singleton
     public function setDefaultSocialsDisabled($disabled = true)
     {
         Option::set(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS, $disabled);
+        if (self::useNewStructure()) {
+            $cache   = Cache::getEagerCache();
+            $cacheId = 'Social-' . Social::OPTION_STORAGE_NAME;
+            $cache->delete($cacheId);
+        }
     }
 
     /**
@@ -71,6 +77,11 @@ class Model extends Singleton
     public function setUserDefinedSocials($socialList = array())
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SOCIALS, json_encode($socialList));
+        if (self::useNewStructure()) {
+            $cache   = Cache::getEagerCache();
+            $cacheId = 'Social-' . Social::OPTION_STORAGE_NAME;
+            $cache->delete($cacheId);
+        }
     }
 
     /**
@@ -98,6 +109,11 @@ class Model extends Singleton
     public function setUserDefinedSearchEngines($engineList = array())
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SEARCHENGINES, json_encode($engineList));
+        if (self::useNewStructure()) {
+            $cache   = Cache::getEagerCache();
+            $cacheId = 'SearchEngine-' . SearchEngine::OPTION_STORAGE_NAME;
+            $cache->delete($cacheId);
+        }
     }
 
     /**
@@ -156,7 +172,6 @@ class Model extends Singleton
                     'charset'    => !empty($infos[3]) ? implode(', ', (array)$infos[3]) : '',
                 );
             }
-
         }
 
         ksort($mergedSearchInfos, SORT_LOCALE_STRING);
