@@ -71,6 +71,23 @@ class Controller extends ControllerAdmin
         ));
     }
 
+    public function refresh()
+    {
+        $this->checkTokenInUrl();
+
+        Json::sendHeaderJSON();
+
+        $type = Common::getRequestVar('type', '', 'string');
+
+        if ($type == 'socials') {
+            Model::getInstance()->clearSocialCache();
+        } else if ($type == 'searchengines') {
+            Model::getInstance()->clearSearchEngineCache();
+        }
+
+        return 1;
+    }
+
     /**
      * Ajax Action to add a news social network
      * @return int

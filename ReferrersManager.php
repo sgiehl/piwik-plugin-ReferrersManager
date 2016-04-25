@@ -47,6 +47,11 @@ class ReferrersManager extends Plugin
         $stylesheets[] = "plugins/ReferrersManager/stylesheets/styles.less";
     }
 
+    public function isTrackerPlugin()
+    {
+        return true;
+    }
+
     /**
      * Adds the user defined search engines
      * @param $searchEngines

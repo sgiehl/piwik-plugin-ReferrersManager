@@ -89,6 +89,20 @@ $(document).ready(function () {
         }});
     });
 
+    $('[role="refreshSocials"]').click(function(){
+        var ajaxHandler = new ajaxHelper();
+        ajaxHandler.addParams({
+            module: 'ReferrersManager',
+            action: 'refresh',
+            type: 'socials'
+        }, 'GET');
+        ajaxHandler.setCallback(function(){
+            location.hash = 'socialTab';
+            piwikHelper.refreshAfter(1);
+        });
+        ajaxHandler.send(true);
+    });
+
     $('[role="noDefaultSocials"]').click(function(){
         var ajaxHandler = new ajaxHelper();
         ajaxHandler.addParams({
@@ -150,5 +164,19 @@ $(document).ready(function () {
             });
             ajaxHandler.send(true);
         }});
+    });
+
+    $('[role="refreshSearchEngines"]').click(function(){
+        var ajaxHandler = new ajaxHelper();
+        ajaxHandler.addParams({
+            module: 'ReferrersManager',
+            action: 'refresh',
+            type: 'searchengines'
+        }, 'GET');
+        ajaxHandler.setCallback(function(){
+            location.hash = 'searchengineTab';
+            piwikHelper.refreshAfter(1);
+        });
+        ajaxHandler.send(true);
     });
 });

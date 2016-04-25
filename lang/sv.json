@@ -1,13 +1,34 @@
 {
     "ReferrersManager": {
+        "PluginDescription": "Detta tillägg ger tillgång till att lista och hantera sökmotorer och sociala nätverk som känns igen av Piwik.",
         "SearchEnginesAndSocialNetworks": "Sökmotorer och sociala nätverk",
         "AddSocial": "Lägg till ett nytt socialt nätverk",
         "Hostname": "Värdnamn",
+        "SearchEnginesList": "Lista över alla sökmotorer som Piwik känner till",
+        "SocialsList": "Lista över alla sociala nätverk som Piwik känner till",
+        "ManageSocialsAndEngines": "Hantera sökmotorer och sociala nätverk",
+        "ConfirmRemove": "Vill du verkligen ta bort %s från listan.",
         "ManageSearchEngines": "Hantera sökmotorer",
         "ManageSocials": "Hantera sociala nätverk",
+        "DetectedEngine": "Upptäckt sökmotor",
         "DetectedKeywords": "Hittade nyckelord",
+        "DetectedSocial": "Upptäckt socialt nätverk",
+        "CheckUrl": "Kontrollera URL och information för sökmotor samt socialt nätverk",
+        "CheckUrlDesc": "Här kan du klistra in någon hänvisningsadress för att kontrollera om Piwik skulle känna igen det som en sökmotor och\/eller ett socialt nätverk",
+        "AddSearchEngine": "Lägg till definition av sökmotor",
         "Parameters": "Parametrar",
+        "BacklinkPattern": "Tillbakalänksmönster",
         "Charset": "teckenuppsättning",
-        "CommaSeparated": "(kommaseparerad)"
+        "AddEngineError": "Ett fel uppstod när sökmotorn skulle läggas till. Vänligen kontrollera fälten och försök igen.",
+        "CommaSeparated": "(kommaseparerad)",
+        "AddSocialError": "Ett fel uppstod när det sociala nätverket skulle läggas till. Vänligen kontrollera fälten och försök igen.",
+        "SocialListDisabled": "Noteringen: Piwiks inbyggda listning av sociala nätverk är inaktiverad.",
+        "EnableSocialList": "Aktivera Piwiks lista över sociala nätverk",
+        "DisableSocialList": "Inaktivera Piwiks lista över sociala nätverk",
+        "UsingDefaultSocials": "Du använder Piwiks inbyggda lista över sociala nätverk.",
+        "ProvideSocialData": "Vänligen skriv in datan för det nya sociala nätverket.",
+        "DuplicateHostnameInfo": "Tänk på att värdnamnet behöver vara unikt. En kopia av värdnamnet kommer skriva över det andra.",
+        "ProvideEngineData": "Vänligen skriv in datan för sökmotorn.",
+        "HostnameWildcardDesc": "För regionsspecifika sökmotorer Kommer URL'en \"{}.exempel.se\" matcha alla ISO3166-1 alpha2 landskoder mot \"{}\". Likaså kommer \"exempel.{}\" matcha mot giltiga landsspecifika toppdomäner men bör användas sparsamt för att undvika \"false positives\"."
     }
 }

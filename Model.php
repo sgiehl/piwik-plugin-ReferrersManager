@@ -45,10 +45,22 @@ class Model extends Singleton
     public function setDefaultSocialsDisabled($disabled = true)
     {
         Option::set(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS, $disabled);
+        $this->clearSocialCache();
+
+    }
+
+    /**
+     * Clears cache for social data
+     */
+    public function clearSocialCache()
+    {
+        Option::clearCachedOption(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
+        Option::delete(Social::OPTION_STORAGE_NAME);
         if (self::useNewStructure()) {
-            $cache   = Cache::getEagerCache();
             $cacheId = 'Social-' . Social::OPTION_STORAGE_NAME;
+            $cache   = Cache::getEagerCache();
             $cache->delete($cacheId);
+            \Piwik\Tracker\Cache::deleteTrackerCache();
         }
     }
 
@@ -77,11 +89,7 @@ class Model extends Singleton
     public function setUserDefinedSocials($socialList = array())
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SOCIALS, json_encode($socialList));
-        if (self::useNewStructure()) {
-            $cache   = Cache::getEagerCache();
-            $cacheId = 'Social-' . Social::OPTION_STORAGE_NAME;
-            $cache->delete($cacheId);
-        }
+        $this->clearSocialCache();
     }
 
     /**
@@ -94,7 +102,6 @@ class Model extends Singleton
         $engines = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SEARCHENGINES));
 
         if (!empty($engines)) {
-
             return (array)$engines;
         }
 
@@ -109,10 +116,21 @@ class Model extends Singleton
     public function setUserDefinedSearchEngines($engineList = array())
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SEARCHENGINES, json_encode($engineList));
+        $this->clearSearchEngineCache();
+    }
+
+    /**
+     * Clears cache for social data
+     */
+    public function clearSearchEngineCache()
+    {
+        Option::clearCachedOption(self::OPTION_KEY_USERDEFINED_SEARCHENGINES);
+        Option::delete(SearchEngine::OPTION_STORAGE_NAME);
         if (self::useNewStructure()) {
             $cache   = Cache::getEagerCache();
             $cacheId = 'SearchEngine-' . SearchEngine::OPTION_STORAGE_NAME;
             $cache->delete($cacheId);
+            \Piwik\Tracker\Cache::deleteTrackerCache();
         }
     }
 
