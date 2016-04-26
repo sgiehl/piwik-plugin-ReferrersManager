@@ -1,6 +1,6 @@
 {
     "name": "ReferrersManager",
-    "version": "1.7",
+    "version": "1.8",
     "description": "Allows to view and manage the search engines and social networks that Piwik is able to detect.",
     "keywords": ["referrer","search","engine","social"],
     "license": "GPL v3+",
