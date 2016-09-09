@@ -18,17 +18,6 @@ Note: You can find the configuration panel for this plugin within the global adm
 - Abillity to manage custom search engines and social networks
 - Abillity to disable/enable Piwik's default social network list
 
-## Changelog
-
-- 1.7 Fix Compatibility with Piwik 2.16
-- 1.6 Compatibility for Piwik > 2.15 / translation updates
-- 1.5 Compatibility issues for older Piwik versions
-- 1.4 Translation updates
-- 1.3 Adjustments for new Piwik menu api
-- 1.2 Compatibility fix for PHP < 5.4
-- 1.1 Minor Changes
-- 1.0 Initial release
-
 ## Support
 
 Please direct any feedback to [stefan@piwik.org](mailto:stefan@piwik.org)
@@ -36,8 +25,4 @@ Please direct any feedback to [stefan@piwik.org](mailto:stefan@piwik.org)
 ## Contribute
 
 Feel free to create issues and pull requests.
-
-## License
-
-GPLv3 or later
 
