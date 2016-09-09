@@ -16,19 +16,7 @@ class Menu extends \Piwik\Plugin\Menu
     public function configureAdminMenu(MenuAdmin $menu)
     {
         if (Piwik::hasUserSuperUserAccess()) {
-            if (!method_exists($menu, 'addSettingsItem')) {
-                // menu fallback for piwik < 1.11
-                $menu->add(
-                    'General_Settings',
-                    'ReferrersManager_SearchEnginesAndSocialNetworks',
-                    array('module' => 'ReferrersManager', 'action' => 'index'),
-                    true,
-                    $order = 20
-                );
-                return;
-            }
-
-            $menu->addSettingsItem(
+            $menu->addSystemItem(
                 'ReferrersManager_SearchEnginesAndSocialNetworks',
                 $this->urlForAction('index'),
                 $order = 20

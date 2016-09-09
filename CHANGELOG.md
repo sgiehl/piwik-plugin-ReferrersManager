@@ -1,5 +1,8 @@
 ## Changelog
 
+__2.0__
+* Compatibility for Piwik 3.x
+
 __1.9__
 * Mark plugin as incompatible with 3.x
 * Translation updates
