@@ -3,23 +3,23 @@
 {% if ownSocialDefinitions %}
 <p class="notification system notification-warning">
     <span>{{ 'ReferrersManager_SocialListDisabled'|translate }}</span>
-    <a href="#socialTab" role="noDefaultSocials" state="0">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
+    <a href="#socialTab" ng-click="setUseDefaultSocials(0)">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
 </p>
 {% else %}
 <p class="notification system notification-success">
     <span>{{ 'ReferrersManager_UsingDefaultSocials'|translate }}</span>
-    <a href="#socialTab" role="noDefaultSocials" state="1">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
+    <a href="#socialTab" ng-click="setUseDefaultSocials(1)">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
 </p>
 {% endif %}
 
 <span class="icoAdd" role="addSocial">
     {{ 'ReferrersManager_AddSocial'|translate }}
 </span>
-<span class="icoRefresh" role="refreshSocials">
+<span class="icoRefresh" ng-click="refreshSocials()">
     {{ 'General_Refresh'|translate }}
 </span>
 
-<table class="dataTable entityTable">
+<table piwik-content-table>
 
     <thead>
     <tr>

@@ -26,6 +26,7 @@ class ReferrersManager extends Plugin
             'Referrer.addSocialUrls'           => 'addSocialUrls',
             'AssetManager.getJavaScriptFiles'  => 'getJsFiles',
             'AssetManager.getStylesheetFiles'  => 'getStylesheetFiles',
+            'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
         );
     }
 
@@ -35,7 +36,9 @@ class ReferrersManager extends Plugin
      */
     public function getJsFiles(&$jsFiles)
     {
-        $jsFiles[] = "plugins/ReferrersManager/javascripts/ReferrersManager.js";
+        $jsFiles[] = "plugins/ReferrersManager/javascripts/checkreferrerurl.controller.js";
+        $jsFiles[] = "plugins/ReferrersManager/javascripts/searchengines.controller.js";
+        $jsFiles[] = "plugins/ReferrersManager/javascripts/referrersmanager-tabs.directive.js";
     }
 
     /**
@@ -79,4 +82,13 @@ class ReferrersManager extends Plugin
             $socials = array_merge($socials, $userSocials);
         } catch (\Exception $e) {}
     }
+
+    public function getClientSideTranslationKeys(&$translationKeys)
+    {
+        $translationKeys[] = "ReferrersManager_CheckUrlSend";
+        $translationKeys[] = "ReferrersManager_DetectedEngine";
+        $translationKeys[] = "ReferrersManager_DetectedKeywords";
+        $translationKeys[] = "ReferrersManager_DetectedSocial";
+    }
+
 }

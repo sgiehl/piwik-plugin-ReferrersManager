@@ -7,11 +7,11 @@
 <span class="icoAdd" role="addEngine">
     {{ 'ReferrersManager_AddSearchEngine'|translate }}
 </span>
-<span class="icoRefresh" role="refreshSearchEngines">
+<span class="icoRefresh" ng-click="refreshSearchEngines()">
     {{ 'General_Refresh'|translate }}
 </span>
 
-<table class="dataTable entityTable">
+<table piwik-content-table>
 
 <thead>
 <tr>
