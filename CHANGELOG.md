@@ -4,6 +4,10 @@ __1.9__
 * Mark plugin as incompatible with 3.x
 * Translation updates
 
+__1.8__
+* fixes minor bugs
+* adds possibility to refresh lists (clears caches)
+
 __1.7__
 * Fix Compatibility with Piwik 2.16
 
