@@ -1,6 +1,6 @@
 ## Changelog
 
-__1.8__
+__1.9__
 * Mark plugin as incompatible with 3.x
 * Translation updates
 
