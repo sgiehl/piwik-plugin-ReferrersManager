@@ -15,6 +15,7 @@
         "DetectedSocial": "Detected Social Network",
         "CheckUrl": "Check URL for search engine and social network information",
         "CheckUrlDesc": "Here you can paste any referrer url in order to check if Piwik would recognize it as a search engine and/or a social network",
+        "CheckUrlSend": "Check URL",
         "AddSearchEngine": "Add search engine definition",
         "Parameters": "Parameters",
         "BacklinkPattern": "Backlink pattern",

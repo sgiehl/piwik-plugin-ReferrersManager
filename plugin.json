@@ -6,10 +6,11 @@
     "license": "GPL v3+",
     "homepage": "http://github.com/sgiehl/piwik-plugin-ReferrersManager",
     "require": {
-        "piwik": ">=3.0.0,<4.0.0",
+        "piwik": ">=3.0.0-b1,<4.0.0",
         "php": ">=5.5"
     },
     "support": {
+        "email": "stefan@piwik.org",
         "issues": "https://github.com/sgiehl/piwik-plugin-ReferrersManager/issues",
         "wiki": "https://github.com/sgiehl/piwik-plugin-ReferrersManager/issues",
         "source": "https://github.com/sgiehl/piwik-plugin-ReferrersManager/issues"
