@@ -39,6 +39,8 @@ class Controller extends ControllerAdmin
      */
     public function setDefaultSocialsDisabled()
     {
+        Piwik::checkUserHasSuperUserAccess();
+
         $state = Common::getRequestVar('state', 0, 'int');
         Model::getInstance()->setDefaultSocialsDisabled((bool) $state);
         Json::sendHeaderJSON();
@@ -52,7 +54,7 @@ class Controller extends ControllerAdmin
      */
     public function checkUrl()
     {
-        $this->checkTokenInUrl();
+        Piwik::checkUserHasSuperUserAccess();
 
         $urlToCheck = trim(Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string')));
 
@@ -65,7 +67,7 @@ class Controller extends ControllerAdmin
 
     public function refresh()
     {
-        $this->checkTokenInUrl();
+        Piwik::checkUserHasSuperUserAccess();
 
         Json::sendHeaderJSON();
 
@@ -86,7 +88,7 @@ class Controller extends ControllerAdmin
      */
     public function addSocial()
     {
-        $this->checkTokenInUrl();
+        Piwik::checkUserHasSuperUserAccess();
 
         Json::sendHeaderJSON();
 
@@ -109,7 +111,7 @@ class Controller extends ControllerAdmin
      */
     public function removeSocial()
     {
-        $this->checkTokenInUrl();
+        Piwik::checkUserHasSuperUserAccess();
 
         Json::sendHeaderJSON();
 
@@ -126,42 +128,12 @@ class Controller extends ControllerAdmin
     }
 
     /**
-     * Ajax action to add a ne search engine definition
-     * @return int
-     */
-    public function addSearchEngine()
-    {
-        $this->checkTokenInUrl();
-
-        Json::sendHeaderJSON();
-
-        $name = Common::getRequestVar('name', '', 'string');
-        $host = Common::getRequestVar('host', '', 'string');
-        $backlink = Common::getRequestVar('backlink', '', 'string');
-        $parameters = Common::getRequestVar('parameters', '', 'string');
-        $charset = Common::getRequestVar('charset', '', 'string');
-
-        if (empty($host) || empty($name)) {
-            return 0;
-        }
-
-        if (!empty($parameters)) {
-            $parameters = explode(',', $parameters);
-        }
-
-        $engines = Model::getInstance()->getUserDefinedSearchEngines();
-        $engines[$host] = array($name, $parameters, $backlink, $charset);
-        Model::getInstance()->setUserDefinedSearchEngines($engines);
-        return 1;
-    }
-
-    /**
      * Ajax action to remove a user defined search engine definition
      * @return int
      */
     public function removeSearchEngine()
     {
-        $this->checkTokenInUrl();
+        Piwik::checkUserHasSuperUserAccess();
 
         Json::sendHeaderJSON();
 

@@ -9,14 +9,56 @@
         $scope.userDefinedSearchEngines = {};
         $scope.searchEngineLogos = {};
         $scope.busy = false;
+        $scope.showEngineForm = false;
 
+        $scope.newEngineData = {
+            name: '',
+            host: '',
+            parameters: '',
+            backlink: '',
+            charset: ''
+        };
+
+        $scope.addSearchEngine = function() {
+            var params = $.extend({
+                method: 'ReferrersManager.addSearchEngine'
+            }, $scope.newEngineData);
+
+            return piwikApi.fetch(params).then(function (response) {
+                if (!response) {
+                    showAddEngineError();
+                    return;
+                }
+
+                // hide/reset form and refresh list
+                $scope.showEngineForm = false;
+                $scope.newEngineData = {
+                    name: '',
+                    host: '',
+                    parameters: '',
+                    backlink: '',
+                    charset: ''
+                };
+                $scope.refreshList();
+            }, function() {
+                showAddEngineError()
+            })['finally'](function () {
+            });
+        };
+
+        function showAddEngineError()
+        {
+            var UI = require('piwik/UI');
+            var notification = new UI.Notification();
+            notification.show(_pk_translate('ReferrersManager_AddEngineError'), {context: 'error', id:'addEngineError'});
+            notification.scrollToNotification();
+        }
 
         /**
          * Refreshes the search engine list (clears all caches)
          */
         $scope.refreshList = function () {
             var ajaxHandler = new ajaxHelper();
-            ajaxHandler.withTokenInUrl();
             ajaxHandler.addParams({
                 module: 'ReferrersManager',
                 action: 'refresh',

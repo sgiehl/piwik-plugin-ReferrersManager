@@ -43,4 +43,20 @@ class API extends \Piwik\Plugin\API
     {
         return $this->model->getSocialLogos();
     }
+
+    public function addSearchEngine($name, $host , $parameters='', $backlink='', $charset='')
+    {
+        if (empty($host) || empty($name)) {
+            return false;
+        }
+
+        if (!empty($parameters)) {
+            $parameters = explode(',', $parameters);
+        }
+
+        $engines = Model::getInstance()->getUserDefinedSearchEngines();
+        $engines[$host] = array($name, $parameters, $backlink, $charset);
+        Model::getInstance()->setUserDefinedSearchEngines($engines);
+        return true;
+    }
 }
