@@ -5,11 +5,13 @@
 
     function SearchEnginesController($scope, piwikApi) {
 
-        $scope.searchEngines = {};
-        $scope.userDefinedSearchEngines = {};
-        $scope.searchEngineLogos = {};
+        $scope.searchEngines = [];
+        $scope.searchEngineNames = [];
+        $scope.userDefinedSearchEngines = [];
+        $scope.searchEngineLogos = [];
         $scope.busy = false;
         $scope.showEngineForm = false;
+        $scope.searchText = '';
 
         $scope.newEngineData = {
             name: '',
@@ -17,6 +19,22 @@
             parameters: '',
             backlink: '',
             charset: ''
+        };
+
+        $scope.removeEngine = function(host) {
+            console.log(host);
+            $('#removeDataConfirm').find('h2 .name').text(host);
+            piwikHelper.modalConfirm('#removeDataConfirm', {yes: function () {
+                var params = {
+                    method: 'ReferrersManager.removeSearchEngine',
+                    host: host
+                };
+
+                return piwikApi.fetch(params).then(function () {
+                    $scope.refreshList();
+                })['finally'](function () {
+                });
+            }});
         };
 
         $scope.addSearchEngine = function() {
@@ -93,6 +111,7 @@
                     }
 
                     $scope.searchEngines = searchEngines;
+                    $scope.searchEngineNames = Object.keys(searchEngines);
                 })['finally'](function () {
                     $scope.busy = false;
                 });

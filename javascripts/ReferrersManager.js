@@ -46,25 +46,4 @@ $(document).ready(function () {
         }});
     });
 
-    $('[role="removeEngine"]').click(function(e) {
-        var host = $(this).attr('host');
-        $('#removeDataConfirm').find('h2 .name').text(host);
-        piwikHelper.modalConfirm('#removeDataConfirm', {yes: function () {
-            var ajaxHandler = new ajaxHelper();
-            ajaxHandler.addParams({
-                module: 'ReferrersManager',
-                action: 'removeSearchEngine',
-                host: host
-            }, 'GET');
-            ajaxHandler.setCallback(function(){
-                location.hash = 'searchengineTab';
-                piwikHelper.refreshAfter(1);
-            });
-            ajaxHandler.send(true);
-        }});
-    });
-
-    $('[role="refreshSearchEngines"]').click(function(){
-
-    });
 });
