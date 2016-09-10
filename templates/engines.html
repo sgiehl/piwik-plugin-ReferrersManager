@@ -1,0 +1,91 @@
+<h3>{{ 'ReferrersManager_SearchEnginesList'|translate }}</h3>
+
+<p>
+    {{ 'ReferrersManager_HostnameWildcardDesc'|translate }}
+</p>
+
+<span class="icoAdd" ng-click="addEngine()">
+    {{ 'ReferrersManager_AddSearchEngine'|translate }}
+</span>
+<span class="icoRefresh" ng-click="refreshList()">
+    {{ 'General_Refresh'|translate }}
+</span>
+
+<table piwik-content-table>
+
+    <thead>
+    <tr>
+        <th>{{ 'General_Name'|translate }}</th>
+        <th>{{ 'ReferrersManager_Hostname'|translate }}</th>
+        <th>{{ 'ReferrersManager_Parameters'|translate }}</th>
+        <th>{{ 'ReferrersManager_BacklinkPattern'|translate }}</th>
+        <th>{{ 'ReferrersManager_Charset'|translate }}</th>
+        <th ng-if="userDefinedSearchEngines"></th>
+    </tr>
+
+    </thead>
+
+    <tr ng-show="busy">
+        <th rowspan="6">
+            <div class="loadingPiwik">
+                <img src="plugins/Morpheus/images/loading-blue.gif" alt="{{ 'General_LoadingData'|translate }}" />
+                {{ 'General_LoadingData'|translate }}
+            </div>
+        </th>
+    </tr>
+
+    <tbody ng-repeat="(name, infos) in searchEngines" ng-show="!busy">
+
+    <tr ng-repeat="(i, url) in infos">
+
+        <td rowspan="{{ infos.length }}" ng-if="i==0">
+            <img ng-show="searchEngineLogos[name]" ng-attr-src="{{ searchEngineLogos[name] }}">
+            {{ name }}
+        </td>
+        <td>{{ url.url }}</td>
+        <td title="{{ url.parameters }}">{{ url.parameters|limitTo:25 }}</td>
+        <td title="{{ url.backlink }}">{{ url.backlink|limitTo:25 }}</td>
+        <td>{{ url.charset }}</td>
+        <td ng-if="userDefinedSearchEngines">
+            <span class="icoDelete" ng-if="userDefinedSearchEngines[url.url]" ng-click="removeEngine()" host="{{ url.url }}">
+                {{ 'General_Delete'|translate }}
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div role="addEngineForm" style="display: none;" class="admin">
+
+    <h2>{{ 'ReferrersManager_AddSearchEngine'|translate }}</h2>
+    {{ 'ReferrersManager_ProvideEngineData'|translate }}
+
+    <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
+
+    <div role="addEngineError" class="error" style="display: none">{{ 'ReferrersManager_AddEngineError'|translate }}</div>
+
+    <table class="adminTable">
+        <tr>
+            <td><label for="engineName">{{ 'General_Name'|translate }}*:</label></td>
+            <td><input type="text" name="engineName" id="engineName" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineHost">{{ 'ReferrersManager_Hostname'|translate }}*:</label></td>
+            <td><input type="text" name="engineHost" id="engineHost" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineParameter">{{ 'ReferrersManager_Parameters'|translate }} {{ 'ReferrersManager_CommaSeparated'|translate }}*:</label></td>
+            <td><input type="text" name="engineParameter" id="engineParameter" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineBacklink">{{ 'ReferrersManager_BacklinkPattern'|translate }}:</label></td>
+            <td><input type="text" name="engineBacklink" id="engineBacklink" /></td>
+        </tr>
+        <tr>
+            <td><label for="engineCharset">{{ 'ReferrersManager_Charset'|translate }}:</label></td>
+            <td><input type="text" name="engineCharset" id="engineCharset" /></td>
+        </tr>
+    </table>
+
+    <button role="submitAddEngine">{{ 'General_Save'|translate }}</button>
+</div>
