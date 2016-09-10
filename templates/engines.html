@@ -5,15 +5,14 @@
         {{ 'ReferrersManager_HostnameWildcardDesc'|translate }}
     </p>
 
-    <span class="icoAdd" ng-click="showEngineForm=true">
+    <span class="icoAdd" ng-click="showAddSearchEngineForm(true)">
         {{ 'ReferrersManager_AddSearchEngine'|translate }}
     </span>
     <span class="icoRefresh" ng-click="refreshList()">
         {{ 'General_Refresh'|translate }}
     </span>
-
     <div class="search-detections">
-        <input type="text" ng-model="searchText" value="" placeholder="{{ 'General_Search'|translate }}" />
+        <input type="text" ng-model="searchText" value="" placeholder="{{ 'General_Search'|translate }}"/>
     </div>
 
     <table piwik-content-table>
@@ -40,9 +39,7 @@
         </tr>
 
         <tbody ng-repeat="name in searchEngineNames | filter:searchText" ng-show="!busy">
-
         <tr ng-repeat="(i, url) in searchEngines[name]">
-
             <td rowspan="{{ searchEngines[name].length }}" ng-if="i==0">
                 <img ng-show="searchEngineLogos[name]" ng-attr-src="{{ searchEngineLogos[name] }}">
                 {{ name }}
@@ -52,9 +49,9 @@
             <td title="{{ url.backlink }}">{{ url.backlink|limitTo:25 }}</td>
             <td>{{ url.charset }}</td>
             <td ng-if="userDefinedSearchEngines">
-            <span class="icoDelete" ng-if="userDefinedSearchEngines[url.url]" ng-click="removeEngine(url.url)">
-                {{ 'General_Delete'|translate }}
-            </span>
+                <span class="icoDelete" ng-if="userDefinedSearchEngines[url.url]" ng-click="removeEngine(url.url)">
+                    {{ 'General_Delete'|translate }}
+                </span>
             </td>
         </tr>
         </tbody>
@@ -68,7 +65,7 @@
 
     <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
 
-    <table class="adminTable">
+    <table>
         <tr>
             <td><label for="engineName">{{ 'General_Name'|translate }}*:</label></td>
             <td><input type="text" ng-model="newEngineData['name']" id="engineName"/></td>
@@ -94,5 +91,5 @@
 
     <div piwik-save-button onconfirm="addSearchEngine()"></div>
 
-    <div piwik-save-button onconfirm="showEngineForm=false" value="{{ 'General_Cancel'|translate }}"></div>
+    <div piwik-save-button onconfirm="showAddSearchEngineForm(false)" value="{{ 'General_Cancel'|translate }}"></div>
 </div>

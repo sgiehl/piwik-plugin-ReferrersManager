@@ -38,6 +38,7 @@ class ReferrersManager extends Plugin
     {
         $jsFiles[] = "plugins/ReferrersManager/javascripts/checkreferrerurl.controller.js";
         $jsFiles[] = "plugins/ReferrersManager/javascripts/searchengines.controller.js";
+        $jsFiles[] = "plugins/ReferrersManager/javascripts/socials.controller.js";
         $jsFiles[] = "plugins/ReferrersManager/javascripts/referrersmanager-tabs.directive.js";
     }
 

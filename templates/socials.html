@@ -1,0 +1,81 @@
+<div ng-show="!showSocialForm">
+    <h3>{{ 'ReferrersManager_SocialsList'|translate }}</h3>
+
+    <p class="notification system notification-warning" ng-if="ownSocialDefinitions">
+        <span>{{ 'ReferrersManager_SocialListDisabled'|translate }}</span>
+        <a href="#socialTab" ng-click="setUseDefaultSocials(0)">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
+    </p>
+
+    <p class="notification system notification-success" ng-if="!ownSocialDefinitions">
+        <span>{{ 'ReferrersManager_UsingDefaultSocials'|translate }}</span>
+        <a href="#socialTab" ng-click="setUseDefaultSocials(1)">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
+    </p>
+
+    <span class="icoAdd" ng-click="showAddSocialForm(true)">
+        {{ 'ReferrersManager_AddSocial'|translate }}
+    </span>
+    <span class="icoRefresh" ng-click="refreshList()">
+        {{ 'General_Refresh'|translate }}
+    </span>
+    <div class="search-detections">
+        <input type="text" ng-model="searchText" value="" placeholder="{{ 'General_Search'|translate }}"/>
+    </div>
+
+    <table piwik-content-table>
+
+        <thead>
+        <tr>
+            <th>{{ 'General_Name'|translate }}</th>
+            <th>{{ 'ReferrersManager_Hostname'|translate }}</th>
+            <th ng-if="userDefinedSocials"></th>
+        </tr>
+        </thead>
+
+        <tr ng-show="busy">
+            <th rowspan="6">
+                <div class="loadingPiwik">
+                    <img src="plugins/Morpheus/images/loading-blue.gif" alt="{{ 'General_LoadingData'|translate }}"/>
+                    {{ 'General_LoadingData'|translate }}
+                </div>
+            </th>
+        </tr>
+
+        <tbody ng-repeat="name in socialNames | filter:searchText" ng-show="!busy">
+        <tr ng-repeat="(i, host) in socials[name]">
+            <td rowspan="{{ socials[name].length }}" ng-if="i==0">
+                <img ng-show="socialLogos[name]" ng-attr-src="{{ socialLogos[name] }}">
+                {{ name }}
+            </td>
+            <td>{{ host }}</td>
+            <td ng-if="userDefinedSocials">
+            <span class="icoDelete" ng-if="userDefinedSocials[host]" ng-click="removeSocial(host)">
+                {{ 'General_Delete'|translate }}
+            </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div ng-show="showSocialForm">
+
+    <h2>{{ 'ReferrersManager_AddSocial'|translate }}</h2>
+    {{ 'ReferrersManager_ProvideSocialData'|translate }}
+
+    <p>{{ 'ReferrersManager_DuplicateHostnameInfo'|translate }}</p>
+
+    <table>
+        <tr>
+            <td><label for="socialName">{{ 'General_Name'|translate }}*:</label></td>
+            <td><input type="text" ng-model="newSocialData['name']" id="socialName"/></td>
+        </tr>
+        <tr>
+            <td><label for="socialHost">{{ 'ReferrersManager_Hostname'|translate }}*:</label></td>
+            <td><input type="text" ng-model="newSocialData['host']" id="socialHost"/></td>
+        </tr>
+    </table>
+
+    <div piwik-save-button onconfirm="addSocial()"></div>
+
+    <div piwik-save-button onconfirm="showAddSocialForm(false)" value="{{ 'General_Cancel'|translate }}"></div>
+</div>

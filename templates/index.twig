@@ -22,8 +22,8 @@
             <div id="searchengineTab" class="col" ng-controller="SearchEnginesController">
                 <div ng-include="'plugins/ReferrersManager/templates/engines.html?cb={{ cacheBuster }}'"></div>
             </div>
-            <div id="socialTab" class="col">
-                <!--div ng-include="'plugins/ReferrersManager/templates/socials.html?cb={{ cacheBuster }}'"></div-->
+            <div id="socialTab" class="col" ng-controller="SocialsController" ng-init="ownSocialDefinitions='{{ ownSocialDefinitions }}'">
+                <div ng-include="'plugins/ReferrersManager/templates/socials.html?cb={{ cacheBuster }}'"></div>
             </div>
         </div>
 
