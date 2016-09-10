@@ -28,9 +28,7 @@ class ModelTest extends SystemTestCase
     protected function invalidateCaches()
     {
         Cache::flushAll();
-        if (class_exists('\Piwik\Plugins\Referrers\SearchEngine')) {
-            \Piwik\Plugins\Referrers\SearchEngine::unsetInstance();
-        }
+        \Piwik\Plugins\Referrers\SearchEngine::unsetInstance();
     }
 
     public function testGetCustomSearchEnginesEmpty()
