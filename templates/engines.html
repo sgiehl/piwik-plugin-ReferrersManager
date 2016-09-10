@@ -12,6 +12,10 @@
         {{ 'General_Refresh'|translate }}
     </span>
 
+    <div class="search-detections">
+        <input type="text" ng-model="searchText" value="" placeholder="{{ 'General_Search'|translate }}" />
+    </div>
+
     <table piwik-content-table>
 
         <thead>
@@ -35,11 +39,11 @@
             </th>
         </tr>
 
-        <tbody ng-repeat="(name, infos) in searchEngines" ng-show="!busy">
+        <tbody ng-repeat="name in searchEngineNames | filter:searchText" ng-show="!busy">
 
-        <tr ng-repeat="(i, url) in infos">
+        <tr ng-repeat="(i, url) in searchEngines[name]">
 
-            <td rowspan="{{ infos.length }}" ng-if="i==0">
+            <td rowspan="{{ searchEngines[name].length }}" ng-if="i==0">
                 <img ng-show="searchEngineLogos[name]" ng-attr-src="{{ searchEngineLogos[name] }}">
                 {{ name }}
             </td>
@@ -48,8 +52,7 @@
             <td title="{{ url.backlink }}">{{ url.backlink|limitTo:25 }}</td>
             <td>{{ url.charset }}</td>
             <td ng-if="userDefinedSearchEngines">
-            <span class="icoDelete" ng-if="userDefinedSearchEngines[url.url]" ng-click="removeEngine()"
-                  host="{{ url.url }}">
+            <span class="icoDelete" ng-if="userDefinedSearchEngines[url.url]" ng-click="removeEngine(url.url)">
                 {{ 'General_Delete'|translate }}
             </span>
             </td>
@@ -90,5 +93,6 @@
     </table>
 
     <div piwik-save-button onconfirm="addSearchEngine()"></div>
+
     <div piwik-save-button onconfirm="showEngineForm=false" value="{{ 'General_Cancel'|translate }}"></div>
 </div>

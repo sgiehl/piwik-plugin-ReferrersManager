@@ -54,9 +54,26 @@ class API extends \Piwik\Plugin\API
             $parameters = explode(',', $parameters);
         }
 
-        $engines = Model::getInstance()->getUserDefinedSearchEngines();
+        $engines = $this->model->getUserDefinedSearchEngines();
         $engines[$host] = array($name, $parameters, $backlink, $charset);
-        Model::getInstance()->setUserDefinedSearchEngines($engines);
+        $this->model->setUserDefinedSearchEngines($engines);
+        return true;
+    }
+
+    public function removeSearchEngine($host)
+    {
+        if (empty($host)) {
+            return false;
+        }
+
+        $engines = $this->model->getUserDefinedSearchEngines();
+
+        if (empty($engines[$host])) {
+            return false; // does not exist
+        }
+
+        unset($engines[$host]);
+        $this->model->setUserDefinedSearchEngines($engines);
         return true;
     }
 }
