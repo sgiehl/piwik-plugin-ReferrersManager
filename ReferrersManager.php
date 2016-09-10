@@ -85,10 +85,39 @@ class ReferrersManager extends Plugin
 
     public function getClientSideTranslationKeys(&$translationKeys)
     {
-        $translationKeys[] = "ReferrersManager_CheckUrlSend";
+        $translationKeys[] = "ReferrersManager_PluginDescription";
+        $translationKeys[] = "ReferrersManager_SearchEnginesAndSocialNetworks";
+        $translationKeys[] = "ReferrersManager_AddSocial";
+        $translationKeys[] = "ReferrersManager_Hostname";
+        $translationKeys[] = "ReferrersManager_SearchEnginesList";
+        $translationKeys[] = "ReferrersManager_SocialsList";
+        $translationKeys[] = "ReferrersManager_ManageSocialsAndEngines";
+        $translationKeys[] = "ReferrersManager_ConfirmRemove";
+        $translationKeys[] = "ReferrersManager_ManageSearchEngines";
+        $translationKeys[] = "ReferrersManager_ManageSocials";
         $translationKeys[] = "ReferrersManager_DetectedEngine";
         $translationKeys[] = "ReferrersManager_DetectedKeywords";
         $translationKeys[] = "ReferrersManager_DetectedSocial";
+        $translationKeys[] = "ReferrersManager_CheckUrl";
+        $translationKeys[] = "ReferrersManager_CheckUrlDesc";
+        $translationKeys[] = "ReferrersManager_CheckUrlSend";
+        $translationKeys[] = "ReferrersManager_AddSearchEngine";
+        $translationKeys[] = "ReferrersManager_Parameters";
+        $translationKeys[] = "ReferrersManager_BacklinkPattern";
+        $translationKeys[] = "ReferrersManager_Charset";
+        $translationKeys[] = "ReferrersManager_AddEngineError";
+        $translationKeys[] = "ReferrersManager_CommaSeparated";
+        $translationKeys[] = "ReferrersManager_AddSocialError";
+        $translationKeys[] = "ReferrersManager_SocialListDisabled";
+        $translationKeys[] = "ReferrersManager_EnableSocialList";
+        $translationKeys[] = "ReferrersManager_DisableSocialList";
+        $translationKeys[] = "ReferrersManager_UsingDefaultSocials";
+        $translationKeys[] = "ReferrersManager_ProvideSocialData";
+        $translationKeys[] = "ReferrersManager_DuplicateHostnameInfo";
+        $translationKeys[] = "ReferrersManager_ProvideEngineData";
+        $translationKeys[] = "ReferrersManager_HostnameWildcardDesc";
+
+        
     }
 
 }

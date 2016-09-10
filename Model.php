@@ -142,7 +142,7 @@ class Model extends Singleton
      *
      * @return array
      */
-    public function getSearchEngineInfos()
+    public function getSearchEngineDefinitions()
     {
         $mergedSearchInfos = [];
 
@@ -198,7 +198,7 @@ class Model extends Singleton
      *
      * @return array
      */
-    public function getSocialsInfos()
+    public function getSocialsDefinitions()
     {
         $mergedSocials = [];
 

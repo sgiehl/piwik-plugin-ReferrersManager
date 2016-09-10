@@ -29,15 +29,7 @@ class Controller extends ControllerAdmin
         $view = new View('@ReferrersManager/index');
         $this->setBasicVariablesView($view);
 
-        $view->searchEngineInfos = Model::getInstance()->getSearchEngineInfos();
-        $view->searchEngineLogos = Model::getInstance()->getSearchEngineLogos();
-
-        $view->socialInfos = Model::getInstance()->getSocialsInfos();
-        $view->socialLogos = Model::getInstance()->getSocialsLogos();
-
         $view->ownSocialDefinitions = Model::getInstance()->areDefaultSocialsDisabled();
-        $view->userDefinedSocials = Model::getInstance()->getUserDefinedSocials();
-        $view->userDefinedSearchEngines = Model::getInstance()->getUserDefinedSearchEngines();
 
         return $view->render();
     }

@@ -19,8 +19,8 @@
                             href="#searchengineTab">{{ 'ReferrersManager_ManageSearchEngines'|translate }}</a></li>
                 <li class="tab col"><a href="#socialTab">{{ 'ReferrersManager_ManageSocials'|translate }}</a></li>
             </ul>
-            <div id="searchengineTab" class="col">
-                {% include "@ReferrersManager/engines.twig" %}
+            <div id="searchengineTab" class="col" ng-controller="SearchEnginesController">
+                <div ng-include="'plugins/ReferrersManager/templates/engines.html?cb={{ cacheBuster }}'"></div>
             </div>
             <div id="socialTab" class="col">
                 {% include "@ReferrersManager/socials.twig" %}
