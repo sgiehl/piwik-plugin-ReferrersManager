@@ -14,13 +14,11 @@ use Piwik\Plugins\Referrers\SearchEngine;
 use Piwik\Plugins\Referrers\Social;
 use Piwik\Singleton;
 
-
 /**
  *
  */
 class Model extends Singleton
 {
-
     const OPTION_KEY_DISABLE_DEFAULT_SOCIALS   = 'disable_default_socials';
     const OPTION_KEY_USERDEFINED_SOCIALS       = 'userdefined_socials';
     const OPTION_KEY_USERDEFINED_SEARCHENGINES = 'userdefined_searchengines';
@@ -44,7 +42,6 @@ class Model extends Singleton
     {
         Option::set(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS, $disabled);
         $this->clearSocialCache();
-
     }
 
     /**

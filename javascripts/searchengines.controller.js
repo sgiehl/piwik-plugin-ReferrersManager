@@ -21,6 +21,10 @@
             charset: ''
         };
 
+        $scope.showAddSearchEngineForm = function(val) {
+            $scope.showEngineForm = val;
+        };
+
         $scope.removeEngine = function(host) {
             console.log(host);
             $('#removeDataConfirm').find('h2 .name').text(host);
@@ -32,7 +36,6 @@
 
                 return piwikApi.fetch(params).then(function () {
                     $scope.refreshList();
-                })['finally'](function () {
                 });
             }});
         };
@@ -49,7 +52,7 @@
                 }
 
                 // hide/reset form and refresh list
-                $scope.showEngineForm = false;
+                $scope.showAddSearchEngineForm(false);
                 $scope.newEngineData = {
                     name: '',
                     host: '',
@@ -60,7 +63,6 @@
                 $scope.refreshList();
             }, function() {
                 showAddEngineError()
-            })['finally'](function () {
             });
         };
 
@@ -164,6 +166,5 @@
 
         // initialize list
         $scope.fetchSearchEngines();
-
     }
 })();

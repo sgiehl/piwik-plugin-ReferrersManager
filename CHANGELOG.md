@@ -2,6 +2,9 @@
 
 __2.0__
 * Compatibility for Piwik 3.x
+* Rewrote UI using angular JS
+* Materialised UI/UX
+* Searchable lists for search engines / social networks
 
 __1.9__
 * Mark plugin as incompatible with 3.x
