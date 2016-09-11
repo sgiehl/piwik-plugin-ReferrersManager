@@ -1,6 +1,6 @@
 ## Changelog
 
-__2.0__
+__3.0__
 * Compatibility for Piwik 3.x
 * Rewrote UI using angular JS
 * Materialised UI/UX
