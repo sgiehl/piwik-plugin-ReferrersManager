@@ -7,7 +7,7 @@
         "SearchEnginesList": "List of all search engines known to Piwik",
         "SocialsList": "List of all socials known to Piwik",
         "ManageSocialsAndEngines": "Manage search engines and social networks",
-        "ConfirmRemove": "Do your really want to remove %s from the list.",
+        "ConfirmRemove": "Do your really want to remove %s from the list?",
         "ManageSearchEngines": "Manage search engines",
         "ManageSocials": "Manage social networks",
         "DetectedEngine": "Detected Engine",
