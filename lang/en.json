@@ -30,6 +30,10 @@
         "ProvideSocialData": "Please provide the data for the new social network.",
         "DuplicateHostnameInfo": "Keep in mind that the hostname needs to be unique. A duplicate hostname will overwrite the other.",
         "ProvideEngineData": "Please provide the data for the search engine.",
-        "HostnameWildcardDesc": "For region-specific search engines, the URL, \"{}.example.com\" will match any ISO3166-1 alpha2 country code against \"{}\".  Similarly, \"example.{}\" will match against valid country TLDs, but should be used sparingly to avoid false positives."
+        "HostnameWildcardDesc": "For region-specific search engines, the URL, \"{}.example.com\" will match any ISO3166-1 alpha2 country code against \"{}\".  Similarly, \"example.{}\" will match against valid country TLDs, but should be used sparingly to avoid false positives.",
+        "SearchEngineAdded": "added a new custom search engine",
+        "SearchEngineRemoved": "removed a custom search engine",
+        "SocialAdded": "added a new custom social network",
+        "SocialRemoved": "removed a custom social network"
     }
 }
