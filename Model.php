@@ -8,21 +8,17 @@
 namespace Piwik\Plugins\ReferrersManager;
 
 use Piwik\Cache;
-use Piwik\Common;
 use Piwik\Option;
 use Piwik\Piwik;
 use Piwik\Plugins\Referrers\SearchEngine;
 use Piwik\Plugins\Referrers\Social;
 use Piwik\Singleton;
-use Piwik\UrlHelper;
-
 
 /**
  *
  */
 class Model extends Singleton
 {
-
     const OPTION_KEY_DISABLE_DEFAULT_SOCIALS   = 'disable_default_socials';
     const OPTION_KEY_USERDEFINED_SOCIALS       = 'userdefined_socials';
     const OPTION_KEY_USERDEFINED_SEARCHENGINES = 'userdefined_searchengines';
@@ -46,7 +42,6 @@ class Model extends Singleton
     {
         Option::set(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS, $disabled);
         $this->clearSocialCache();
-
     }
 
     /**
@@ -56,12 +51,10 @@ class Model extends Singleton
     {
         Option::clearCachedOption(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
         Option::delete(Social::OPTION_STORAGE_NAME);
-        if (self::useNewStructure()) {
-            $cacheId = 'Social-' . Social::OPTION_STORAGE_NAME;
-            $cache   = Cache::getEagerCache();
-            $cache->delete($cacheId);
-            \Piwik\Tracker\Cache::deleteTrackerCache();
-        }
+        $cacheId = 'Social-' . Social::OPTION_STORAGE_NAME;
+        $cache   = Cache::getEagerCache();
+        $cache->delete($cacheId);
+        \Piwik\Tracker\Cache::deleteTrackerCache();
     }
 
     /**
@@ -78,7 +71,7 @@ class Model extends Singleton
             return (array)$socials;
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -86,7 +79,7 @@ class Model extends Singleton
      *
      * @param array $socialList
      */
-    public function setUserDefinedSocials($socialList = array())
+    public function setUserDefinedSocials($socialList = [])
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SOCIALS, json_encode($socialList));
         $this->clearSocialCache();
@@ -105,7 +98,7 @@ class Model extends Singleton
             return (array)$engines;
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -113,7 +106,7 @@ class Model extends Singleton
      *
      * @param array $engineList
      */
-    public function setUserDefinedSearchEngines($engineList = array())
+    public function setUserDefinedSearchEngines($engineList = [])
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SEARCHENGINES, json_encode($engineList));
         $this->clearSearchEngineCache();
@@ -126,21 +119,10 @@ class Model extends Singleton
     {
         Option::clearCachedOption(self::OPTION_KEY_USERDEFINED_SEARCHENGINES);
         Option::delete(SearchEngine::OPTION_STORAGE_NAME);
-        if (self::useNewStructure()) {
-            $cache   = Cache::getEagerCache();
-            $cacheId = 'SearchEngine-' . SearchEngine::OPTION_STORAGE_NAME;
-            $cache->delete($cacheId);
-            \Piwik\Tracker\Cache::deleteTrackerCache();
-        }
-    }
-
-    /**
-     * Returns whether to use methods available in Piwik > 2.15
-     * @return bool
-     */
-    public static function useNewStructure()
-    {
-        return class_exists('\Piwik\Plugins\Referrers\SearchEngine');
+        $cache   = Cache::getEagerCache();
+        $cacheId = 'SearchEngine-' . SearchEngine::OPTION_STORAGE_NAME;
+        $cache->delete($cacheId);
+        \Piwik\Tracker\Cache::deleteTrackerCache();
     }
 
     /**
@@ -149,11 +131,7 @@ class Model extends Singleton
      */
     public function getSearchEngines()
     {
-        if (self::useNewStructure()) {
-            return \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getDefinitions();
-        } else {
-            return Common::getSearchEngineUrls();
-        }
+        return \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getDefinitions();
     }
 
     /**
@@ -161,35 +139,23 @@ class Model extends Singleton
      *
      * @return array
      */
-    public function getSearchEngineInfos()
+    public function getSearchEngineDefinitions()
     {
-        $mergedSearchInfos = array();
+        $mergedSearchInfos = [];
 
         $searchEngineInfos = $this->getSearchEngines();
 
         foreach ($searchEngineInfos AS $url => $infos) {
 
-            if (self::useNewStructure()) {
-                if (empty($mergedSearchInfos[$infos['name']])) {
-                    $mergedSearchInfos[$infos['name']] = array();
-                }
-                $mergedSearchInfos[$infos['name']][] = array(
-                    'url'        => $url,
-                    'parameters' => implode(', ', $infos['params']),
-                    'backlink'   => !empty($infos['backlink']) ? $infos['backlink'] : '',
-                    'charset'    => !empty($infos['charsets']) ? implode(', ', $infos['charsets']) : '',
-                );
-            } else {
-                if (empty($mergedSearchInfos[$infos[0]])) {
-                    $mergedSearchInfos[$infos[0]] = array();
-                }
-                $mergedSearchInfos[$infos[0]][] = array(
-                    'url'        => $url,
-                    'parameters' => !empty($infos[1]) ? implode(', ', (array)$infos[1]) : '',
-                    'backlink'   => !empty($infos[2]) ? $infos[2] : '',
-                    'charset'    => !empty($infos[3]) ? implode(', ', (array)$infos[3]) : '',
-                );
+            if (empty($mergedSearchInfos[$infos['name']])) {
+                $mergedSearchInfos[$infos['name']] = [];
             }
+            $mergedSearchInfos[$infos['name']][] = [
+                'url'        => $url,
+                'parameters' => implode(', ', $infos['params']),
+                'backlink'   => !empty($infos['backlink']) ? $infos['backlink'] : '',
+                'charset'    => !empty($infos['charsets']) ? implode(', ', $infos['charsets']) : '',
+            ];
         }
 
         ksort($mergedSearchInfos, SORT_LOCALE_STRING);
@@ -204,21 +170,14 @@ class Model extends Singleton
      */
     public function getSearchEngineLogos()
     {
-        $searchEngineLogos = array();
+        $searchEngineLogos = [];
 
-        if (self::useNewStructure()) {
-            $searchEngineNames = \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getNames();
-        } else {
-            $searchEngineNames = Common::getSearchEngineNames();
-        }
+        $searchEngineNames = \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getNames();
 
         foreach ($searchEngineNames AS $name => $url) {
-            if (self::useNewStructure()) {
-                $searchEngineLogos[$name] = \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getLogoFromUrl($url);
-            } else {
-                $searchEngineLogos[$name] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl($url);
-            }
+            $searchEngineLogos[$name] = \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getLogoFromUrl($url);
         }
+
         return $searchEngineLogos;
     }
 
@@ -228,11 +187,7 @@ class Model extends Singleton
      */
     public function getSocials()
     {
-        if (self::useNewStructure()) {
-            return \Piwik\Plugins\Referrers\Social::getInstance()->getDefinitions();
-        } else {
-            return Common::getSocialUrls();
-        }
+        return \Piwik\Plugins\Referrers\Social::getInstance()->getDefinitions();
     }
 
     /**
@@ -240,9 +195,9 @@ class Model extends Singleton
      *
      * @return array
      */
-    public function getSocialsInfos()
+    public function getSocialsDefinitions()
     {
-        $mergedSocials = array();
+        $mergedSocials = [];
 
         $urls = $this->getSocials();
 
@@ -262,39 +217,23 @@ class Model extends Singleton
      */
     public function getSocialsLogos()
     {
-        $socialsLogos = array();
+        $socialsLogos = [];
 
-        if (self::useNewStructure()) {
-            $urls = \Piwik\Plugins\Referrers\Social::getInstance()->getDefinitions();
-        } else {
-            $urls = Common::getSocialUrls();
-        }
+        $urls = \Piwik\Plugins\Referrers\Social::getInstance()->getDefinitions();
 
         foreach ($urls AS $url => $name) {
 
-            if (self::useNewStructure()) {
-                $socialsLogos[urldecode($name)] = \Piwik\Plugins\Referrers\Social::getInstance()->getLogoFromUrl($url);
-            } else {
-                $socialsLogos[urldecode($name)] = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
-            }
+            $socialsLogos[urldecode($name)] = \Piwik\Plugins\Referrers\Social::getInstance()->getLogoFromUrl($url);
         }
         return $socialsLogos;
     }
 
     public function detectSearchEngine($url)
     {
-        if (self::useNewStructure()) {
-            $detectedEngine = SearchEngine::getInstance()->extractInformationFromUrl($url);
-        } else {
-            $detectedEngine = UrlHelper::extractSearchEngineInformationFromUrl($url);
-        }
+        $detectedEngine = SearchEngine::getInstance()->extractInformationFromUrl($url);
 
         if (!empty($detectedEngine['name'])) {
-            if (self::useNewStructure()) {
-                $detectedEngine['image'] = SearchEngine::getInstance()->getLogoFromUrl(SearchEngine::getInstance()->getUrlFromName($detectedEngine['name']));
-            } else {
-                $detectedEngine['image'] = \Piwik\Plugins\Referrers\getSearchEngineLogoFromUrl(\Piwik\Plugins\Referrers\getSearchEngineUrlFromName($detectedEngine['name']));
-            }
+            $detectedEngine['image'] = SearchEngine::getInstance()->getLogoFromUrl(SearchEngine::getInstance()->getUrlFromName($detectedEngine['name']));
 
             if ($detectedEngine['keywords'] === false) {
                 $detectedEngine['keywords'] = '<i>' . Piwik::translate('General_NotDefined',
@@ -307,24 +246,16 @@ class Model extends Singleton
 
     public function detectSocial($url)
     {
-        if (self::useNewStructure()) {
-            $detectedSocial = Social::getInstance()->getSocialNetworkFromDomain($url);
-        } else {
-            $detectedSocial = \Piwik\Plugins\Referrers\getSocialNetworkFromDomain($url);
-        }
+        $detectedSocial = Social::getInstance()->getSocialNetworkFromDomain($url);
 
         if (!empty($detectedSocial) && $detectedSocial != Piwik::translate('General_Unknown')) {
 
-            if (self::useNewStructure()) {
-                $image = Social::getInstance()->getLogoFromUrl($url);
-            } else {
-                $image = \Piwik\Plugins\Referrers\getSocialsLogoFromUrl($url);
-            }
+            $image = Social::getInstance()->getLogoFromUrl($url);
 
-            $detectedSocial = array(
+            $detectedSocial = [
                 'name'  => $detectedSocial,
                 'image' => $image
-            );
+            ];
         } else {
 
             $detectedSocial = false;

@@ -4,7 +4,7 @@ language: php
 
 php:
   - 5.6
-  - 5.3
+  - 5.5
 #  - hhvm
 
 services:
@@ -27,19 +27,19 @@ env:
   global:
     - PLUGIN_NAME=ReferrersManager
     - PIWIK_ROOT_DIR=$TRAVIS_BUILD_DIR/piwik
-    - PIWIK_LATEST_STABLE_TEST_TARGET=2.16.0
+    - PIWIK_LATEST_STABLE_TEST_TARGET=3.x-dev
   matrix:
     - TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_PIWIK_BRANCH=$PIWIK_LATEST_STABLE_TEST_TARGET
-    - TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_CORE=2.8.0
+    # - TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_CORE=3.0.0
     - TEST_SUITE=UITests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_PIWIK_BRANCH=$PIWIK_LATEST_STABLE_TEST_TARGET
 
 matrix:
   exclude:
     # execute latest stable tests only w/ PHP 5.6
-    - php: 5.3
+    - php: 5.5
       env: TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_CORE=$PIWIK_LATEST_STABLE_TEST_TARGET
     # execute UI tests only w/ PHP 5.6
-    - php: 5.3
+    - php: 5.5
       env: TEST_SUITE=UITests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_PIWIK_BRANCH=$PIWIK_LATEST_STABLE_TEST_TARGET
 
 sudo: required
@@ -49,7 +49,6 @@ script: $PIWIK_ROOT_DIR/tests/travis/travis.sh
 before_install:
   # do not use the Zend allocator on PHP 5.3 since it will randomly segfault after program execution
   - '[[ "$TRAVIS_PHP_VERSION" == 5.3* ]] && export USE_ZEND_ALLOC=0 || true'
-  - ./tests/travis/install_git_lfs.sh
 
 install:
   # move all contents of current repo (which contains the plugin) to a new directory

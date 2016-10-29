@@ -1,34 +1,39 @@
 {% extends 'admin.twig' %}
 
+{% set title %}{{ 'ReferrersManager_ManageSocialsAndEngines'|translate }}{% endset %}
+
 {% block content %}
-    <h2>{{ 'ReferrersManager_ManageSocialsAndEngines'|translate }}</h2>
+    <div piwik-content-block content-title="{{ title|e('html_attr') }}">
 
-    <h3>{{ 'ReferrersManager_CheckUrl'|translate }}</h3>
+        <h3>{{ 'ReferrersManager_CheckUrl'|translate }}</h3>
 
-    <p>{{ 'ReferrersManager_CheckUrlDesc'|translate }}</p>
+        <p>{{ 'ReferrersManager_CheckUrlDesc'|translate }}</p>
 
-    <input type="text" name="url" id="urlToCheck" size="50" /> <button id="checkurl">Check</button>
+        <div ng-include="'plugins/ReferrersManager/templates/urlchecker.html?cb={{ cacheBuster }}'"></div>
 
-    <p class="detectionresult">{{ 'ReferrersManager_DetectedEngine'|translate }}: <img src="plugins/Referrers/images/searchEngines/xx.png" /><span class="engine"></span>  {{ 'ReferrersManager_DetectedKeywords'|translate }}: <span class="keywords"></span></p>
-    <p class="socialresult">{{ 'ReferrersManager_DetectedSocial'|translate }}: <img src="plugins/Referrers/images/socials/xx.png" /><span class="social"></span></p>
-    <div id="tabs">
-        <ul>
-            <li><a href="#searchengineTab">{{ 'ReferrersManager_ManageSearchEngines'|translate }}</a></li>
-            <li><a href="#socialTab">{{ 'ReferrersManager_ManageSocials'|translate }}</a></li>
-        </ul>
-        <div id="searchengineTab">
-            {% include "@ReferrersManager/engines.twig" %}
-        </div>
-        <div id="socialTab">
-            {% include "@ReferrersManager/socials.twig" %}
-        </div>
     </div>
+    <div piwik-content-block>
+        <div class="row">
+            <ul class="tabs" referrersmanager-tabs>
+                <li class="tab col"><a
+                            href="#searchengineTab">{{ 'ReferrersManager_ManageSearchEngines'|translate }}</a></li>
+                <li class="tab col"><a href="#socialTab">{{ 'ReferrersManager_ManageSocials'|translate }}</a></li>
+            </ul>
+            <div id="searchengineTab" class="col" ng-controller="SearchEnginesController">
+                <div ng-include="'plugins/ReferrersManager/templates/engines.html?cb={{ cacheBuster }}'"></div>
+            </div>
+            <div id="socialTab" class="col" ng-controller="SocialsController" ng-init="ownSocialDefinitions='{{ ownSocialDefinitions }}'">
+                <div ng-include="'plugins/ReferrersManager/templates/socials.html?cb={{ cacheBuster }}'"></div>
+            </div>
+        </div>
 
-    <div class="ui-confirm" id="removeDataConfirm">
-        <h2>{{ 'ReferrersManager_ConfirmRemove'|translate('<span class="name"></span>')|raw }}</h2>
+        <div class="ui-confirm" id="removeDataConfirm">
+            <h2>{{ 'ReferrersManager_ConfirmRemove'|translate('<span class="name"></span>')|raw }}</h2>
 
-        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
-        <input role="no" type="button" value="{{ 'General_Cancel'|translate }}"/>
+            <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+            <input role="no" type="button" value="{{ 'General_Cancel'|translate }}"/>
+        </div>
+
     </div>
 
 {% endblock %}
