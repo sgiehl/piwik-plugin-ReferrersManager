@@ -26,15 +26,15 @@ class SocialAdded extends Activity
         list($success, $finalAPIParameters) = $eventData;
 
         // $finalAPIParameters = [ className, module, action, parameters ]
-        // $finalAPIParameters[parameters] = [ 0=>name, 1=>host ]
+        // $finalAPIParameters[parameters] = [ name, host ]
 
         return [
             'items' => [
                 [
                     'type' => 'social',
                     'data' => [
-                        'name' => $finalAPIParameters['parameters'][0],
-                        'host' => $finalAPIParameters['parameters'][1],
+                        'name' => $finalAPIParameters['parameters']['name'],
+                        'host' => $finalAPIParameters['parameters']['host'],
                     ]
                 ]
             ],

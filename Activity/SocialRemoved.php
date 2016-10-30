@@ -24,7 +24,8 @@ class SocialRemoved extends Activity
     public function extractParams($eventData)
     {
         list($finalAPIParameters) = $eventData;
-        list($host) = $finalAPIParameters;
+
+        $host = $finalAPIParameters['host'];
 
         $userDefinedSocials = \Piwik\Plugins\ReferrersManager\API::getInstance()->getUserDefinedSocials();
         $name               = $userDefinedSocials[$host];

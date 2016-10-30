@@ -26,15 +26,15 @@ class SearchEngineAdded extends Activity
         list($success, $finalAPIParameters) = $eventData;
 
         // $finalAPIParameters = [ className, module, action, parameters ]
-        // $finalAPIParameters[parameters] = [ 0=>name, 1=>host, 2=>parameters, 3=>backlink, 4=>charset ]
+        // $finalAPIParameters[parameters] = [ name, host, parameters, backlink, charset ]
 
         return [
             'items' => [
                 [
                     'type' => 'searchengine',
                     'data' => [
-                        'name' => $finalAPIParameters['parameters'][0],
-                        'host' => $finalAPIParameters['parameters'][1],
+                        'name' => $finalAPIParameters['parameters']['name'],
+                        'host' => $finalAPIParameters['parameters']['host'],
                     ]
                 ]
             ],

@@ -24,7 +24,8 @@ class SearchEngineRemoved extends Activity
     public function extractParams($eventData)
     {
         list($finalAPIParameters) = $eventData;
-        list($host) = $finalAPIParameters;
+
+        $host = $finalAPIParameters['host'];
 
         $userDefinedSearchEngines = \Piwik\Plugins\ReferrersManager\API::getInstance()->getUserDefinedSearchEngines();
         $name                     = $userDefinedSearchEngines[$host][0];
