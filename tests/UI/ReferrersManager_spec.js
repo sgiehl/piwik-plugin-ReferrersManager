@@ -25,7 +25,7 @@ describe("ReferrersManager", function () {
 
     it('should open add search engine dialog', function (done) {
         expect.screenshot('searchengines_add').to.be.captureSelector('.ui-dialog', function (page) {
-            page.click("[role=addEngine]", 500);
+            page.click("[role=addEngine]", 1000);
         }, done);
     });
 
@@ -34,7 +34,7 @@ describe("ReferrersManager", function () {
             page.sendKeys("#engineName", 'test', 150);
             page.sendKeys("#engineHost", 'randomhost.com', 150);
             page.sendKeys("#engineParameter", 'q,ghj', 150);
-            page.click('[role="submitAddEngine"]', 150);
+            page.click('[role="submitAddEngine"]', 250);
         }, done);
     });
 
@@ -47,13 +47,13 @@ describe("ReferrersManager", function () {
 
     it('should show remove search engine dialog correct', function (done) {
         expect.screenshot('searchengines_remove_dialog').to.be.captureSelector('.ui-dialog', function (page) {
-            page.click("[role=removeEngine]", 500);
+            page.click("[role=removeEngine]", 1000);
         }, done);
     });
 
     it('should remove new search engine correct', function (done) {
         expect.screenshot('searchengines_list').to.be.captureSelector('#content', function (page) {
-            page.click(".ui-dialog button>span:contains(Yes)", 500);
+            page.click(".ui-dialog button>span:contains(Yes)", 1000);
         }, done);
     });
 
@@ -85,7 +85,7 @@ describe("ReferrersManager", function () {
 
     it('should open add social dialog', function (done) {
         expect.screenshot('social_add').to.be.captureSelector('.ui-dialog', function (page) {
-            page.click("[role=addSocial]", 500);
+            page.click("[role=addSocial]", 1000);
         }, done);
     });
 
@@ -93,7 +93,7 @@ describe("ReferrersManager", function () {
         expect.screenshot('social_list_new').to.be.captureSelector('#content', function (page) {
             page.sendKeys("#socialName", 'test social', 150);
             page.sendKeys("#socialHost", 'randomsocial.com', 150);
-            page.click('[role="submitAddSocial"]', 150);
+            page.click('[role="submitAddSocial"]', 250);
         }, done);
     });
 
@@ -112,13 +112,13 @@ describe("ReferrersManager", function () {
 
     it('should show remove search engine dialog correct', function (done) {
         expect.screenshot('social_remove_dialog').to.be.captureSelector('.ui-dialog', function (page) {
-            page.click("[role=removeSocial]", 500);
+            page.click("[role=removeSocial]", 1000);
         }, done);
     });
 
     it('should remove new search engine correct', function (done) {
         expect.screenshot('socials_list').to.be.captureSelector('#content', function (page) {
-            page.click(".ui-dialog button>span:contains(Yes)", 500);
+            page.click(".ui-dialog button>span:contains(Yes)", 1000);
         }, done);
     });
 });
