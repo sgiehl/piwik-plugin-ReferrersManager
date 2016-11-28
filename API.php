@@ -77,7 +77,7 @@ class API extends \Piwik\Plugin\API
      */
     public function getSocialLogos()
     {
-        return $this->model->getSocialLogos();
+        return $this->model->getSocialsLogos();
     }
 
     /**
