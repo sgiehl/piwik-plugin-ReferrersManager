@@ -43,7 +43,7 @@
         <tbody ng-repeat="name in socialNames | filter:searchText" ng-show="!busy">
         <tr ng-repeat="(i, host) in socials[name]">
             <td rowspan="{{ socials[name].length }}" ng-if="i==0">
-                <img ng-show="socialLogos[name]" ng-attr-src="{{ socialLogos[name] }}">
+                <img ng-show="socialLogos[name]" ng-attr-src="{{ socialLogos[name] }}" width="16px" height="16px">
                 {{ name }}
             </td>
             <td>{{ host }}</td>

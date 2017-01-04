@@ -41,7 +41,7 @@
         <tbody ng-repeat="name in searchEngineNames | filter:searchText" ng-show="!busy">
         <tr ng-repeat="(i, url) in searchEngines[name]">
             <td rowspan="{{ searchEngines[name].length }}" ng-if="i==0">
-                <img ng-show="searchEngineLogos[name]" ng-attr-src="{{ searchEngineLogos[name] }}">
+                <img ng-show="searchEngineLogos[name]" ng-attr-src="{{ searchEngineLogos[name] }}" width="16px" height="16px">
                 {{ name }}
             </td>
             <td>{{ url.url }}</td>
