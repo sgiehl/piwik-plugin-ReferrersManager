@@ -6,17 +6,17 @@
     function CheckReferrerUrlController($scope) {
         $scope.urlToCheck = '';
         $scope.detectedEngine = '';
-        $scope.detectedEngineImg = 'plugins/Referrers/images/searchEngines/xx.png';
+        $scope.detectedEngineImg = 'plugins/Morpheus/icons/dist/searchEngines/xx.png';
         $scope.detectedKeyword = '';
         $scope.detectedSocial = '';
-        $scope.detectedSocialImg = 'plugins/Referrers/images/socials/xx.png';
+        $scope.detectedSocialImg = 'plugins/Morpheus/icons/dist/socials/xx.png';
 
         $scope.clearResult = function () {
             $scope.detectedEngine = '';
             $scope.detectedKeyword = '';
-            $scope.detectedEngineImg = 'plugins/Referrers/images/searchEngines/xx.png';
+            $scope.detectedEngineImg = 'plugins/Morpheus/icons/dist/searchEngines/xx.png';
             $scope.detectedSocial = '';
-            $scope.detectedSocialImg = 'plugins/Referrers/images/socials/xx.png';
+            $scope.detectedSocialImg = 'plugins/Morpheus/icons/dist/socials/xx.png';
         };
 
         $scope.checkResult = function () {
@@ -38,7 +38,7 @@
 
                     $scope.detectedEngine = '';
                     $scope.detectedKeyword = '';
-                    $scope.detectedEngineImg = 'plugins/Referrers/images/searchEngines/xx.png';
+                    $scope.detectedEngineImg = 'plugins/Morpheus/icons/dist/searchEngines/xx.png';
                 }
 
                 if (response.social && response.social.name) {
@@ -48,7 +48,7 @@
 
                 } else {
                     $scope.detectedSocial = '';
-                    $scope.detectedSocialImg = 'plugins/Referrers/images/socials/xx.png';
+                    $scope.detectedSocialImg = 'plugins/Morpheus/icons/dist/socials/xx.png';
                 }
 
                 $scope.$apply();
