@@ -1,6 +1,6 @@
 # Piwik Referrers Manager Plugin
 
-[![Build Status](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager.png?branch=master)](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager) [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sgiehl&url=https://github.com/sgiehl/piwik-plugin-ReferrersManager&title=Piwik Plugin Referrers Manager&language=&tags=github&category=software) 
+[![Build Status](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager.png?branch=master)](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager) [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sgiehl&url=https://github.com/sgiehl/piwik-plugin-ReferrersManager&title=Piwik%20Plugin%20Referrers%20Manager&language=&tags=github&category=software) 
 
 
 ## Description
