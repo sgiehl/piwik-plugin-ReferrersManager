@@ -1,8 +1,21 @@
 {
     "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Hakukoneet ja sosiaaliset verkostot",
         "AddSocial": "Lisää uusi sosiaalinen verkosto",
+        "Hostname": "Isäntänimi",
+        "SearchEnginesList": "Lista Piwikin tunnistamista hakukoneista",
+        "SocialsList": "Lista Piwikin tunnistamista sosiaalisista verkostoista",
+        "ManageSocialsAndEngines": "Hallitse hakukoneita ja sosiaalisia verkostoja",
         "ManageSearchEngines": "Hallitse hakukoneita",
         "ManageSocials": "Hallitse sosiaalisia verkostoja",
-        "DetectedKeywords": "Tunnistetut avainsanat"
+        "DetectedEngine": "Havaittu hakukone",
+        "DetectedKeywords": "Tunnistetut avainsanat",
+        "DetectedSocial": "Havaittu sosiaalinen verkosto",
+        "CheckUrlSend": "Tarkista osoite",
+        "AddSearchEngine": "Lisää hakukoneen tiedot",
+        "Parameters": "Parametrit",
+        "Charset": "Merkistö",
+        "CommaSeparated": "(pilkulla eroteltu)",
+        "ProvideEngineData": "Anna hakukoneen tiedot."
     }
 }

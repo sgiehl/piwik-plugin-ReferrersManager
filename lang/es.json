@@ -7,7 +7,7 @@
         "SearchEnginesList": "Lista de todos los motores de búsqueda conocidos por Piwik",
         "SocialsList": "Lista de todas las redes sociales conocidas por Piwik",
         "ManageSocialsAndEngines": "Administrar los motores de búsqueda y redes sociales",
-        "ConfirmRemove": "Desea realmente quitar %s de la lista.",
+        "ConfirmRemove": "¿Desea realmente eliminar %s de la lista?",
         "ManageSearchEngines": "Administrar motores de búsqueda",
         "ManageSocials": "Administrar redes sociales",
         "DetectedEngine": "Motor detectado",
@@ -15,13 +15,14 @@
         "DetectedSocial": "Red social detectada",
         "CheckUrl": "Verifique la URL del motor de búsqueda y la información de la red social",
         "CheckUrlDesc": "Aquí puede pegar cualquier URL de referencia con el fin de comprobar si Piwik lo reconocería como un motor de búsqueda y\/o red social",
+        "CheckUrlSend": "Verificar URL",
         "AddSearchEngine": "Añadir una definición al motor de búsqueda",
         "Parameters": "Parámetros",
-        "BacklinkPattern": "Patrón de vínculo de retroceso",
+        "BacklinkPattern": "Patrón para enlaces desde otras páginas web",
         "Charset": "Conjunto de caracteres",
-        "AddEngineError": "Fallo mientras se agregaba el motor de búsqueda. Por favor compruebe sus entradas y vuelva a intentarlo.",
+        "AddEngineError": "Error mientras se añadía el motor de búsqueda. Por favor compruebe los datos introducidos y vuelva a intentarlo.",
         "CommaSeparated": "(separado por coma)",
-        "AddSocialError": "Fallo mientras se agregaba la red social. Por favor compruebe sus entradas y vuelva a intentarlo.",
+        "AddSocialError": "Error mientras se añadía la red social. Por favor compruebe los datos introducidos y vuelva a intentarlo.",
         "SocialListDisabled": "Atención: La lista de redes sociales incluida en Piwik está deshabilitada.",
         "EnableSocialList": "Habilitar la lista de redes sociales de Piwik",
         "DisableSocialList": "Deshabilitar la lista de redes sociales de Piwik",
@@ -29,6 +30,10 @@
         "ProvideSocialData": "Por favor suministre la información de la nueva red social.",
         "DuplicateHostnameInfo": "Tenga en cuenta que el nombre del host necesariamente debe ser único. Un nombre de host duplicado sobreescribirá al otro.",
         "ProvideEngineData": "Por favor suministre la información del motor de búsqueda.",
-        "HostnameWildcardDesc": "Para los motores de búsqueda específicos de una región, la URL, \"{}.ejemplo.com\" coincidirá con cualquier código de país ISO3166-1 alfa2 contra \"{}\". Del mismo modo, \"ejemplo.{}\" coincidirá contra los TLD de países válidos, pero deben utilizarse con moderación para evitar falsos positivos."
+        "HostnameWildcardDesc": "Para los motores de búsqueda específicos de una región, la URL, \"{}.ejemplo.com\" coincidirá con cualquier código de país ISO3166-1 alfa2 contra \"{}\". Del mismo modo, \"ejemplo.{}\" coincidirá contra los TLD de países válidos, pero deben utilizarse con moderación para evitar falsos positivos.",
+        "SearchEngineAdded": "añadido un nuevo motor de búsqueda personalizado",
+        "SearchEngineRemoved": "eliminado un motor de búsqueda personalizado",
+        "SocialAdded": "añadida una nueva red social personalizada",
+        "SocialRemoved": "eliminada una red social personalizada"
     }
 }

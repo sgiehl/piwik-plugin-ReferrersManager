@@ -7,7 +7,6 @@
         "SearchEnginesList": "Lista över alla sökmotorer som Piwik känner till",
         "SocialsList": "Lista över alla sociala nätverk som Piwik känner till",
         "ManageSocialsAndEngines": "Hantera sökmotorer och sociala nätverk",
-        "ConfirmRemove": "Vill du verkligen ta bort %s från listan.",
         "ManageSearchEngines": "Hantera sökmotorer",
         "ManageSocials": "Hantera sociala nätverk",
         "DetectedEngine": "Upptäckt sökmotor",

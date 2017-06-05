@@ -7,7 +7,7 @@
         "SearchEnginesList": "Liste aller Suchmaschinen, die Piwik bekannt sind",
         "SocialsList": "Liste aller sozialen Netzwerke, die Piwik bekannt sind",
         "ManageSocialsAndEngines": "Suchmaschinen und soziale Netzwerke verwalten",
-        "ConfirmRemove": "Sind Sie sicher, dass Sie %s aus der Liste entfernen möchten?",
+        "ConfirmRemove": "Wollen Sie %s wirklich von dieser Liste entfernen?",
         "ManageSearchEngines": "Suchmaschinen verwalten",
         "ManageSocials": "Soziale Netzwerke verwalten",
         "DetectedEngine": "Erkannte Suchmaschine",
@@ -15,6 +15,7 @@
         "DetectedSocial": "Erkanntes soziales Netzwerk",
         "CheckUrl": "URL auf Informationen zu Suchmaschinen und sozialen Netzwerken überprüfen",
         "CheckUrlDesc": "Hier können Sie eine Referrer-Url einfügen um zu überprüfen ob Piwik diese als Suchmaschine oder soziales Netzwerk erkennen würde.",
+        "CheckUrlSend": "URL überprüfen",
         "AddSearchEngine": "Suchmaschinendefinition hinzufügen",
         "Parameters": "Parameter",
         "BacklinkPattern": "Link-Muster",
@@ -29,6 +30,10 @@
         "ProvideSocialData": "Bitte geben Sie die Daten für das neue soziale Netzwerk an.",
         "DuplicateHostnameInfo": "Bitte beachten Sie dass Hostnamen eindeutig sind. Doppelte Hostnamen überschreiben einander.",
         "ProvideEngineData": "Bitte geben Sie die Daten für die neue Suchmaschine an.",
-        "HostnameWildcardDesc": "Für länderspezifische Suchmaschine: In der URL, \"{}.example.com\" wird \"{}\" jedem ISO3166-1 alpha2 Länder-Code entsprechen. Ebenso wird \"example.{}\" jeder gültigen Länder-TLD entsprechen. Verwenden Sie dies sparsam um Falscherkennungen zu vermeiden."
+        "HostnameWildcardDesc": "Für länderspezifische Suchmaschine: In der URL, \"{}.example.com\" wird \"{}\" jedem ISO3166-1 alpha2 Länder-Code entsprechen. Ebenso wird \"example.{}\" jeder gültigen Länder-TLD entsprechen. Verwenden Sie dies sparsam um Falscherkennungen zu vermeiden.",
+        "SearchEngineAdded": "fügte eine neue benutzerdefinierte Suchmaschine hinzu",
+        "SearchEngineRemoved": "entfernte eine benutzerdefinierte Suchmaschine",
+        "SocialAdded": "fügte ein neues benutzerdefiniertes soziales Netzwerk hinzu",
+        "SocialRemoved": "hat ein soziales Netzwerk entfernt"
     }
 }

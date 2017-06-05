@@ -7,7 +7,7 @@
         "SearchEnginesList": "Elenco di tutti i motori di ricerca noti a Piwik",
         "SocialsList": "Elenco di tutti i social noti a Piwik",
         "ManageSocialsAndEngines": "Gestione motori di ricerca e social networks",
-        "ConfirmRemove": "Puoi veramente rimuovere %s dall'elenco?",
+        "ConfirmRemove": "Vuoi proprio eliminare %s dall'elenco?",
         "ManageSearchEngines": "Gestione motori di ricerca",
         "ManageSocials": "Gestione social networks",
         "DetectedEngine": "Motore Rilevato",
@@ -15,6 +15,7 @@
         "DetectedSocial": "Social Network Rilevato",
         "CheckUrl": "Controlla l'URL del motore di ricerca e le informazioni del social network",
         "CheckUrlDesc": "Qui puoi incollare un qualunque referrer url per verificare se Piwik lo riconosce come motore di ricerca e\/o social network",
+        "CheckUrlSend": "Controlla URL",
         "AddSearchEngine": "Aggiungi la definizione per un motore di ricerca",
         "Parameters": "Parametri",
         "BacklinkPattern": "Modello backlink",
@@ -29,6 +30,10 @@
         "ProvideSocialData": "Si prega di fornire i dati del nuovo social network.",
         "DuplicateHostnameInfo": "Ricorda che il nome host deve essere unico. Un nome host duplicato sovrascriverà l'altro.",
         "ProvideEngineData": "Si prega di fornire i dati del motore di ricerca.",
-        "HostnameWildcardDesc": "Per motori di ricerca specifici per alcune regioni, l'URL, \"{}.example.com\" corrisponderà a tutti i codici nazione ISO3166-1 alpha2 che contengono \"{}\". In modo simile, \"example.{}\" corrisponderà a dei TLD nazione validi ma va usato con parsimonia per evitare dei falsi positivi."
+        "HostnameWildcardDesc": "Per motori di ricerca specifici per alcune regioni, l'URL, \"{}.example.com\" corrisponderà a tutti i codici nazione ISO3166-1 alpha2 che contengono \"{}\". In modo simile, \"example.{}\" corrisponderà a dei TLD nazione validi ma va usato con parsimonia per evitare dei falsi positivi.",
+        "SearchEngineAdded": "è stato aggiunto un nuovo motore di ricerca personalizzato",
+        "SearchEngineRemoved": "è stato rimosso un motore di ricerca personalizzato",
+        "SocialAdded": "è stato aggiunto un nuovo social network personalizzato",
+        "SocialRemoved": "è stato rimosso un social network personalizzato"
     }
 }

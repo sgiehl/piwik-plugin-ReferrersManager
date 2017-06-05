@@ -2,18 +2,20 @@
     "ReferrersManager": {
         "PluginDescription": "Met deze plugin kunnen de zoekmachines en social media netwerken, welke herkent worden door Piwik bekeken en beheert worden.",
         "SearchEnginesAndSocialNetworks": "Zoekmachines en sociale netwerken",
-        "AddSocial": "Voeg een nieuw sociaal netwerk toe.",
+        "AddSocial": "Nieuw sociaal netwerk toevoegen",
         "Hostname": "Hostnaam",
         "SearchEnginesList": "Lijst van alle zoekmachines die bekend zijn in Piwik",
         "SocialsList": "Lijst van alle social netwerken bekend in Piwik",
-        "ManageSocialsAndEngines": "Beheer zoekmachines en sociale netwerken",
-        "ConfirmRemove": "Wil je echt %s verwijderen van de lijst?",
-        "ManageSearchEngines": "Beheer zoekmachines",
-        "ManageSocials": "Beheer sociale netwerken",
+        "ManageSocialsAndEngines": "Zoekmachines en sociale netwerken beheren",
+        "ConfirmRemove": "Weet je zeker dat je %s wil verwijderen van de lijst?",
+        "ManageSearchEngines": "Zoekmachines beheren",
+        "ManageSocials": "Sociale netwerken beheren",
         "DetectedEngine": "Gedetecteerde engine",
         "DetectedKeywords": "Gedetecteerde sleutelwoorden",
-        "DetectedSocial": "Sociaal netwerk gedetecteerd",
+        "DetectedSocial": "Gedetecteerd sociaal netwerk",
         "CheckUrl": "Controleer de URL voor zoekmachine en sociale netwerk",
+        "CheckUrlDesc": "Hier kan je een refererende URL plakken om te controleren of Piwik deze herkent als zoekmachine en\/of een social netwerk",
+        "CheckUrlSend": "Controleer de URL",
         "AddSearchEngine": "Voeg zoekmachine definities toe",
         "Parameters": "Parameters",
         "BacklinkPattern": "Referer patroon",
@@ -27,6 +29,10 @@
         "UsingDefaultSocials": "Je gebruikt de ingebouwde sociale netwerk lijst in Piwik.",
         "ProvideSocialData": "Verstrek a.u.b. de data het nieuwe sociale netwerk.",
         "DuplicateHostnameInfo": "Onthoud goed dat een hostname uniek moet zijn. Een dubbele hostname overschrijft de andere.",
-        "ProvideEngineData": "Verstrek a.u.b. de data voor de zoekmachine."
+        "ProvideEngineData": "Verstrek a.u.b. de data voor de zoekmachine.",
+        "SearchEngineAdded": "nieuwe aangepaste zoekmachine toegevoegd",
+        "SearchEngineRemoved": "aangepaste zoekmachine verwijderd",
+        "SocialAdded": "nieuw aangepast sociaal netwerk toegevoegd",
+        "SocialRemoved": "aangepast sociaal netwerk verwijderd"
     }
 }

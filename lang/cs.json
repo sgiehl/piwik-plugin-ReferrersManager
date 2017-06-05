@@ -15,6 +15,7 @@
         "DetectedSocial": "Detekovaná sociální síť",
         "CheckUrl": "UEL pro kontrolu informací o vyhledávačích a sociálních sítích",
         "CheckUrlDesc": "Zde můžete vložit libovolnou URL referreru a dozvíte se, jestli by ji Piwik rozpoznal jako vyhledávač nebo sociální síť",
+        "CheckUrlSend": "Ověřit URL",
         "AddSearchEngine": "Přidat definici vyhledávače",
         "Parameters": "Parametry",
         "BacklinkPattern": "Vzor zpětného odkazu",
@@ -29,6 +30,10 @@
         "ProvideSocialData": "Prosím, zadejte data pro novou sociální síť.",
         "DuplicateHostnameInfo": "Mějte na paměti, že jméno hostitele musí být jedinečné. Duplikát přepíše předcházející.",
         "ProvideEngineData": "Prosím, zadejte data pro vyhledávač.",
-        "HostnameWildcardDesc": "Pro na regionu závislé vyhledávače URL \"{}.example.com\" bude odpovídat libovolnému ISO3166-1 alpha2 kódu země z \"{}\". Podobně, \"example.{}\" bude odpovídat libovolné TLD země, ale to by mělo být použito zřídka, kvůli falešným shodám."
+        "HostnameWildcardDesc": "Pro na regionu závislé vyhledávače URL \"{}.example.com\" bude odpovídat libovolnému ISO3166-1 alpha2 kódu země z \"{}\". Podobně, \"example.{}\" bude odpovídat libovolné TLD země, ale to by mělo být použito zřídka, kvůli falešným shodám.",
+        "SearchEngineAdded": "přidán nový vlastní vyhledávač",
+        "SearchEngineRemoved": "odstraněn vlastní vyhledávač",
+        "SocialAdded": "přidána nová vlastní sociální síť",
+        "SocialRemoved": "odebrána vlastní sociální síť"
     }
 }
