@@ -41,6 +41,7 @@ describe("ReferrersManager", function () {
 
     it('should identify new search engine correct', function (done) {
         expect.screenshot('searchengines_identify_new').to.be.captureSelector('#content', function (page) {
+            page.reload();
             page.sendKeys('[ng-model="urlToCheck"]', 'http://randomhost.com/xyz/?ghj=piwik');
             page.click('[onconfirm="checkResult()"] input', 1200);
         }, done);
