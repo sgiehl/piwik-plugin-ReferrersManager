@@ -1,5 +1,9 @@
 ## Changelog
 
+__3.0.4__
+
+* Piwik ist now Matomo
+
 __3.0__
 
 * Compatibility for Piwik 3.x
