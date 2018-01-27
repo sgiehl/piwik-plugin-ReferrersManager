@@ -44,9 +44,9 @@
                 <img ng-show="searchEngineLogos[name]" ng-attr-src="{{ searchEngineLogos[name] }}" width="16px" height="16px">
                 {{ name }}
             </td>
-            <td>{{ url.url }}</td>
-            <td title="{{ url.parameters }}">{{ url.parameters|limitTo:25 }}</td>
-            <td title="{{ url.backlink }}">{{ url.backlink|limitTo:25 }}</td>
+            <td title="{{ url.url }}">{{ url.url|limitTo:40 }}<span ng-show="(url.url|length) > 40">...</span></td>
+            <td title="{{ url.parameters }}">{{ url.parameters|limitTo:30 }}<span ng-show="(url.parameters|length) > 30">...</span></td>
+            <td title="{{ url.backlink }}">{{ url.backlink|limitTo:30 }}<span ng-show="(url.backlink|length) > 30">...</span></td>
             <td>{{ url.charset }}</td>
             <td ng-if="userDefinedSearchEngines">
                 <span class="icoDelete" ng-if="userDefinedSearchEngines[url.url]" ng-click="removeEngine(url.url)">
