@@ -1,0 +1,221 @@
+1.cz:
+  -
+    urls:
+      - 1.cz
+    params:
+      - '/s\/([^\/]+)/'
+      - q
+    backlink: 's/{k}'
+    charsets:
+      - iso-8859-2
+360search:
+  -
+    urls:
+      - so.360.cn
+    params:
+      - q
+    backlink: 's?q={k}'
+    charsets:
+      - UTF-8
+      - gb2312
+Bing:
+  -
+    urls:
+      - bing.com
+      - '{}.bing.com'
+      - 'global.bing.com'
+    params:
+      - q
+      - Q
+    backlink: 'search?q={k}'
+    hiddenkeyword:
+      - '/\/cr\?.*/'
+      - '/^$/'
+      - '/'
+Bing Images:
+  -
+    urls:
+      - bing.com/images/search
+      - '{}.bing.com/images/search'
+    params:
+      - q
+      - Q
+    backlink: '?q={k}'
+Google:
+  -
+    urls:
+      - google.com
+      - 'google.{}'
+      - encrypted.google.com
+      - www2.google.com
+      - ipv6.google.com
+      - go.google.com
+      - wwwgoogle.com
+      - 'wwwgoogle.{}'
+      - gogole.com
+      - 'gogole.{}'
+      - gppgle.com
+      - 'gppgle.{}'
+      - googel.com
+      - 'googel.{}'
+      - search.avg.com
+      - isearch.avg.com
+    params:
+      - q
+    hiddenkeyword:
+      - '/^$/'
+      - '/'
+      - '/\/search(\?.*)?/'
+      - '/\/url\?.*/'
+    backlink: 'search?q={k}'
+  -
+    urls:
+      - com.google.android.googlequicksearchbox
+      - android-app//com.google.android.googlequicksearchbox/https/www.google.com
+    params:
+      - 'q'
+    hiddenkeyword:
+      - '/.*/'
+Google Images:
+  -
+    urls:
+      - images.google.com
+      - 'images.google.{}'
+      - 'google.com/imgres'
+      - 'google.{}/imgres'
+    params:
+      - q
+    hiddenkeyword:
+      - '/.*/'
+    backlink: 'images?q={k}'
+Google News:
+  -
+    urls:
+      - news.google.com
+      - 'news.google.{}'
+    params:
+      - q
+Google Video:
+  -
+    urls:
+      - video.google.com
+    params:
+      - q
+    backlink: 'search?q={k}&tbm=vid'
+Yahoo!:
+  -
+    urls:
+      - search.yahoo.com
+      - malaysia.search.yahoo.com
+      - '{}.search.yahoo.com'
+      - cade.yahoo.com
+      - espanol.search.yahoo.com
+      - qc.search.yahoo.com
+      - one.cn.yahoo.com
+    params:
+      - p
+      - q
+    backlink: 'search?p={k}'
+    hiddenkeyword:
+      - '/\/r\/.*/'
+      - '/^$/'
+      - '/'
+  -
+    urls:
+      - r.search.yahoo.com
+    params: []
+    hiddenkeyword:
+      - '/.*/'
+Yahoo! Directory:
+  -
+    urls:
+      - search.yahoo.com/search/dir
+    params:
+      - p
+    backlink: '?p={k}'
+Yahoo! Images:
+  -
+    urls:
+      - images.search.yahoo.com
+      - '{}.images.yahoo.com'
+      - cade.images.yahoo.com
+      - espanol.images.yahoo.com
+      - qc.images.yahoo.com
+    params:
+      - p
+      - va
+    backlink: 'search/images?p={k}'
+Yahoo! Japan:
+  -
+    urls:
+      - search.yahoo.co.jp
+    params:
+      - p
+      - vp
+    backlink: 'search?p={k}'
+    charsets:
+      - utf-8
+      - euc-jp
+      - ms932
+    hiddenkeyword:
+      - '/\/r\/.*/'
+      - '/^$/'
+      - '/'
+Yahoo! Japan Images:
+  -
+    urls:
+      - image.search.yahoo.co.jp
+    params:
+      - p
+    backlink: 'search?p={k}'
+    charsets:
+      - utf-8
+      - euc-jp
+      - ms932
+Yahoo! Japan Videos:
+  -
+    urls:
+      - video.search.yahoo.co.jp
+    params:
+      - p
+    backlink: 'search?p={k}'
+    charsets:
+      - utf-8
+      - euc-jp
+      - ms932
+Yandex:
+  -
+    urls:
+      - yandex.ru
+      - yandex.com
+      - 'yandex.{}'
+      - 'www.yandex.{}'
+      - 'clck.yandex.{}'
+      - 'm.yandex.{}'
+    params:
+      - text
+    backlink: 'yandsearch?text={k}'
+    hiddenkeyword:
+      - '/^$/'
+      - '/'
+  -
+    urls:
+      - yabs.yandex.{}
+    params:
+      - q
+Yandex Images:
+  -
+    urls:
+      - images.yandex.ru
+      - images.yandex.com
+      - 'images.yandex.{}'
+    params:
+      - text
+    backlink: 'yandsearch?text={k}'
+묻지마 검색:
+  -
+    urls:
+      - kwzf.net
+    params:
+      - search
+    backlink: '#search={k}'

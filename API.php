@@ -13,9 +13,9 @@ class API extends \Piwik\Plugin\API
     /** @var Model */
     protected $model;
 
-    public function __construct()
+    public function __construct(Model $model)
     {
-        $this->model = Model::getInstance();
+        $this->model = $model;
     }
 
     /**
@@ -101,7 +101,12 @@ class API extends \Piwik\Plugin\API
         }
 
         $engines        = $this->model->getUserDefinedSearchEngines();
-        $engines[$host] = array($name, $parameters, $backlink, $charset);
+        $engines[$host] = array(
+            'name' => $name,
+            'params' => $parameters,
+            'backlink' => $backlink,
+            'chartset' => $charset
+        );
         $this->model->setUserDefinedSearchEngines($engines);
         return true;
     }

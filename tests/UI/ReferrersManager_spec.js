@@ -10,6 +10,8 @@
 describe("ReferrersManager", function () {
     this.timeout(0);
 
+    this.fixture = "Piwik\\Plugins\\ReferrersManager\\tests\\Fixtures\\UITestFixture";
+
     function checkUrl(url, page) {
         page.evaluate(function(){
             $('[ng-model="urlToCheck"]').val('');
