@@ -15,6 +15,7 @@
         "DetectedSocial": "Prepoznate društvene mreže",
         "CheckUrl": "Provera URL-a za informacije o pretraživačima i društvenim mrežama",
         "CheckUrlDesc": "Ovde možete da upišete bilo koji URL kako biste proverili da li će ga Pivik prepoznati kao pretraživač ili društvenu mrežu.",
+        "CheckUrlSend": "Proveri URL",
         "AddSearchEngine": "Dodavanje definicije pretraživača",
         "Parameters": "Parametri",
         "BacklinkPattern": "Šablon povratnog linka",
@@ -22,13 +23,17 @@
         "AddEngineError": "Greška u dodavanju pretraživača. Molimo vas da proverite unos i pokušate ponovo.",
         "CommaSeparated": "(razdvojeno zapetama)",
         "AddSocialError": "Greška u dodavanju društvene mreže. Molimo vas da proverite unos i pokušate ponovo.",
-        "SocialListDisabled": "Pažnja: Piwik-ova ugrađena lista društvenih mreža je isključena.",
-        "EnableSocialList": "Aktiviraj Piwik-ovu listu društvenih mreža",
-        "DisableSocialList": "Isključi Piwik-ovu listu društvenih mreža",
-        "UsingDefaultSocials": "Koristite Piwik-ovu ugrađenu listu društvenih mreža",
+        "SocialListDisabled": "Pažnja: Matomo-ova ugrađena lista društvenih mreža je isključena.",
+        "EnableSocialList": "Aktiviraj Matomo-ovu listu društvenih mreža",
+        "DisableSocialList": "Isključi Matomo-ovu listu društvenih mreža",
+        "UsingDefaultSocials": "Koristite Matomo-ovu ugrađenu listu društvenih mreža",
         "ProvideSocialData": "Molimo vas da unesete podatke nove društvene mreže.",
         "DuplicateHostnameInfo": "Imajte na umu da naziv hosta mora da bude jedinstven. Dupli naziv će obrisati prethodne podatke.",
         "ProvideEngineData": "Molimo vas da unesete podatke o pretraživaču.",
-        "HostnameWildcardDesc": "Za pretraživače koji su specifični za jedan region, URL, \"{}.example.com\" će se poklopiti sa bilo kojim ISO3166-1 alpha2 kodom zemlje \"{}\". Slično tome, \"example.{}\" će se poklopiti sa bilo kojim validnim top domenom zemalja ali treba biti oprezan kako bi se izbegla lažna poklapanja."
+        "HostnameWildcardDesc": "Za pretraživače koji su specifični za jedan region, URL, \"{}.example.com\" će se poklopiti sa bilo kojim ISO3166-1 alpha2 kodom zemlje \"{}\". Slično tome, \"example.{}\" će se poklopiti sa bilo kojim validnim top domenom zemalja ali treba biti oprezan kako bi se izbegla lažna poklapanja.",
+        "SearchEngineAdded": "dodat nov korisnički pretraživač",
+        "SearchEngineRemoved": "uklonjen korisnički pretraživač",
+        "SocialAdded": "dodata nova korisnička društvena mreža",
+        "SocialRemoved": "uklonjena korisnička društvena mreža"
     }
 }

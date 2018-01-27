@@ -37,7 +37,6 @@
         };
 
         $scope.removeSocial = function (host) {
-            console.log(host);
             $('#removeDataConfirm').find('h2 .name').text(host);
             piwikHelper.modalConfirm('#removeDataConfirm', {
                 yes: function () {

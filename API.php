@@ -1,8 +1,8 @@
 <?php
 /**
- * Piwik - free/libre analytics platform
+ * Matomo - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -13,9 +13,9 @@ class API extends \Piwik\Plugin\API
     /** @var Model */
     protected $model;
 
-    public function __construct()
+    public function __construct(Model $model)
     {
-        $this->model = Model::getInstance();
+        $this->model = $model;
     }
 
     /**
@@ -101,7 +101,12 @@ class API extends \Piwik\Plugin\API
         }
 
         $engines        = $this->model->getUserDefinedSearchEngines();
-        $engines[$host] = array($name, $parameters, $backlink, $charset);
+        $engines[$host] = array(
+            'name' => $name,
+            'params' => $parameters,
+            'backlink' => $backlink,
+            'chartset' => $charset
+        );
         $this->model->setUserDefinedSearchEngines($engines);
         return true;
     }

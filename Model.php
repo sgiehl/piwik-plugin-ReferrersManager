@@ -1,13 +1,14 @@
 <?php
 /**
- * Piwik - Open source web analytics
+ * Matomo - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 namespace Piwik\Plugins\ReferrersManager;
 
 use Piwik\Cache;
+use Piwik\Container\StaticContainer;
 use Piwik\Option;
 use Piwik\Piwik;
 use Piwik\Plugins\Referrers\SearchEngine;
@@ -17,11 +18,16 @@ use Piwik\Singleton;
 /**
  *
  */
-class Model extends Singleton
+class Model
 {
     const OPTION_KEY_DISABLE_DEFAULT_SOCIALS   = 'disable_default_socials';
     const OPTION_KEY_USERDEFINED_SOCIALS       = 'userdefined_socials';
     const OPTION_KEY_USERDEFINED_SEARCHENGINES = 'userdefined_searchengines';
+
+    public static function getInstance()
+    {
+        return StaticContainer::get('Piwik\Plugins\ReferrersManager\Model');
+    }
 
     /**
      * Returns if Piwik's built-in social list is used or not
@@ -64,7 +70,7 @@ class Model extends Singleton
      */
     public function getUserDefinedSocials()
     {
-        $socials = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SOCIALS));
+        $socials = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SOCIALS), true);
 
         if (!empty($socials)) {
 
@@ -92,10 +98,23 @@ class Model extends Singleton
      */
     public function getUserDefinedSearchEngines()
     {
-        $engines = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SEARCHENGINES));
+        $engines = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SEARCHENGINES), true);
 
         if (!empty($engines)) {
-            return (array)$engines;
+
+            // convert engines saved in legacy format
+            foreach ($engines as $url => $definition) {
+                if (!array_key_exists('name', $definition) && isset($definition[0]) && isset($definition[1])) {
+                    $engines[$url] = array(
+                        'name' => $definition[0],
+                        'params' => $definition[1],
+                        'backlink' => @$definition[2],
+                        'charsets' => @$definition[3]
+                    );
+                }
+            }
+
+            return $engines;
         }
 
         return [];

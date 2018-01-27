@@ -1,8 +1,8 @@
 <?php
 /**
- * Piwik - Open source web analytics
+ * Matomo - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
@@ -39,7 +39,7 @@ class ModelTest extends SystemTestCase
 
     public function testSetCustomSearchEngines()
     {
-        $customEngines = array('www.test.de' => array('Test', array('x')));
+        $customEngines = array('www.test.de' => array('name' => 'Test', 'params' => array('x')));
         Model::getInstance()->setUserDefinedSearchEngines($customEngines);
         $engines = Model::getInstance()->getUserDefinedSearchEngines();
         $this->assertEquals($customEngines, $engines);
@@ -63,12 +63,12 @@ class ModelTest extends SystemTestCase
     {
         return array(
             array(
-                array('www.test.de' => array('Test', array('x'))),
+                array('www.test.de' => array('name' => 'Test', 'params' => array('x'))),
                 'http://www.test.de/xdga/ddf/?tsd=sssh&x=test',
                 array('name' => 'Test', 'keywords' => 'test')
             ),
             array(
-                array('test.de' => array('Test', array('x'))),
+                array('test.de' => array('name' => 'Test', 'params' => array('x'))),
                 'http://www.test.de/xdga/ddf/?tsd=sssh&x=test',
                 false
             ),
