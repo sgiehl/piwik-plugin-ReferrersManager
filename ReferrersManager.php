@@ -17,9 +17,9 @@ use Piwik\Plugin;
 class ReferrersManager extends Plugin
 {
     /**
-     * @see Piwik_Plugin::getListHooksRegistered
+     * @see Piwik_Plugin::registerEvents
      */
-    public function getListHooksRegistered()
+    public function registerEvents()
     {
         return array(
             'Referrer.addSearchEngineUrls'     => 'addSearchEngineUrls',
