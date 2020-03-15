@@ -124,6 +124,7 @@ jobs:
       shell: bash 
     - name: Push changes
       run: |
+          cd $GITHUB_WORKSPACE/ReferrersManager
           git commit -m "language update"
           git push --set-upstream origin translationupdates
     - name: Create PR    
