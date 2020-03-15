@@ -116,7 +116,7 @@ jobs:
             done
             
             linesInLang=$( wc -l $GITHUB_WORKSPACE/ReferrersManager/lang/$i.json )
-            percentage=($linesInLang-4) / ($lines-4) * 100
+            percentage=$( ($linesInLang-4) / ($lines-4) * 100 )
           
             message="$message- Updated ${info[1]} (${additionsByLang[$i]} changes / $percentage translated)\n"
           done
