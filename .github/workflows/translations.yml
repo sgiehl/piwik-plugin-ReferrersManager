@@ -36,7 +36,7 @@ jobs:
         path: 'matomo'
         ref: '4.x-dev'
         lfs: false
-        submodules: true
+        submodules: 'true'
     - name: Prepare branches
       run: | 
           cat <<- EOF > $HOME/.netrc
