@@ -102,7 +102,7 @@ jobs:
             additionsByLang[$lang]=$(( additionsByLang[$lang] + additions ))
           done
           title="Updated $totaladditions strings in ${#additionsByLang[@]} languages (${!additionsByLang[@]})"
-          languageInfo=( $( ./console translations:languageinfo ) )
+          languageInfo=( $( $GITHUB_WORKSPACE/matomo/console translations:languageinfo ) )
           for i in ${!additionsByLang[@]}; do
             for j in ${languageInfo[@]}; do
               if [[ "$j" == "$i|"* ]];
