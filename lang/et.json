@@ -1,5 +1,8 @@
 {
     "ReferrersManager": {
-        "Hostname": "Hostinimi"
+        "AddSocial": "Lisa uus sotsiaalvõrk",
+        "Hostname": "Hostinimi",
+        "Parameters": "Parameetrid",
+        "BacklinkPattern": "Tagasilingi muster"
     }
 }

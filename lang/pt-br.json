@@ -15,6 +15,7 @@
         "DetectedSocial": "Rede Social Detectada",
         "CheckUrl": "Verifique URL para informações de motor de busca e rede social.",
         "CheckUrlDesc": "Aqui você pode colar qualquer URL de um referenciador para verificar se o Matomo reconhece-o como um motor de busca e\/ou uma rede social",
+        "CheckUrlSend": "Verificar URL",
         "AddSearchEngine": "Adicionar definição do motor de busca",
         "Parameters": "Parâmetros",
         "BacklinkPattern": "Padrão do backlink",
@@ -29,6 +30,10 @@
         "ProvideSocialData": "Por favor, forneça os dados para a nova rede social.",
         "DuplicateHostnameInfo": "Tenha em mente que o nome do host precisa ser único. Um nome de host duplicado irá sobrescrever o outro.",
         "ProvideEngineData": "Por favor, forneça os dados para o motor de busca.",
-        "HostnameWildcardDesc": "Para os motores de busca específicos da região, a URL, \"{}.example.com\" irá corresponder a qualquer código de país alpha2 ISO3166-1 com \"{}\". Da mesma forma, \"example.{}\" irá corresponder a válidas TLDs de países, mas deve ser usado com moderação para evitar falsos positivos."
+        "HostnameWildcardDesc": "Para os motores de busca específicos da região, a URL, \"{}.example.com\" irá corresponder a qualquer código de país alpha2 ISO3166-1 com \"{}\". Da mesma forma, \"example.{}\" irá corresponder a válidas TLDs de países, mas deve ser usado com moderação para evitar falsos positivos.",
+        "SearchEngineAdded": "adicionado um novo motor de busca personalizado",
+        "SearchEngineRemoved": "removido um motor de busca personalizado",
+        "SocialAdded": "adicionado uma nova rede social personalizada",
+        "SocialRemoved": "removido uma rede social personalizada"
     }
 }
