@@ -62,8 +62,8 @@ jobs:
     - name: Initialize Matomo
       run: |
           ln -s $GITHUB_WORKSPACE/matomo/plugins/ReferrersManager $GITHUB_WORKSPACE/ReferrersManager
+          cp $GITHUB_WORKSPACE/matomo/tests/travis/config.ini.travis.php $GITHUB_WORKSPACE/matomo/config/config.ini.php
           cd $GITHUB_WORKSPACE/matomo
-          cp ./tests/travis/config.ini.travis.php ./config/config.ini.php
           ./console development:enable
           ./console plugin:activate ReferrersManager
     - name: Sync translations
