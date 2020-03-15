@@ -30,13 +30,13 @@ jobs:
       with:
         ref: 'master'
         path: 'ReferrersManager'
-        lfs: false
     - uses: actions/checkout@v2
       with:
         repository: 'matomo-org/matomo'
         path: 'matomo'
         ref: '4.x-dev'
         lfs: false
+        submodules: true
     - name: Prepare branches
       run: | 
           cat <<- EOF > $HOME/.netrc
