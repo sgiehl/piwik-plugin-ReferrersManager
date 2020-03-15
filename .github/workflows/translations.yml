@@ -57,7 +57,7 @@ jobs:
     - name: Install submodules and dependencies
       run: |
           cd $GITHUB_WORKSPACE/matomo
-          git submodule update
+          git submodule update --init --force
           composer install --prefer-dist
     - name: Initialize Matomo
       run: |
