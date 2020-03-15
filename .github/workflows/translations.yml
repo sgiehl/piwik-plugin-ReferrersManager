@@ -56,11 +56,13 @@ jobs:
           git branch translationupdates
           git checkout -f translationupdates
     - name: Install Dependencies
-      run: composer install --prefer-dist
+      run: |
+          cd $GITHUB_WORKSPACE/matomo
+          composer install --prefer-dist
     - name: Initialize Matomo
       run: |
-          ln -s ./matomo/plugins/ReferrersManager ./ReferrersManager
-          cd matomo
+          ln -s $GITHUB_WORKSPACE/matomo/plugins/ReferrersManager $GITHUB_WORKSPACE/ReferrersManager
+          cd $GITHUB_WORKSPACE/matomo
           cp ./tests/travis/config.ini.travis.php ./config/config.ini.php
           ./console development:enable
           ./console plugin:activate ReferrersManager
