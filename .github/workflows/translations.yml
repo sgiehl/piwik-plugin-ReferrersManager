@@ -67,7 +67,9 @@ jobs:
           ./console development:enable
           ./console plugin:activate ReferrersManager
     - name: Sync translations
-      run: ./console translations:update --username ${{ secrets.TransifexUsername }} --password ${{ secrets.TransifexPassword }} --force --plugin=ReferrersManager --no-interaction
+      run: |
+          cd $GITHUB_WORKSPACE/matomo
+          ./console translations:update --username ${{ secrets.TransifexUsername }} --password ${{ secrets.TransifexPassword }} --force --plugin=ReferrersManager --no-interaction
     - name: Check for changes
       id: changes
       run: | 
