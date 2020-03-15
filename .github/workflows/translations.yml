@@ -103,7 +103,7 @@ jobs:
           done
           title="Updated $totaladditions strings in ${#additionsByLang[@]} languages (${!additionsByLang[@]})"
           languageInfo=( $( $GITHUB_WORKSPACE/matomo/console translations:languageinfo ) )
-          lines = $( wc -l $GITHUB_WORKSPACE/ReferrersManager/lang/en.json )
+          lines=$( wc -l $GITHUB_WORKSPACE/ReferrersManager/lang/en.json )
           for i in ${!additionsByLang[@]}; do
             for j in ${languageInfo[@]}; do
               if [[ "$j" == "$i|"* ]];
@@ -115,8 +115,8 @@ jobs:
               fi
             done
             
-            linesInLang = $( wc -l $GITHUB_WORKSPACE/ReferrersManager/lang/$i.json )
-            percentage = ($linesInLang-4) / ($lines-4) * 100
+            linesInLang=$( wc -l $GITHUB_WORKSPACE/ReferrersManager/lang/$i.json )
+            percentage=($linesInLang-4) / ($lines-4) * 100
           
             message="$message- Updated ${info[1]} (${additionsByLang[$i]} changes / $percentage translated)\n"
           done
