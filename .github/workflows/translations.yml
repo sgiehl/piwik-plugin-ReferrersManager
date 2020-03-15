@@ -36,7 +36,6 @@ jobs:
         path: 'matomo'
         ref: '4.x-dev'
         lfs: false
-        submodules: 'true'
     - name: Prepare branches
       run: | 
           cat <<- EOF > $HOME/.netrc
@@ -55,9 +54,10 @@ jobs:
           git branch -D translationupdates || true
           git branch translationupdates
           git checkout -f translationupdates
-    - name: Install Dependencies
+    - name: Install submodules and dependencies
       run: |
           cd $GITHUB_WORKSPACE/matomo
+          git submodule update
           composer install --prefer-dist
     - name: Initialize Matomo
       run: |
