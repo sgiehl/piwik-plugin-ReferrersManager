@@ -61,7 +61,7 @@ jobs:
           composer install --prefer-dist
     - name: Initialize Matomo
       run: |
-          ln -s $GITHUB_WORKSPACE/matomo/plugins/ReferrersManager $GITHUB_WORKSPACE/ReferrersManager
+          ln -s $GITHUB_WORKSPACE/ReferrersManager $GITHUB_WORKSPACE/matomo/plugins/ReferrersManager
           cp $GITHUB_WORKSPACE/matomo/tests/travis/config.ini.travis.php $GITHUB_WORKSPACE/matomo/config/config.ini.php
           cd $GITHUB_WORKSPACE/matomo
           ./console development:enable
