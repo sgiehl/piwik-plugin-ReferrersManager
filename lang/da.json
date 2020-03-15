@@ -1,0 +1,12 @@
+{
+    "ReferrersManager": {
+        "SearchEnginesAndSocialNetworks": "Søgemaskiner og sociale medier",
+        "AddSocial": "Tilføj socialt medie",
+        "SearchEnginesList": "Vis alle søgemaskiner, der er kendt af Matomo",
+        "SocialsList": "Vis alle sociale medier, der er kendt af Matomo",
+        "ManageSocialsAndEngines": "Administrer søgemaskiner og sociale netværk",
+        "ManageSearchEngines": "Administrer søgemaskiner",
+        "ManageSocials": "Administrer sociale netværk",
+        "CommaSeparated": "(kommasepareret)"
+    }
+}
