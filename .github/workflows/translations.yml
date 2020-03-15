@@ -48,6 +48,7 @@ jobs:
             password $GITHUB_TOKEN
           EOF
           chmod 600 $HOME/.netrc
+          cd $GITHUB_WORKSPACE/ReferrersManager
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$GITHUB_ACTOR"
           git push origin --delete translationupdates || true
