@@ -77,7 +77,7 @@ jobs:
           git add lang/
           git add "*.json"
           IFS=$'\n'
-          changes=( $(git diff --numstat HEAD | grep -E '([0-9]+)\s+([0-9]+)\s+[a-zA-Z\/]*lang\/([a-z]{2,3}(?:-[a-z]{2,3})?)\.json' ) )
+          changes=( $(git diff --numstat HEAD | grep -E '([0-9]+)\s+([0-9]+)\s+[a-zA-Z\/]*lang\/([a-z]{2,3}(-[a-z]{2,3})?)\.json' ) )
           unset IFS
           
           # abort here if no change available
@@ -97,7 +97,7 @@ jobs:
             fi
             
             file=${line[2]}
-            lang=$( echo ${line[2]} | grep -oE '([a-z]{2,3}(?:-[a-z]{2,3})?)\.json' | cut -d'.' -f 1 )
+            lang=$( echo ${line[2]} | grep -oE '([a-z]{2,3}(-[a-z]{2,3})?)\.json' | cut -d'.' -f 1 )
             totaladditions=$(( totaladditions + additions ))
             additionsByLang[$lang]=$(( additionsByLang[$lang] + additions ))
           done
