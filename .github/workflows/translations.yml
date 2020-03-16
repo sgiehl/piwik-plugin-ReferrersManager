@@ -109,7 +109,7 @@ jobs:
               if [[ "$j" == "$i|"* ]];
               then
                 IFS=$'\n'
-                info=( $( echo "$j" | tr "|" "\n" ) )
+                info=( $( echo "$j" | tr " " "_" | tr "|" "\n" ) )
                 unset IFS
                 break
               fi
@@ -117,14 +117,15 @@ jobs:
             
             linesInLang=$( < $GITHUB_WORKSPACE/ReferrersManager/lang/$i.json wc -l )
             percentage=$(( 100 * (linesInLang - 4) / (lines - 4) ))
-            echo $percentage
-            message="$message- Updated ${info[1]} (${additionsByLang[$i]} changes / $percentage% translated)\n"
+            name=$( echo ${info[1]} | tr "_" " " )
+            message="$message- Updated $name (${additionsByLang[$i]} changes / $percentage% translated)\n"
           done
           message="$message\n\nHelp us translate Matomo in your language!\nSignup at https://www.transifex.com/matomo/matomo/\nIf you have any questions, get in touch with us at translations@matomo.org"
           echo $title
           echo $message
           echo ::set-output name=title::$title
           echo ::set-output name=message::$message
+          exit 1
       shell: bash 
     - name: Push changes
       run: |
