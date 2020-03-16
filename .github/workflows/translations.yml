@@ -1,9 +1,6 @@
 name: Translation Updates
 
 on:
-  push:
-    branches: 
-    - "*"
   schedule:
   - cron: "0 2 * * 6"
 
