@@ -125,7 +125,6 @@ jobs:
           echo $message
           echo ::set-output name=title::$title
           echo ::set-output name=message::$message
-          exit 1
       shell: bash 
     - name: Push changes
       run: |
