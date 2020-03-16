@@ -1,0 +1,27 @@
+{
+    "ReferrersManager": {
+        "PluginDescription": "这个插件可以查看和管理Matomo可以识别的搜索引擎和社交网络。",
+        "SearchEnginesAndSocialNetworks": "搜索引擎和社交网络",
+        "AddSocial": "添加新的社交网络",
+        "Hostname": "主机名",
+        "SearchEnginesList": "Matomo已知的所有搜索引擎列表",
+        "SocialsList": "Matomo已知的所有社交列表",
+        "ManageSocialsAndEngines": "管理搜索引擎和社交网络",
+        "ConfirmRemove": "您真的要从列表中删除%s吗？",
+        "ManageSearchEngines": "管理搜索引擎",
+        "ManageSocials": "管理社交网络",
+        "DetectedEngine": "检测引擎",
+        "DetectedKeywords": "检测到的关键词",
+        "DetectedSocial": "检测到的社交网络",
+        "CheckUrl": "检查网址以获取搜索引擎和社交网络信息",
+        "CheckUrlDesc": "在这里，您可以粘贴任何引荐来源网址，以检查Matomo是否会将其识别为搜索引擎和\/或社交网络",
+        "CheckUrlSend": "检查网址",
+        "AddSearchEngine": "添加搜索引擎定义",
+        "Parameters": "参数",
+        "BacklinkPattern": "反向链接模式",
+        "Charset": "字符集",
+        "AddEngineError": "添加搜索引擎时出错。 请检查您的输入，然后重试。",
+        "CommaSeparated": "（以逗号分隔）",
+        "AddSocialError": "添加社交内容时出错。 请检查您的输入，然后重试。"
+    }
+}
