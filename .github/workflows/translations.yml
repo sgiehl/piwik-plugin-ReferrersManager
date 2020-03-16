@@ -74,8 +74,10 @@ jobs:
       id: changes
       run: | 
           cd $GITHUB_WORKSPACE/ReferrersManager
+          git add lang/
+          git add "*.json"
           IFS=$'\n'
-          changes=( $(git diff --numstat | grep -E '([0-9]+)\s+([0-9]+)\s+[a-zA-Z\/]*lang\/([a-z]{2,3}(?:-[a-z]{2,3})?)\.json' ) )
+          changes=( $(git diff --numstat HEAD | grep -E '([0-9]+)\s+([0-9]+)\s+[a-zA-Z\/]*lang\/([a-z]{2,3}(?:-[a-z]{2,3})?)\.json' ) )
           unset IFS
           
           # abort here if no change available
@@ -83,8 +85,6 @@ jobs:
           then
               exit 0
           fi
-          git add lang/
-          git add "*.json"
           declare -i totaladditions=0
           declare -A additionsByLang
           for (( i=0; i < ${#changes[@]}; i++ )); do
