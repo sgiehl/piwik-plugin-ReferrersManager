@@ -30,7 +30,7 @@
         "ProvideSocialData": "Bitte geben Sie die Daten für das neue soziale Netzwerk an.",
         "DuplicateHostnameInfo": "Bitte beachten Sie dass Hostnamen eindeutig sind. Doppelte Hostnamen überschreiben einander.",
         "ProvideEngineData": "Bitte geben Sie die Daten für die neue Suchmaschine an.",
-        "HostnameWildcardDesc": "Für länderspezifische Suchmaschine: In der URL, \"{}.example.com\" wird \"{}\" jedem ISO3166-1 alpha2 Länder-Code entsprechen. Ebenso wird \"example.{}\" jeder gültigen Länder-TLD entsprechen. Verwenden Sie dies sparsam um Falscherkennungen zu vermeiden.",
+        "HostnameWildcardDesc": "Für regionenspezifische Suchmaschinen wird die URL \"{}.example.com\" für sämtliche ISO3166-1 alpha2 Ländercodes zu \"{}\" passen. Ebenso wird \"example.{}\" gültige Länder-Top-Level-Domains akzeptieren, sollte aber sparsam eingesetzt werden, um false positives zu vermeiden.",
         "SearchEngineAdded": "fügte eine neue benutzerdefinierte Suchmaschine hinzu",
         "SearchEngineRemoved": "entfernte eine benutzerdefinierte Suchmaschine",
         "SocialAdded": "fügte ein neues benutzerdefiniertes soziales Netzwerk hinzu",

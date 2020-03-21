@@ -30,7 +30,6 @@
         "ProvideSocialData": "請提供新的社群網站資料。",
         "DuplicateHostnameInfo": "記住域名不能重複。重複的域名會覆蓋掉其他的。",
         "ProvideEngineData": "請提供新的搜尋引擎資料。",
-        "HostnameWildcardDesc": "針對不同地區的搜尋引擎，網址「{}.example.com」中的 {} 會以 ISO3166-1 alpha2 的國家代碼取代。同樣地，「example.{}」將會以有效的國家頂級域名取代，但須謹慎使用以防錯誤。",
         "SearchEngineAdded": "新增自訂搜尋引擎",
         "SearchEngineRemoved": "移除自訂搜尋引擎",
         "SocialAdded": "新增自訂社群網站",

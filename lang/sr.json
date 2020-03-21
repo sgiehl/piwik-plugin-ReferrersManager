@@ -30,7 +30,6 @@
         "ProvideSocialData": "Molimo vas da unesete podatke nove društvene mreže.",
         "DuplicateHostnameInfo": "Imajte na umu da naziv hosta mora da bude jedinstven. Dupli naziv će obrisati prethodne podatke.",
         "ProvideEngineData": "Molimo vas da unesete podatke o pretraživaču.",
-        "HostnameWildcardDesc": "Za pretraživače koji su specifični za jedan region, URL, \"{}.example.com\" će se poklopiti sa bilo kojim ISO3166-1 alpha2 kodom zemlje \"{}\". Slično tome, \"example.{}\" će se poklopiti sa bilo kojim validnim top domenom zemalja ali treba biti oprezan kako bi se izbegla lažna poklapanja.",
         "SearchEngineAdded": "dodat nov korisnički pretraživač",
         "SearchEngineRemoved": "uklonjen korisnički pretraživač",
         "SocialAdded": "dodata nova korisnička društvena mreža",

@@ -30,7 +30,6 @@
         "ProvideSocialData": "Vänligen skriv in datan för det nya sociala nätverket.",
         "DuplicateHostnameInfo": "Tänk på att värdnamnet behöver vara unikt. En kopia av värdnamnet kommer skriva över det andra.",
         "ProvideEngineData": "Vänligen skriv in datan för sökmotorn.",
-        "HostnameWildcardDesc": "För regionsspecifika sökmotorer Kommer URL'en \"{}.exempel.se\" matcha alla ISO3166-1 alpha2 landskoder mot \"{}\". Likaså kommer \"exempel.{}\" matcha mot giltiga landsspecifika toppdomäner men bör användas sparsamt för att undvika \"false positives\".",
         "SearchEngineAdded": "lagt till en ny anpassad sökmotor",
         "SearchEngineRemoved": "tog bort en anpassad sökmotor",
         "SocialAdded": "lagt till ett nytt anpassat socialt nätverk",

@@ -30,7 +30,6 @@
         "ProvideSocialData": "Por favor, forneça os dados para a nova rede social.",
         "DuplicateHostnameInfo": "Tenha em consideração que o nome do servidor necessita de ser único. Um nome duplicado de servidor irá sobrepor-se ao anterior.",
         "ProvideEngineData": "Por favor, forneça os dados para o motor de pesquisa.",
-        "HostnameWildcardDesc": "Para motores de pesquisa regionais, o endereço, \"{}.example.com\" irá corresponder qualquer código de país ISO3166-1 alpha2 com \"{}\". De modo similar, \"example.{}\" irá corresponder com qualquer TLDs de país válido, mas deve ser utilizado com ponderação para evitar falsos positivos.",
         "SearchEngineAdded": "foi adicionado um novo motor de pesquisa personalizado",
         "SearchEngineRemoved": "foi removido um motor de pesquisa personalizado",
         "SocialAdded": "foi adicionada uma nova rede social personalizada",

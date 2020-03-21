@@ -30,7 +30,6 @@
         "ProvideSocialData": "Proszę wprowadź dane nowej sieci społecznościowej.",
         "DuplicateHostnameInfo": "Pamiętaj że nazwa hosta musi być unikalna. Wpis z powieloną nazwą hosta spowoduje nadpisanie wcześniejszego wpisu.",
         "ProvideEngineData": "Proszę podaj dane wyszukiwarki.",
-        "HostnameWildcardDesc": "W przypadku regionalnych wyszukiwarek, adres, \"{}.example.com\" zostanie dopasowany do dowolnego kodu kraju zawierającego się w ISO3166-1 alpha2 przez \"{}\". Podobnie \"example.{}\" zostanie dopasowane do dowolnej krajowej domeny TLD. Prosimy o ostrożność w stosowaniu, aby zapobiec błędnym dopasowaniom.",
         "SearchEngineAdded": "dodano nową spersonalizowaną wyszukiwarkę",
         "SearchEngineRemoved": "usunięto spersonalizowaną wyszukiwarkę",
         "SocialAdded": "dodano nową spersonalizowaną sieć społecznościową",

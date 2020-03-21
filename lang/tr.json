@@ -30,7 +30,6 @@
         "ProvideSocialData": "Lütfen sosyal ağ verilerini yazın.",
         "DuplicateHostnameInfo": "Sunucu adının eşsiz olması gerektiğini unutmayın. Var olan bir sunucu adı yazarsanız var olan bilgilerin üzerine yazılır.",
         "ProvideEngineData": "Lütfen arama motoru verilerini yazın.",
-        "HostnameWildcardDesc": "Bölgeye özel arama motorları için, adres \"{}.ornek.com\" şeklinde yazıldığında \"{}\" yerine ISO3166-1 alpha2 ülke kodu bulunan adresler kabul edilir. Benzer şekilde \"ornek.{}\" yazıldığında ülke etki alanı uzantıları kullanılır. Bu kullanım hatalı doğru sonuçlar verebileceğinden dikkatle kullanılmalıdır.",
         "SearchEngineAdded": "yeni bir arama motoru ekledi",
         "SearchEngineRemoved": "bir arama motorunu sildi",
         "SocialAdded": "yeni bir sosyal ağ ekledi",
