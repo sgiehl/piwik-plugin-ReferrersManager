@@ -30,7 +30,7 @@
         "ProvideSocialData": "Ju lutemi, jepni të dhënat për rrjetin e ri shoqëror.",
         "DuplicateHostnameInfo": "Mbani parasysh se strehëemri lypset të jetë unik. Një strehëemër i përsëdytur do ta mbishkruajë tjetrin.",
         "ProvideEngineData": "Ju lutemi, jepni të dhënat për motorin e kërkimeve.",
-        "HostnameWildcardDesc": "Për motorë kërkimi rajonesh të caktuar, URL-ja, \"{}.example.com\" do të kërkojë për përputhje me çfarëdo kod vendi ISO3166-1 alpha2 të \"{}\". Në mënyrë të ngjashme, \"example.{}\" do të kërkojë për përputhje kundrejt TLD-sh të vlefshme vendesh, por do të ish mirë të përdorej rrallë, për të shmangur përputhje të rreme.",
+        "HostnameWildcardDesc": "Për motorë kërkimesh specifikë për rajone, URL-ja, \"{}.example.com\" do të kërkojë përputhje për çfarëdo kodi vendi ISO3166-1 alpha2 me \"{}\". Në mënyrë të ngjashme, \"example.{}\" do të kërkojë përputhje me TLD-ra të vlefshme vendesh, por duhet përdorur me kursim, për të evituar sinjalizime të pavërteta.",
         "SearchEngineAdded": "u shtua një motor vetjak kërkimesh i ri",
         "SearchEngineRemoved": "u hoq një motor vetjak kërkimesh",
         "SocialAdded": "u shtua një rrjet vetjak shoqëror i ri",
