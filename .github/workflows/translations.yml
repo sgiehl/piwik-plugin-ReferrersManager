@@ -34,7 +34,7 @@ jobs:
         path: 'matomo'
         ref: '4.x-dev'
         lfs: false
-    - uses: sgiehl/matomo-plugin-translations-update@v0.0.1
+    - uses: sgiehl/matomo-plugin-translations-update@master
       env:
         PluginName: "ReferrersManager"
         TransifexUsername: ${{ secrets.TransifexUsername }}
