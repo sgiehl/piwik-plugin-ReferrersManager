@@ -28,12 +28,6 @@ jobs:
       with:
         ref: 'transupdate'
         path: 'ReferrersManager'
-    - uses: actions/checkout@v2
-      with:
-        repository: 'matomo-org/matomo'
-        path: 'matomo'
-        ref: '4.x-dev'
-        lfs: false
     - uses: sgiehl/matomo-plugin-translations-update@master
       env:
         PluginName: "ReferrersManager"
