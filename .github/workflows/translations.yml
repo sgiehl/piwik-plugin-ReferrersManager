@@ -10,20 +10,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ""
-          MYSQL_DATABASE: piwik_tests
-        ports:
-          - 3306/tcp
-
     steps:
-    - uses: shivammathur/setup-php@v1
-      with:
-        php-version: '7.3'
     - uses: actions/checkout@v2
       with:
         ref: 'transupdate'
