@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: sgiehl/matomo-plugin-translations-update@master
+    - uses: matomo-org/github-action-plugin-translations@master
       env:
         TransifexUsername: ${{ secrets.TransifexUsername }}
         TransifexPassword: ${{ secrets.TransifexPassword }}
