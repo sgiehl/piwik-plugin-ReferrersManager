@@ -7,14 +7,9 @@
  */
 namespace Piwik\Plugins\ReferrersManager\tests\Mocks;
 
-use Piwik\Cache;
-use Piwik\Container\StaticContainer;
-use Piwik\Option;
-use Piwik\Piwik;
 use Piwik\Plugins\Referrers\SearchEngine;
 use Piwik\Plugins\Referrers\Social;
 use Piwik\Plugins\ReferrersManager\ReferrersManager;
-use Piwik\Singleton;
 
 /**
  *
@@ -22,7 +17,7 @@ use Piwik\Singleton;
 class Model extends \Piwik\Plugins\ReferrersManager\Model
 {
     /**
-     * Wrapper method to Piwiks internal method to return search engine data
+     * Wrapper method to Matomos internal method to return search engine data
      * @return array
      */
     public function getSearchEngines()
@@ -37,7 +32,7 @@ class Model extends \Piwik\Plugins\ReferrersManager\Model
     }
 
     /**
-     * Wrapper method to Piwiks internal method to return search engine data
+     * Wrapper method to Matomos internal method to return search engine data
      * @return array
      */
     public function getSocials()
@@ -50,5 +45,4 @@ class Model extends \Piwik\Plugins\ReferrersManager\Model
 
         return $socials;
     }
-
 }

@@ -18,14 +18,14 @@ use Piwik\Tests\Framework\Fixture;
 
 class UITestFixture extends Fixture
 {
-    public function setUp()
+    public function setUp(): void
     {
         Manager::getInstance()->activatePlugin('ReferrersManager');
 
         $this->createWebsite('2016-01-01');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         // empty
     }

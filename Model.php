@@ -13,7 +13,6 @@ use Piwik\Option;
 use Piwik\Piwik;
 use Piwik\Plugins\Referrers\SearchEngine;
 use Piwik\Plugins\Referrers\Social;
-use Piwik\Singleton;
 
 /**
  *

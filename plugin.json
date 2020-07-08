@@ -1,16 +1,15 @@
 {
     "name": "ReferrersManager",
-    "version": "3.0.4",
+    "version": "4.0.0",
     "description": "Allows to view and manage the search engines and social networks that Matomo is able to detect.",
     "keywords": ["referrer","search","engine","social"],
     "license": "GPL v3+",
-    "homepage": "http://github.com/sgiehl/piwik-plugin-ReferrersManager",
+    "homepage": "https://github.com/sgiehl/piwik-plugin-ReferrersManager",
     "require": {
-        "piwik": ">=3.0.3,<4.0.0-b1",
-        "php": ">=5.5.0"
+        "piwik": ">=4.0.0-b1,<5.0.0-b1"
     },
     "support": {
-        "email": "stefan@piwik.org",
+        "email": "stefan@matomo.org",
         "issues": "https://github.com/sgiehl/piwik-plugin-ReferrersManager/issues",
         "wiki": "https://github.com/sgiehl/piwik-plugin-ReferrersManager/issues",
         "source": "https://github.com/sgiehl/piwik-plugin-ReferrersManager/issues"
@@ -18,13 +17,12 @@
     "authors": [
         {
             "name": "Stefan Giehl",
-            "email": "stefan@piwik.org",
-            "homepage": "http://github.com/sgiehl"
+            "email": "stefan@matomo.org",
+            "homepage": "https://github.com/sgiehl"
         }
     ],
     "donate": {
         "paypal": "stefangiehl@web.de",
-        "flattr": "https://flattr.com/thing/3787742/sgiehlpiwik-plugin-ReferrersManager-on-GitHub",
-        "bitcoin": "1NxyWNfsjSNQULGxPVJUkgf8D3rpdJEgM6"
+        "flattr": "https://flattr.com/thing/3787742/sgiehlpiwik-plugin-ReferrersManager-on-GitHub"
     }
 }

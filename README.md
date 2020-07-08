@@ -1,6 +1,6 @@
 # Matomo Referrers Manager Plugin
 
-[![Build Status](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager.png?branch=master)](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager) [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sgiehl&url=https://github.com/sgiehl/piwik-plugin-ReferrersManager&title=Piwik%20Plugin%20Referrers%20Manager&language=&tags=github&category=software) 
+[![Build Status](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager.png?branch=4.x-dev)](https://travis-ci.org/sgiehl/piwik-plugin-ReferrersManager) [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sgiehl&url=https://github.com/sgiehl/piwik-plugin-ReferrersManager&title=Piwik%20Plugin%20Referrers%20Manager&language=&tags=github&category=software)
 
 
 ## Description
@@ -10,7 +10,7 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ### Requirements
 
-[Matomo](https://github.com/matomo-org/matomo) 3.0.0-b1 or higher is required.
+[Matomo](https://github.com/matomo-org/matomo) 4.0.0-b1 or higher is required.
 
 ### Features
 
@@ -20,7 +20,7 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ## Support
 
-Please direct any feedback to [stefan@piwik.org](mailto:stefan@piwik.org)
+Please direct any feedback to [stefan@matomo.org](mailto:matomo@piwik.org)
 
 ## Contribute
 

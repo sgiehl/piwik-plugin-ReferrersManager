@@ -1,14 +1,14 @@
 <div ng-show="!showSocialForm">
     <h3>{{ 'ReferrersManager_SocialsList'|translate }}</h3>
 
-    <p class="notification system notification-warning" ng-if="ownSocialDefinitions">
+    <p class="notification system notification-warning" ng-show="ownSocialDefinitions">
         <span>{{ 'ReferrersManager_SocialListDisabled'|translate }}</span>
-        <a href="#socialTab" ng-click="setUseDefaultSocials(0)">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
+        <a ng-click="setUseDefaultSocials(0)">{{ 'ReferrersManager_EnableSocialList'|translate }}</a>
     </p>
 
-    <p class="notification system notification-success" ng-if="!ownSocialDefinitions">
+    <p class="notification system notification-success" ng-show="!ownSocialDefinitions">
         <span>{{ 'ReferrersManager_UsingDefaultSocials'|translate }}</span>
-        <a href="#socialTab" ng-click="setUseDefaultSocials(1)">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
+        <a ng-click="setUseDefaultSocials(1)">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
     </p>
 
     <span class="icoAdd" ng-click="showAddSocialForm(true)">

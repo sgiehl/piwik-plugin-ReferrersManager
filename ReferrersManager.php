@@ -17,7 +17,7 @@ use Piwik\Plugin;
 class ReferrersManager extends Plugin
 {
     /**
-     * @see Piwik_Plugin::registerEvents
+     * @see \Piwik\Plugin::registerEvents
      */
     public function registerEvents()
     {
@@ -117,8 +117,5 @@ class ReferrersManager extends Plugin
         $translationKeys[] = "ReferrersManager_DuplicateHostnameInfo";
         $translationKeys[] = "ReferrersManager_ProvideEngineData";
         $translationKeys[] = "ReferrersManager_HostnameWildcardDesc";
-
-        
     }
-
 }

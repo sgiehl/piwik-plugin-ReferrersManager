@@ -59,10 +59,10 @@ class Controller extends ControllerAdmin
         $urlToCheck = trim(Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string')));
 
         Json::sendHeaderJSON();
-        return json_encode(array(
+        return json_encode([
             'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
             'social'       => Model::getInstance()->detectSocial($urlToCheck)
-        ));
+        ]);
     }
 
     public function refresh()

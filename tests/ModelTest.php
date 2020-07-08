@@ -18,7 +18,7 @@ use Piwik\Tests\Framework\TestCase\SystemTestCase;
  */
 class ModelTest extends SystemTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         \Piwik\Plugin\Manager::getInstance()->loadPlugin('ReferrersManager');

@@ -12,119 +12,117 @@ describe("ReferrersManager", function () {
 
     this.fixture = "Piwik\\Plugins\\ReferrersManager\\tests\\Fixtures\\UITestFixture";
 
-    function checkUrl(url, page) {
-        page.evaluate(function(){
+    async function checkUrl(url, page) {
+        await page.evaluate(function(){
             $('[ng-model="urlToCheck"]').val('');
-        }, 100);
-        page.sendKeys('[ng-model="urlToCheck"]', url);
-        page.click('[onconfirm="checkResult()"] input', 1500);
+        });
+        await page.type('[ng-model="urlToCheck"]', url);
+        await page.click('[onconfirm="checkResult()"] input');
+        await page.waitForNetworkIdle();
     }
 
-    it('should load search engines list', function (done) {
-        expect.screenshot('searchengines_list').to.be.captureSelector('#referrersmanage', function (page) {
-            page.load("?module=ReferrersManager&action=index&idSite=1&period=day&date=yesterday");
-            page.wait(5000);
-        }, done);
+    it('should load search engines list', async function () {
+        await page.goto("?module=ReferrersManager&action=index&idSite=1&period=day&date=yesterday");
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_list');
     });
 
-    it('should identify search engine correct', function (done) {
-        expect.screenshot('searchengines_identify').to.be.captureSelector('[ng-controller="CheckReferrerUrlController"]', function (page) {
-            checkUrl('http://www.google.com/xyz/?q=piwik', page);
-        }, done);
+    it('should identify search engine correct', async function () {
+        await checkUrl('http://www.google.com/xyz/?q=piwik', page);
+        expect(await page.screenshotSelector('[ng-controller="CheckReferrerUrlController"]')).to.matchImage('searchengines_identify');
     });
 
-    it('should open add search engine form', function (done) {
-        expect.screenshot('searchengines_add').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click('[ng-click="showAddSearchEngineForm(true)"]', 1500);
-        }, done);
+    it('should open add search engine form', async function () {
+        await (await page.jQuery('[ng-click="showAddSearchEngineForm(true)"]')).click();
+        await page.waitFor(250);
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_add');
     });
 
-    it('should save new search engine', function (done) {
-        expect.screenshot('searchengines_list_new').to.be.captureSelector('#referrersmanage', function (page) {
-            page.sendKeys("#engineName", 'test', 150);
-            page.sendKeys("#engineHost", 'randomhost.com', 150);
-            page.sendKeys("#engineParameter", 'q,ghj', 150);
-            page.click('[onconfirm="addSearchEngine()"] input', 1500);
-        }, done);
+    it('should save new search engine', async function () {
+        await page.type("#engineName", 'test');
+        await page.type("#engineHost", 'randomhost.com');
+        await page.type("#engineParameter", 'q,ghj');
+        await page.click('[onconfirm="addSearchEngine()"] input');
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_list_new');
     });
 
-    it('should identify new search engine correct', function (done) {
-        expect.screenshot('searchengines_identify_new').to.be.captureSelector('[ng-controller="CheckReferrerUrlController"]', function (page) {
-            checkUrl('http://randomhost.com/xyz/?ghj=piwik', page);
-        }, done);
+    it('should identify new search engine correct', async function () {
+        await checkUrl('http://randomhost.com/xyz/?ghj=piwik', page);
+        expect(await page.screenshotSelector('[ng-controller="CheckReferrerUrlController"]')).to.matchImage('searchengines_identify_new');
     });
 
-    it('should show remove search engine dialog correct', function (done) {
-        expect.screenshot('searchengines_remove_dialog').to.be.captureSelector('.modal.open', function (page) {
-            page.click('[ng-click="removeEngine(url.url)"]', 1500);
-        }, done);
+    it('should show remove search engine dialog correct', async function () {
+        await page.click('[ng-click="removeEngine(url.url)"]');
+        await page.waitFor(500); // wait for animation
+        const modal = await page.$('.modal.open');
+        expect(await modal.screenshot()).to.matchImage('searchengines_remove_dialog');
     });
 
-    it('should remove new search engine correct', function (done) {
-        expect.screenshot('searchengines_list').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click(".modal.open a:contains(Yes)", 1500);
-        }, done);
+    it('should remove new search engine correct', async function () {
+        await (await page.jQuery(".modal.open a:contains(Yes)")).click();
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_list');
     });
 
-    it('should switch to social networks list', function (done) {
-        expect.screenshot('socials_list').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click('a[href="#socialTab"]', 1500);
-        }, done);
+    it('should switch to social networks list', async function () {
+        await page.click('a[href="#socialTab"]');
+        await page.mouse.click(0, 0);
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('socials_list');
     });
 
-    it('should identify social network correct', function (done) {
-        expect.screenshot('social_identify').to.be.captureSelector('[ng-controller="CheckReferrerUrlController"]', function (page) {
-            checkUrl('http://twitter.com/tweet', page);
-        }, done);
+    it('should identify social network correct', async function () {
+        await checkUrl('http://twitter.com/tweet', page);
+        expect(await page.screenshotSelector('[ng-controller="CheckReferrerUrlController"]')).to.matchImage('social_identify');
     });
 
-    it('should disable internal social network list correct', function (done) {
-        expect.screenshot('social_disable').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click('[ng-click="setUseDefaultSocials(1)"]', 1500);
-        }, done);
+    it('should disable internal social network list correct', async function () {
+        await (await page.jQuery('[ng-click="setUseDefaultSocials(1)"]')).click();
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_disable');
     });
 
-    it('should identify social network correct', function (done) {
-        expect.screenshot('social_identify_empty_list').to.be.captureSelector('[ng-controller="CheckReferrerUrlController"]', function (page) {
-            checkUrl('http://twitter.com/tweet', page);
-        }, done);
+    it('should identify social network correct', async function () {
+        await checkUrl('http://twitter.com/tweet', page);
+        expect(await page.screenshotSelector('[ng-controller="CheckReferrerUrlController"]')).to.matchImage('social_identify_empty_list');
     });
 
-    it('should open add social dialog', function (done) {
-        expect.screenshot('social_add').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click('[ng-click="showAddSocialForm(true)"]', 1500);
-        }, done);
+    it('should open add social dialog', async function () {
+        await (await page.jQuery('[ng-click="showAddSocialForm(true)"]')).click();
+        await page.waitFor(250);
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_add');
     });
 
-    it('should save new social', function (done) {
-        expect.screenshot('social_list_new').to.be.captureSelector('#referrersmanage', function (page) {
-            page.sendKeys("#socialName", 'test social', 150);
-            page.sendKeys("#socialHost", 'randomsocial.com', 150);
-            page.click('[onconfirm="addSocial()"] input', 1500);
-        }, done);
+    it('should save new social', async function () {
+        await page.type("#socialName", 'test social');
+        await page.type("#socialHost", 'randomsocial.com');
+        await page.click('[onconfirm="addSocial()"] input');
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_list_new');
     });
 
-    it('should identify new social correct', function (done) {
-        expect.screenshot('social_identify_new').to.be.captureSelector('[ng-controller="CheckReferrerUrlController"]', function (page) {
-            checkUrl('http://randomsocial.com/123', page);
-        }, done);
+    it('should identify new social correct', async function () {
+        await checkUrl('http://randomsocial.com/123', page);
+        expect(await page.screenshotSelector('[ng-controller="CheckReferrerUrlController"]')).to.matchImage('social_identify_new');
     });
 
-    it('should enable internal social network list correct', function (done) {
-        expect.screenshot('social_enable').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click('[ng-click="setUseDefaultSocials(0)"]', 1500);
-        }, done);
+    it('should enable internal social network list correct', async function () {
+        await (await page.jQuery('[ng-click="setUseDefaultSocials(0)"]')).click();
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_enable');
     });
 
-    it('should show remove search engine dialog correct', function (done) {
-        expect.screenshot('social_remove_dialog').to.be.captureSelector('.modal.open', function (page) {
-            page.click('[ng-click="removeSocial(host)"]', 1500);
-        }, done);
+    it('should show remove social network dialog correct', async function () {
+        await page.click('[ng-click="removeSocial(host)"]');
+        await page.waitFor(500); // wait for animation
+        const modal = await page.$('.modal.open');
+        expect(await modal.screenshot()).to.matchImage('social_remove_dialog');
     });
 
-    it('should remove new search engine correct', function (done) {
-        expect.screenshot('socials_list').to.be.captureSelector('#referrersmanage', function (page) {
-            page.click(".modal.open a:contains(Yes)", 1500);
-        }, done);
+    it('should remove new social network correct', async function () {
+        await (await page.jQuery(".modal.open a:contains(Yes)")).click();
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('socials_list');
     });
 });
