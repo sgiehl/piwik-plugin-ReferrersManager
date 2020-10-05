@@ -1,5 +1,5 @@
 <?php
 
 return array(
-    'Piwik\Plugins\ReferrersManager\Model'   => DI\object('Piwik\Plugins\ReferrersManager\tests\Mocks\Model'),
+    'Piwik\Plugins\ReferrersManager\Model'   => DI\autowire('Piwik\Plugins\ReferrersManager\tests\Mocks\Model'),
 );
