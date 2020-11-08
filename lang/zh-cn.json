@@ -22,6 +22,18 @@
         "Charset": "字符集",
         "AddEngineError": "添加搜索引擎时出错。 请检查您的输入，然后重试。",
         "CommaSeparated": "（以逗号分隔）",
-        "AddSocialError": "添加社交内容时出错。 请检查您的输入，然后重试。"
+        "AddSocialError": "添加社交内容时出错。 请检查您的输入，然后重试。",
+        "SocialListDisabled": "注意：Matomo的内置社交网络列表已禁用。",
+        "EnableSocialList": "激活Matomo的社交网络列表",
+        "DisableSocialList": "禁用Matomo的社交网络列表",
+        "UsingDefaultSocials": "您正在使用Matomo的内置社交网络列表。",
+        "ProvideSocialData": "请提供新社交网络的数据。",
+        "DuplicateHostnameInfo": "请记住，主机名必须是唯一的。 重复的主机名将覆盖另一个。",
+        "ProvideEngineData": "请提供搜索引擎的数据。",
+        "HostnameWildcardDesc": "对于特定地区的搜索引擎，URL“ {}.example.com”将与“ {}”匹配任何ISO3166-1 alpha2国家\/地区代码。 同样，“ example.{}”将与有效的国家\/地区顶级域名（TLD）相匹配，但应谨慎使用以避免误报。",
+        "SearchEngineAdded": "添加了新的自定义搜索引擎",
+        "SearchEngineRemoved": "删除了自定义搜索引擎",
+        "SocialAdded": "添加了新的自定义社交网络",
+        "SocialRemoved": "删除了自定义社交网络"
     }
 }
