@@ -1,5 +1,13 @@
 ## Changelog
 
+__4.0.1__
+
+* Translation updates
+
+__4.0.0__
+
+* Compatibility for Piwik 4.x
+
 __3.0.4__
 
 * Piwik ist now Matomo
