@@ -1,15 +1,18 @@
 {
     "ReferrersManager": {
-        "SearchEnginesAndSocialNetworks": "Søkemotorer og sosiale nettverk",
         "AddSocial": "Legg til nytt sosialt nettverk",
+        "Charset": "Tegnsett",
+        "CheckUrlSend": "Sjekk URL",
+        "CommaSeparated": "(kommaseparert)",
+        "DetectedEngine": "Oppdaget motor",
+        "DetectedKeywords": "Gjenkjente nøkkelord",
         "Hostname": "Vertsnavn",
-        "SearchEnginesList": "Liste over alle søkemotorer kjent av Matomo",
-        "SocialsList": "Liste over alle sosiale nettverk som Matomo kjenner",
         "ManageSearchEngines": "Behandle søkemotorer",
         "ManageSocials": "Behandle sosiale nettverk",
-        "DetectedKeywords": "Gjenkjente nøkkelord",
-        "CheckUrlSend": "Sjekk URL",
         "Parameters": "Parametere",
-        "CommaSeparated": "(kommaseparert)"
+        "PluginDescription": "Dette programtillegget lar deg vise og håndtere søkemotorer og sosiale nettverks som gjenkjennes med Matomo.",
+        "SearchEnginesAndSocialNetworks": "Søkemotorer og sosiale nettverk",
+        "SearchEnginesList": "Liste over alle søkemotorer kjent av Matomo",
+        "SocialsList": "Liste over alle sosiale nettverk som Matomo kjenner"
     }
 }
