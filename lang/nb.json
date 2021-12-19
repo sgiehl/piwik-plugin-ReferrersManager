@@ -9,6 +9,7 @@
         "Hostname": "Vertsnavn",
         "ManageSearchEngines": "Behandle søkemotorer",
         "ManageSocials": "Behandle sosiale nettverk",
+        "ManageSocialsAndEngines": "Håndter søkemotorer og sosiale nettverk",
         "Parameters": "Parametere",
         "PluginDescription": "Dette programtillegget lar deg vise og håndtere søkemotorer og sosiale nettverks som gjenkjennes med Matomo.",
         "SearchEnginesAndSocialNetworks": "Søkemotorer og sosiale nettverk",
