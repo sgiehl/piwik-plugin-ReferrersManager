@@ -1,11 +1,15 @@
 {
     "ReferrersManager": {
+        "AddEngineError": "Kunne ikke legge til søkemotoren. Sjekk inndataen og prøv igjen.",
+        "AddSearchEngine": "Legg en til søkemotordefinisjon",
         "AddSocial": "Legg til nytt sosialt nettverk",
+        "BacklinkPattern": "Tilbakelenkingsmønster",
         "Charset": "Tegnsett",
         "CheckUrlSend": "Sjekk URL",
         "CommaSeparated": "(kommaseparert)",
         "DetectedEngine": "Oppdaget motor",
         "DetectedKeywords": "Gjenkjente nøkkelord",
+        "DetectedSocial": "Oppdaget sosialt nettverk",
         "Hostname": "Vertsnavn",
         "ManageSearchEngines": "Behandle søkemotorer",
         "ManageSocials": "Behandle sosiale nettverk",
