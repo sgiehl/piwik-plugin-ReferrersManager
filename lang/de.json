@@ -7,7 +7,7 @@
         "BacklinkPattern": "Link-Muster",
         "Charset": "Zeichensatz",
         "CheckUrl": "URL auf Informationen zu Suchmaschinen und sozialen Netzwerken überprüfen",
-        "CheckUrlDesc": "Hier können Sie eine Referrer-Url einfügen um zu überprüfen ob Matomo diese als Suchmaschine oder soziales Netzwerk erkennen würde.",
+        "CheckUrlDesc": "Hier können Sie eine Referrer-Url einfügen, um zu überprüfen ob Matomo diese als Suchmaschine oder soziales Netzwerk erkennen würde.",
         "CheckUrlSend": "URL überprüfen",
         "CommaSeparated": "(kommasepariert)",
         "ConfirmRemove": "Wollen Sie %s wirklich von dieser Liste entfernen?",
