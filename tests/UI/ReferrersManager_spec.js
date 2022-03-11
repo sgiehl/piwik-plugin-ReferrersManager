@@ -17,7 +17,7 @@ describe("ReferrersManager", function () {
             $('[ng-model="urlToCheck"]').val('');
         });
         await page.type('[ng-model="urlToCheck"]', url);
-        await page.click('[onconfirm="checkResult()"] input');
+        await page.click('.checkurlbutton input');
         await page.waitForNetworkIdle();
     }
 
@@ -42,7 +42,7 @@ describe("ReferrersManager", function () {
         await page.type("#engineName", 'test');
         await page.type("#engineHost", 'randomhost.com');
         await page.type("#engineParameter", 'q,ghj');
-        await page.click('[onconfirm="addSearchEngine()"] input');
+        await page.click('#searchengineTab [piwik-save-button] input');
         await page.waitForNetworkIdle();
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_list_new');
     });
@@ -97,7 +97,7 @@ describe("ReferrersManager", function () {
     it('should save new social', async function () {
         await page.type("#socialName", 'test social');
         await page.type("#socialHost", 'randomsocial.com');
-        await page.click('[onconfirm="addSocial()"] input');
+        await page.click('#socialTab [piwik-save-button] input');
         await page.waitForNetworkIdle();
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_list_new');
     });
