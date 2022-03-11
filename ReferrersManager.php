@@ -7,8 +7,6 @@
  */
 namespace Piwik\Plugins\ReferrersManager;
 
-use Piwik\Menu\MenuAdmin;
-use Piwik\Piwik;
 use Piwik\Plugin;
 
 /**

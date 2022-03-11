@@ -11,11 +11,11 @@
         <a ng-click="setUseDefaultSocials(1)">{{ 'ReferrersManager_DisableSocialList'|translate }}</a>
     </p>
 
-    <span class="icoAdd" ng-click="showAddSocialForm(true)">
-        {{ 'ReferrersManager_AddSocial'|translate }}
+    <span class="add-element" ng-click="showAddSocialForm(true)">
+        <span class="icon-add"></span>{{ 'ReferrersManager_AddSocial'|translate }}
     </span>
-    <span class="icoRefresh" ng-click="refreshList()">
-        {{ 'General_Refresh'|translate }}
+    <span class="refresh-list" ng-click="refreshList()">
+        <span class="icon-reload"></span>{{ 'General_Refresh'|translate }}
     </span>
     <div class="search-detections">
         <input type="text" ng-model="searchText" value="" placeholder="{{ 'General_Search'|translate }}"/>
@@ -48,8 +48,8 @@
             </td>
             <td>{{ host }}</td>
             <td ng-if="userDefinedSocials">
-            <span class="icoDelete" ng-if="userDefinedSocials[host]" ng-click="removeSocial(host)">
-                {{ 'General_Delete'|translate }}
+            <span class="delete-element" ng-if="userDefinedSocials[host]" ng-click="removeSocial(host)">
+                <span class="icon-delete"></span>{{ 'General_Delete'|translate }}
             </span>
             </td>
         </tr>

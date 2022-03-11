@@ -9,11 +9,7 @@
  */
 namespace Piwik\Plugins\ReferrersManager\tests\Fixtures;
 
-use Piwik\Cache;
-use Piwik\Option;
 use Piwik\Plugin\Manager;
-use Piwik\Plugins\Referrers\SearchEngine;
-use Piwik\Plugins\Referrers\Social;
 use Piwik\Tests\Framework\Fixture;
 
 class UITestFixture extends Fixture

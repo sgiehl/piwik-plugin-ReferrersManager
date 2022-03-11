@@ -17,7 +17,7 @@ describe("ReferrersManager", function () {
             $('[ng-model="urlToCheck"]').val('');
         });
         await page.type('[ng-model="urlToCheck"]', url);
-        await page.click('[onconfirm="checkResult()"] input');
+        await page.click('.checkurlbutton input');
         await page.waitForNetworkIdle();
     }
 
@@ -34,7 +34,7 @@ describe("ReferrersManager", function () {
 
     it('should open add search engine form', async function () {
         await (await page.jQuery('[ng-click="showAddSearchEngineForm(true)"]')).click();
-        await page.waitFor(250);
+        await page.waitForTimeout(250);
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_add');
     });
 
@@ -42,7 +42,7 @@ describe("ReferrersManager", function () {
         await page.type("#engineName", 'test');
         await page.type("#engineHost", 'randomhost.com');
         await page.type("#engineParameter", 'q,ghj');
-        await page.click('[onconfirm="addSearchEngine()"] input');
+        await page.click('#searchengineTab [piwik-save-button] input');
         await page.waitForNetworkIdle();
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_list_new');
     });
@@ -54,7 +54,7 @@ describe("ReferrersManager", function () {
 
     it('should show remove search engine dialog correct', async function () {
         await page.click('[ng-click="removeEngine(url.url)"]');
-        await page.waitFor(500); // wait for animation
+        await page.waitForTimeout(500); // wait for animation
         const modal = await page.$('.modal.open');
         expect(await modal.screenshot()).to.matchImage('searchengines_remove_dialog');
     });
@@ -90,14 +90,14 @@ describe("ReferrersManager", function () {
 
     it('should open add social dialog', async function () {
         await (await page.jQuery('[ng-click="showAddSocialForm(true)"]')).click();
-        await page.waitFor(250);
+        await page.waitForTimeout(250);
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_add');
     });
 
     it('should save new social', async function () {
         await page.type("#socialName", 'test social');
         await page.type("#socialHost", 'randomsocial.com');
-        await page.click('[onconfirm="addSocial()"] input');
+        await page.click('#socialTab [piwik-save-button] input');
         await page.waitForNetworkIdle();
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_list_new');
     });
@@ -115,7 +115,7 @@ describe("ReferrersManager", function () {
 
     it('should show remove social network dialog correct', async function () {
         await page.click('[ng-click="removeSocial(host)"]');
-        await page.waitFor(500); // wait for animation
+        await page.waitForTimeout(500); // wait for animation
         const modal = await page.$('.modal.open');
         expect(await modal.screenshot()).to.matchImage('social_remove_dialog');
     });
