@@ -1,4 +1,4 @@
-.admin {
+.url-checker {
     .engine, .keywords, .social {
         min-width: 150px;
         border-bottom: 1px solid #333;
@@ -6,69 +6,62 @@
         margin-right: 20px;
     }
 
-    #socialTab, #searchengineTab {
-        width: 100%;
-    }
-
     .checkurlbutton {
         margin-bottom: 15px;
     }
 
-    #content {
-        p.detectionresult, p.socialresult {
-            margin: 10px 0;
+    p.detectionresult, p.socialresult {
+        margin: 10px 0;
 
-            img {
-                padding-right: 4px;
-            }
+        img {
+            padding-right: 4px;
+        }
+    }
+}
+
+#referrersmanage {
+    #socialTab, #searchengineTab {
+        width: 100%;
+        padding: 0;
+
+        table {
+            width: 100%;
+            margin: 0;
         }
     }
 
-    .icoDelete {
+    .add-element, .delete-element, .refresh-list {
         cursor: pointer;
-        background: url('plugins/Morpheus/images/ico_delete.png') center left no-repeat;
-        padding-left: 20px;
         line-height: 20px;
-    }
-
-    .icoAdd {
-        cursor: pointer;
-        background: url('plugins/Morpheus/images/add.png') center left no-repeat;
-        padding-left: 20px;
-        line-height: 20px;
-        margin-top: 10px;
+        margin-top: 15px;
         display: inline-block;
 
-        .notification + & {
-            margin-top: 15px;
+        [class^="icon-"], [class*=" icon-"] {
+            margin-right: 5px;
         }
     }
 
-    .icoRefresh {
-        cursor: pointer;
-        background: url('plugins/Morpheus/images/refresh.png') center left no-repeat;
-        padding-left: 22px;
-        line-height: 20px;
+    .delete-element {
+        margin-top: 0;
+    }
+
+    .refresh-list {
         margin-left: 10px;
-        margin-top: 10px;
-        display: inline-block;
     }
 
     .search-detections {
         float: right;
     }
 
-    #removeDataConfirm .name {
-        color: #f55;
+    .tabs .tab a:focus, .tabs .tab a:focus.active {
+        background-color: transparent;
     }
 
-    #referrersmanage {
-        .tabs .tab a:focus, .tabs .tab a:focus.active {
-            background-color: transparent;
-        }
-
-        .tab {
-            width: 50%;
-        }
+    .tab {
+        width: 50%;
     }
+}
+
+#removeDataConfirm .name {
+    color: #f55;
 }

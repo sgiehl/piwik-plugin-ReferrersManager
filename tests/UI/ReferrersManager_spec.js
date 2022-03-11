@@ -34,7 +34,7 @@ describe("ReferrersManager", function () {
 
     it('should open add search engine form', async function () {
         await (await page.jQuery('[ng-click="showAddSearchEngineForm(true)"]')).click();
-        await page.waitFor(250);
+        await page.waitForTimeout(250);
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('searchengines_add');
     });
 
@@ -54,7 +54,7 @@ describe("ReferrersManager", function () {
 
     it('should show remove search engine dialog correct', async function () {
         await page.click('[ng-click="removeEngine(url.url)"]');
-        await page.waitFor(500); // wait for animation
+        await page.waitForTimeout(500); // wait for animation
         const modal = await page.$('.modal.open');
         expect(await modal.screenshot()).to.matchImage('searchengines_remove_dialog');
     });
@@ -90,7 +90,7 @@ describe("ReferrersManager", function () {
 
     it('should open add social dialog', async function () {
         await (await page.jQuery('[ng-click="showAddSocialForm(true)"]')).click();
-        await page.waitFor(250);
+        await page.waitForTimeout(250);
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('social_add');
     });
 
@@ -115,7 +115,7 @@ describe("ReferrersManager", function () {
 
     it('should show remove social network dialog correct', async function () {
         await page.click('[ng-click="removeSocial(host)"]');
-        await page.waitFor(500); // wait for animation
+        await page.waitForTimeout(500); // wait for animation
         const modal = await page.$('.modal.open');
         expect(await modal.screenshot()).to.matchImage('social_remove_dialog');
     });
