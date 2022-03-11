@@ -3,6 +3,7 @@
 __4.0.2__
 
 * Translation updates
+* Small UI improvements
 
 __4.0.1__
 
