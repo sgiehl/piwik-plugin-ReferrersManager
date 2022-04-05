@@ -7,7 +7,7 @@
         "BacklinkPattern": "Tilbakelenkingsmønster",
         "Charset": "Tegnsett",
         "CheckUrl": "Sjekk nettadresse for info om søkemotor og sosiale nettverk",
-        "CheckUrlDesc": "Her kan du lime inn en referent-nettadresse for å sjekke om Matomo ville gjenkjent det som en søkemotor, eller et sosialt nettverk",
+        "CheckUrlDesc": "Her kan du lime inn en henviser-nettadresse for å sjekke om Matomo ville gjenkjent det som en søkemotor, eller et sosialt nettverk",
         "CheckUrlSend": "Sjekk URL",
         "CommaSeparated": "(kommaseparert)",
         "ConfirmRemove": "Vil du virkelig fjerne %s fra listen?",
