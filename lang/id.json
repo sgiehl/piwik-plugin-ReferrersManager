@@ -7,7 +7,7 @@
         "BacklinkPattern": "Pola tautan balik",
         "Charset": "Pengodean karakter",
         "CheckUrl": "Periksa URL untuk mesin pencari dan informasi jejaring sosial",
-        "CheckUrlDesc": "Di sini Anda dapat menempelkan url perujuk apa pun untuk memeriksa apakah Matomo akan mengenalinya sebagai mesin pencari dan/ atau jejaring sosial",
+        "CheckUrlDesc": "Di sini Anda dapat menempelkan url perujuk apa pun untuk memeriksa apakah Matomo akan mengenalinya sebagai mesin pencari dan/atau jejaring sosial",
         "CheckUrlSend": "Periksa URL",
         "CommaSeparated": "(dipisah koma)",
         "ConfirmRemove": "Apakah Anda benar-benar ingin menghapus %s dari daftar?",
