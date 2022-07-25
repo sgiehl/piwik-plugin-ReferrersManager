@@ -20,6 +20,11 @@
         };
 
         $scope.checkResult = function () {
+
+            if (!/^https?:\/\//.test($scope.urlToCheck)) {
+                $scope.urlToCheck = 'https://' + $scope.urlToCheck;
+            }
+
             var ajaxHandler = new ajaxHelper();
             ajaxHandler.withToken = true;
             ajaxHandler.addParams({
