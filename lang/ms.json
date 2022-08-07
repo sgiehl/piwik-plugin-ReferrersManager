@@ -1,1 +1,10 @@
-{}
+{
+    "ReferrersManager": {
+        "AddSocial": "Tambah rangkaian sosial baharu",
+        "Hostname": "Nama hos",
+        "PluginDescription": "Pemalam ini membolehkan untuk melihat dan mengurus enjin carian dan rangkaian sosial yang diiktiraf dengan Matomo.",
+        "SearchEnginesAndSocialNetworks": "Enjin carian dan rangkaian sosial",
+        "SearchEnginesList": "Senarai semua enjin carian yang dikenali oleh Matomo",
+        "SocialsList": "Senarai semua sosial yang diketahui oleh Matomo"
+    }
+}
