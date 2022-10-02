@@ -10,7 +10,7 @@
         "CheckUrlDesc": "Här kan du klistra in någon hänvisningsadress för att kontrollera om Matomo skulle känna igen det som en sökmotor och/eller ett socialt nätverk",
         "CheckUrlSend": "Kontrollera URL",
         "CommaSeparated": "(kommaseparerad)",
-        "ConfirmRemove": "Vill du verkligen ta bort %s från listan.",
+        "ConfirmRemove": "Vill du verkligen ta bort %s från listan?",
         "DetectedEngine": "Upptäckt sökmotor",
         "DetectedKeywords": "Hittade nyckelord",
         "DetectedSocial": "Upptäckt socialt nätverk",
