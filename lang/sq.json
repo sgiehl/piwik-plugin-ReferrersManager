@@ -6,7 +6,7 @@
         "AddSocialError": "Gabim teksa shtohej rrjeti shoqëror. Ju lutemi, kontrolloni çka dhatë dhe riprovoni.",
         "BacklinkPattern": "Mostër paslidhjeje",
         "Charset": "Kodim shkronjash",
-        "CheckUrl": "URL kontrolli për të dhëna mbi motorë kërkimesh dhe rrjete shoqërorë",
+        "CheckUrl": "URL kontrolli për hollësi mbi motorë kërkimesh dhe rrjete shoqërorë",
         "CheckUrlDesc": "Këtu mund të hidhni çfarëdo URL-je sjellësi, për të kontrolluar nëse do ta njohë Matomo si motor kërkimi dhe/ose rrjet shoqëror",
         "CheckUrlSend": "Kontrollo URL-në",
         "CommaSeparated": "(ndarë me presje)",
