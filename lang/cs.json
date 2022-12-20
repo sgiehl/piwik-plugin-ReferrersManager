@@ -14,9 +14,9 @@
         "DetectedEngine": "Detekovaný vyhledávač",
         "DetectedKeywords": "Detekovaná klíčová slova",
         "DetectedSocial": "Detekovaná sociální síť",
-        "DisableSocialList": "Zakázat seznam sociálních sítí Matomo",
+        "DisableSocialList": "Zakázat seznam sociálních sítí pro Matomo",
         "DuplicateHostnameInfo": "Mějte na paměti, že jméno hostitele musí být jedinečné. Duplikát přepíše předcházející.",
-        "EnableSocialList": "Aktivovat seznam sociálních sítí Matomo",
+        "EnableSocialList": "Aktivovat seznam sociálních sítí pro Matomo",
         "Hostname": "Jméno hostitele",
         "HostnameWildcardDesc": "Pro na regionu závislé vyhledávače URL \"{}.example.com\" bude odpovídat libovolnému ISO3166-1 alpha2 kódu země z \"{}\". Podobně, \"example.{}\" bude odpovídat libovolné TLD země, ale to by mělo být použito zřídka, kvůli falešným shodám.",
         "ManageSearchEngines": "Spravovat vyhledávače",
@@ -34,6 +34,6 @@
         "SocialListDisabled": "Pozor: Vestavěný seznam sociálních sítí je zakázán.",
         "SocialRemoved": "odebrána vlastní sociální síť",
         "SocialsList": "Seznam všech sociálních sítí, které Matomo zná",
-        "UsingDefaultSocials": "Používáte vestavněný seznam sociálních sítí Matomo."
+        "UsingDefaultSocials": "Používáte vestavěný seznam sociálních sítí pro Matomo."
     }
 }
