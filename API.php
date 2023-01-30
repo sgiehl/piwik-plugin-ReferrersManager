@@ -98,6 +98,8 @@ class API extends \Piwik\Plugin\API
 
         if (!empty($parameters)) {
             $parameters = explode(',', $parameters);
+        } else {
+            $parameters = array();
         }
 
         $engines        = $this->model->getUserDefinedSearchEngines();

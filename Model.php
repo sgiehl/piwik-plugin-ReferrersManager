@@ -164,13 +164,13 @@ class Model
         $searchEngineInfos = $this->getSearchEngines();
 
         foreach ($searchEngineInfos AS $url => $infos) {
-
+            $parameters = !is_array($infos['params']) ? $infos['params'] : implode(', ', $infos['params']);
             if (empty($mergedSearchInfos[$infos['name']])) {
                 $mergedSearchInfos[$infos['name']] = [];
             }
             $mergedSearchInfos[$infos['name']][] = [
                 'url'        => $url,
-                'parameters' => implode(', ', $infos['params']),
+                'parameters' => $parameters,
                 'backlink'   => !empty($infos['backlink']) ? $infos['backlink'] : '',
                 'charset'    => !empty($infos['charsets']) ? implode(', ', $infos['charsets']) : '',
             ];
