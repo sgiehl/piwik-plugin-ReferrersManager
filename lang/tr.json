@@ -18,7 +18,7 @@
         "DuplicateHostnameInfo": "Sunucu adının eşsiz olması gerektiğini unutmayın. Var olan bir sunucu adı yazarsanız var olan bilgilerin üzerine yazılır.",
         "EnableSocialList": "Matomo sosyal ağ listesini etkinleştir",
         "Hostname": "Sunucu adı",
-        "HostnameWildcardDesc": "Bölgeye özel arama motorları için, adres \"{}.websitesi.com\" şeklinde yazıldığında \"{}\" yerine ISO3166-1 alpha2 ülke kodu bulunan adresler kabul edilir. Benzer şekilde \"websitesi.{}\" yazıldığında ülke etki alanı uzantıları kullanılır. Bu biçim hatalı doğru sonuçlar verebileceğinden dikkatle kullanılmalıdır.",
+        "HostnameWildcardDesc": "Bölgeye özel arama motorları için, adres \"{}.site.com\" şeklinde yazıldığında \"{}\" yerine ISO3166-1 alpha2 ülke kodu bulunan adresler kabul edilir. Benzer şekilde \"site.{}\" yazıldığında ülke etki alanı uzantıları kullanılır. Bu biçim hatalı doğru sonuçlar verebileceğinden dikkatle kullanılmalıdır.",
         "ManageSearchEngines": "Arama motorları yönetimi",
         "ManageSocials": "Sosyal ağ yönetimi",
         "ManageSocialsAndEngines": "Arama motorları ve sosyal ağlar yönetimi",
