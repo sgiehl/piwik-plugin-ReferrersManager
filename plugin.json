@@ -1,6 +1,6 @@
 {
     "name": "ReferrersManager",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "description": "Allows to view and manage the search engines and social networks that Matomo is able to detect.",
     "keywords": ["referrer","search","engine","social"],
     "license": "GPL v3+",
