@@ -1,5 +1,9 @@
 ## Changelog
 
+__4.0.3__
+* Minor code improvements
+* Translation updates
+
 __4.0.2__
 
 * Translation updates
