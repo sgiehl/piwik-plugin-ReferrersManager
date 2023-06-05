@@ -122,5 +122,4 @@ class ModelTest extends SystemTestCase
             ),
         );
     }
-
 }
