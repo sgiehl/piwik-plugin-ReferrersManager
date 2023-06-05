@@ -1,9 +1,13 @@
 ## Changelog
 
-__4.0.3__
+__4.0.4__
 * Minor code improvements
 * Translation updates
 
+__4.0.3__
+* Small UI/UX improvements
+* Translation updates
+* 
 __4.0.2__
 
 * Translation updates
