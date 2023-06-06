@@ -23,22 +23,9 @@ class ReferrersManager extends Plugin
         return array(
             'Referrer.addSearchEngineUrls'     => 'addSearchEngineUrls',
             'Referrer.addSocialUrls'           => 'addSocialUrls',
-            'AssetManager.getJavaScriptFiles'  => 'getJsFiles',
             'AssetManager.getStylesheetFiles'  => 'getStylesheetFiles',
             'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
         );
-    }
-
-    /**
-     * Adds required JS files
-     * @param $jsFiles
-     */
-    public function getJsFiles(&$jsFiles)
-    {
-        $jsFiles[] = "plugins/ReferrersManager/javascripts/checkreferrerurl.controller.js";
-        $jsFiles[] = "plugins/ReferrersManager/javascripts/searchengines.controller.js";
-        $jsFiles[] = "plugins/ReferrersManager/javascripts/socials.controller.js";
-        $jsFiles[] = "plugins/ReferrersManager/javascripts/referrersmanager-tabs.directive.js";
     }
 
     /**

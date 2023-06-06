@@ -9,17 +9,17 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ### Requirements
 
-[Matomo](https://github.com/matomo-org/matomo) 4.0.0-b1 or higher is required.
+[Matomo](https://github.com/matomo-org/matomo) 5.0.0-b1 or higher is required.
 
 ### Features
 
 - Shows a list of all search engines and social networks defined in Matomo core.
-- Abillity to manage custom search engines and social networks
-- Abillity to disable/enable Matomo's default social network list
+- Ability to manage custom search engines and social networks
+- Ability to disable/enable Matomo's default social network list
 
 ## Support
 
-Please direct any feedback to [stefan@matomo.org](mailto:matomo@piwik.org)
+Please direct any feedback to [stefan@matomo.org](mailto:matomo@matomo.org)
 
 ## Contribute
 

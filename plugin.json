@@ -1,12 +1,12 @@
 {
     "name": "ReferrersManager",
-    "version": "4.0.4",
+    "version": "5.0.0",
     "description": "Allows to view and manage the search engines and social networks that Matomo is able to detect.",
     "keywords": ["referrer","search","engine","social"],
     "license": "GPL v3+",
     "homepage": "https://github.com/sgiehl/piwik-plugin-ReferrersManager",
     "require": {
-        "piwik": ">=4.0.0-b1,<5.0.0-b1"
+        "matomo": ">=5.0.0-b1,<6.0.0-b1"
     },
     "support": {
         "email": "stefan@matomo.org",

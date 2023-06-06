@@ -2,12 +2,14 @@
 /**
  * Matomo - free/libre analytics platform
  *
- * @link https://matomo.org
+ * @link    https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
 
 namespace Piwik\Plugins\ReferrersManager;
+
+use Piwik\Piwik;
 
 class API extends \Piwik\Plugin\API
 {
@@ -91,8 +93,15 @@ class API extends \Piwik\Plugin\API
      * @param string $charset
      * @return bool
      */
-    public function addSearchEngine($name, $host, $parameters = '', $backlink = '', $charset = '')
-    {
+    public function addSearchEngine(
+        string $name,
+        string $host,
+        $parameters = '',
+        string $backlink = '',
+        string $charset = ''
+    ) {
+        Piwik::checkUserHasSuperUserAccess();
+
         if (empty($host) || empty($name)) {
             return false;
         }
@@ -100,16 +109,16 @@ class API extends \Piwik\Plugin\API
         if (!empty($parameters)) {
             $parameters = explode(',', $parameters);
         } else {
-            $parameters = array();
+            $parameters = [];
         }
 
         $engines        = $this->model->getUserDefinedSearchEngines();
-        $engines[$host] = array(
-            'name' => $name,
-            'params' => $parameters,
+        $engines[$host] = [
+            'name'     => $name,
+            'params'   => $parameters,
             'backlink' => $backlink,
-            'chartset' => $charset
-        );
+            'charsets' => explode(',', $charset),
+        ];
         $this->model->setUserDefinedSearchEngines($engines);
         return true;
     }
@@ -120,8 +129,10 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function removeSearchEngine($host)
+    public function removeSearchEngine(string $host)
     {
+        Piwik::checkUserHasSuperUserAccess();
+
         if (empty($host)) {
             return false;
         }
@@ -144,12 +155,13 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function addSocial($name, $host)
+    public function addSocial(string $name, string $host)
     {
+        Piwik::checkUserHasSuperUserAccess();
+
         if (empty($host) || empty($name)) {
             return false;
         }
-
 
         $socials        = $this->model->getUserDefinedSocials();
         $socials[$host] = $name;
@@ -159,11 +171,14 @@ class API extends \Piwik\Plugin\API
 
     /**
      * Removes a user defined social network
+     *
      * @param $host
      * @return bool
      */
-    public function removeSocial($host)
+    public function removeSocial(string $host)
     {
+        Piwik::checkUserHasSuperUserAccess();
+
         if (empty($host)) {
             return false;
         }
@@ -176,6 +191,20 @@ class API extends \Piwik\Plugin\API
 
         unset($socials[$host]);
         $this->model->setUserDefinedSocials($socials);
+        return true;
+    }
+
+    /**
+     * Sets if default socials should be used or not
+     *
+     * @param bool $state
+     * @return bool
+     */
+    public function setDefaultSocialsDisabled(bool $state = false): bool
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        Model::getInstance()->setDefaultSocialsDisabled((bool)$state);
         return true;
     }
 }

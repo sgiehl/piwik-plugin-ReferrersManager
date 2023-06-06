@@ -30,17 +30,17 @@ class Model
     }
 
     /**
-     * Returns if Piwik's built-in social list is used or not
+     * Returns if Matomo's built-in social list is used or not
      *
-     * @return false|string
+     * @return bool
      */
     public function areDefaultSocialsDisabled()
     {
-        return Option::get(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
+        return !!Option::get(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
     }
 
     /**
-     * Sets if Piwik's built-in social list should be used or not
+     * Sets if Matomo's built-in social list should be used or not
      *
      * @param bool $disabled
      */
@@ -145,7 +145,7 @@ class Model
     }
 
     /**
-     * Wrapper method to Piwiks internal method to return search engine data
+     * Wrapper method to Matomo's internal method to return search engine data
      * @return array
      */
     public function getSearchEngines()
@@ -154,7 +154,7 @@ class Model
     }
 
     /**
-     * Returns all search engine informations known to piwik
+     * Returns all search engine information known to Matomo
      *
      * @return array
      */
@@ -201,7 +201,7 @@ class Model
     }
 
     /**
-     * Wrapper method to Piwiks internal method to return search engine data
+     * Wrapper method to Matomo' internal method to return search engine data
      * @return array
      */
     public function getSocials()
@@ -210,7 +210,7 @@ class Model
     }
 
     /**
-     * Returns all social informations known to piwik
+     * Returns all social informations known to Matomo
      *
      * @return array
      */

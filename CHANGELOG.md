@@ -1,13 +1,20 @@
 ## Changelog
 
+__5.0.0__
+
+* Migrate AngularJS components to Vue.js
+* Compatibility with Matomo 5
+
 __4.0.4__
+
 * Minor code improvements
 * Translation updates
 
 __4.0.3__
+
 * Small UI/UX improvements
 * Translation updates
-* 
+
 __4.0.2__
 
 * Translation updates

@@ -3,37 +3,10 @@
 {% set title %}{{ 'ReferrersManager_ManageSocialsAndEngines'|translate }}{% endset %}
 
 {% block content %}
-    <div piwik-content-block content-title="{{ title|e('html_attr') }}">
 
-        <h3>{{ 'ReferrersManager_CheckUrl'|translate }}</h3>
-
-        <p>{{ 'ReferrersManager_CheckUrlDesc'|translate }}</p>
-
-        <div ng-include="'plugins/ReferrersManager/templates/urlchecker.html?cb={{ cacheBuster }}'"></div>
-
-    </div>
-    <div piwik-content-block id="referrersmanage">
-        <div class="row">
-            <ul class="tabs" referrersmanager-tabs>
-                <li class="tab col"><a
-                            href="#searchengineTab">{{ 'ReferrersManager_ManageSearchEngines'|translate }}</a></li>
-                <li class="tab col"><a href="#socialTab">{{ 'ReferrersManager_ManageSocials'|translate }}</a></li>
-            </ul>
-            <div id="searchengineTab" class="col" ng-controller="SearchEnginesController">
-                <div ng-include="'plugins/ReferrersManager/templates/engines.html?cb={{ cacheBuster }}'"></div>
-            </div>
-            <div id="socialTab" class="col" ng-controller="SocialsController" ng-init="ownSocialDefinitions='{{ ownSocialDefinitions }}'">
-                <div ng-include="'plugins/ReferrersManager/templates/socials.html?cb={{ cacheBuster }}'"></div>
-            </div>
-        </div>
-
-        <div class="ui-confirm" id="removeDataConfirm">
-            <h2>{{ 'ReferrersManager_ConfirmRemove'|translate('<span class="name"></span>')|raw }}</h2>
-
-            <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
-            <input role="no" type="button" value="{{ 'General_Cancel'|translate }}"/>
-        </div>
-
-    </div>
+    <div vue-entry="ReferrersManager.ManagePage"
+         title="{{ title|json_encode }}"
+         own-social-definitions="{{ ownSocialDefinitions|json_encode }}"
+    ></div>
 
 {% endblock %}

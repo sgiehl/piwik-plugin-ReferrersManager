@@ -2,16 +2,16 @@
 /**
  * Matomo - free/libre analytics platform
  *
- * @link https://matomo.org
+ * @link    https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
 namespace Piwik\Plugins\ReferrersManager;
 
-use Piwik\Common;
 use Piwik\DataTable\Renderer\Json;
 use Piwik\Piwik;
 use Piwik\Plugin\ControllerAdmin;
+use Piwik\Request;
 use Piwik\View;
 
 /**
@@ -21,6 +21,7 @@ class Controller extends ControllerAdmin
 {
     /**
      * Index action
+     *
      * @return string
      */
     public function index()
@@ -36,19 +37,6 @@ class Controller extends ControllerAdmin
     }
 
     /**
-     * Sets if default socials should be used or not
-     */
-    public function setDefaultSocialsDisabled()
-    {
-        Piwik::checkUserHasSuperUserAccess();
-
-        $state = Common::getRequestVar('state', 0, 'int');
-        Model::getInstance()->setDefaultSocialsDisabled((bool) $state);
-        Json::sendHeaderJSON();
-        return 1;
-    }
-
-    /**
      * Ajax action to check an url for search engine information that can be extracted
      *
      * @return string
@@ -57,13 +45,13 @@ class Controller extends ControllerAdmin
     {
         Piwik::checkUserHasSuperUserAccess();
 
-        $urlToCheck = trim(Common::unsanitizeInputValue(Common::getRequestVar('url', null, 'string')));
+        $urlToCheck = trim(Request::fromRequest()->getStringParameter('url', ''));
 
         Json::sendHeaderJSON();
         return json_encode([
-            'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
-            'social'       => Model::getInstance()->detectSocial($urlToCheck)
-        ]);
+                               'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
+                               'social'       => Model::getInstance()->detectSocial($urlToCheck),
+                           ]);
     }
 
     public function refresh()
@@ -72,11 +60,11 @@ class Controller extends ControllerAdmin
 
         Json::sendHeaderJSON();
 
-        $type = Common::getRequestVar('type', '', 'string');
+        $type = Request::fromRequest()->getStringParameter('type', '');
 
-        if ($type == 'socials') {
+        if ($type === 'socials') {
             Model::getInstance()->clearSocialCache();
-        } else if ($type == 'searchengines') {
+        } else if ($type === 'searchengines') {
             Model::getInstance()->clearSearchEngineCache();
         }
 
