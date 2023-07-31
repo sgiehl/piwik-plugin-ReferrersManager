@@ -149,7 +149,7 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./plugins/ReferrersManager/vue/src/ManagePage/ManagePage.vue?vue&type=template&id=1ea01344
+// CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./plugins/ReferrersManager/vue/src/ManagePage/ManagePage.vue?vue&type=template&id=a69fa51a
 
 var _hoisted_1 = {
   class: "row",
@@ -223,7 +223,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   })], 64);
 }
-// CONCATENATED MODULE: ./plugins/ReferrersManager/vue/src/ManagePage/ManagePage.vue?vue&type=template&id=1ea01344
+// CONCATENATED MODULE: ./plugins/ReferrersManager/vue/src/ManagePage/ManagePage.vue?vue&type=template&id=a69fa51a
 
 // EXTERNAL MODULE: external "CoreHome"
 var external_CoreHome_ = __webpack_require__("19dc");
@@ -1019,7 +1019,9 @@ var ManagePagevue_type_script_lang_ts_window = window,
   },
   mounted: function mounted() {
     var tabs = this.$refs.tabs;
-    ManagePagevue_type_script_lang_ts_$('.tabs', tabs).tabs();
+    setTimeout(function () {
+      ManagePagevue_type_script_lang_ts_$('.tabs', tabs).tabs();
+    });
   },
   components: {
     ContentBlock: external_CoreHome_["ContentBlock"],

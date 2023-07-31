@@ -55,7 +55,9 @@ export default defineComponent({
   },
   mounted() {
     const tabs = this.$refs.tabs as HTMLElement;
-    $('.tabs', tabs).tabs();
+    setTimeout(() => {
+      $('.tabs', tabs).tabs();
+    });
   },
   components: {
     ContentBlock,
