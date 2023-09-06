@@ -23,7 +23,7 @@
         "ManageSocials": "Sosyal ağ yönetimi",
         "ManageSocialsAndEngines": "Arama motorları ve sosyal ağlar yönetimi",
         "Parameters": "Parametreler",
-        "PluginDescription": "Bu uygulama eki Matomo tarafından tanınan arama motorları ve sosyal ağları görüntülemeyi ve yönetmeyi sağlar.",
+        "PluginDescription": "Bu eklenti Matomo tarafından tanınan arama motorları ve sosyal ağları görüntülemeyi ve yönetmeyi sağlar.",
         "ProvideEngineData": "Lütfen arama motoru verilerini yazın.",
         "ProvideSocialData": "Lütfen sosyal ağ verilerini yazın.",
         "SearchEngineAdded": "yeni bir arama motoru ekledi",
