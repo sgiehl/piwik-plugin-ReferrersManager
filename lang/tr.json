@@ -14,7 +14,7 @@
         "DetectedEngine": "Algılanan arama motoru",
         "DetectedKeywords": "Algılanan anahtar sözcükler",
         "DetectedSocial": "Algılanan sosyal ağ",
-        "DisableSocialList": "Matomo sosyal ağ listesini devre dışı bırak",
+        "DisableSocialList": "Matomo sosyal ağ listesini kapat",
         "DuplicateHostnameInfo": "Sunucu adının eşsiz olması gerektiğini unutmayın. Var olan bir sunucu adı yazarsanız var olan bilgilerin üzerine yazılır.",
         "EnableSocialList": "Matomo sosyal ağ listesini etkinleştir",
         "Hostname": "Sunucu adı",
@@ -31,7 +31,7 @@
         "SearchEnginesAndSocialNetworks": "Arama motorları ve sosyal ağlar",
         "SearchEnginesList": "Matomo tarafından tanınan tüm arama motorlarının listesi",
         "SocialAdded": "yeni bir sosyal ağ ekledi",
-        "SocialListDisabled": "Dikkat: İç Matomo sosyal ağ listesi devre dışı.",
+        "SocialListDisabled": "Dikkat: İç Matomo sosyal ağ listesi kapatılmış.",
         "SocialRemoved": "bir sosyal ağı sildi",
         "SocialsList": "Matomo tarafından tanınan sosyal ağların listesi",
         "UsingDefaultSocials": "İç Matomo sosyal ağ listesini kullanıyorsunuz."
