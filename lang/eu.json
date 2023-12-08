@@ -1,1 +1,35 @@
-{}
+{
+    "ReferrersManager": {
+        "AddEngineError": "Errorea bilatzailea gehitzean. Egiaztatu sarrerak eta saiatu berriro.",
+        "AddSearchEngine": "Gehitu bilatzailearen definizioa",
+        "AddSocial": "Gehitu sare sozial berria",
+        "AddSocialError": "Errorea sare soziala gehitzean. Egiaztatu sarrerak eta saiatu berriro.",
+        "Charset": "Karaktere-jokoa",
+        "CheckUrl": "Egiaztatu URLa bilatzaileen eta sare sozialen informaziorako",
+        "CheckUrlSend": "Egiaztatu URLa",
+        "CommaSeparated": "(komaz banatuak)",
+        "ConfirmRemove": "Ziur zaude %s kendu nahi duzula zerrendatik?",
+        "DetectedEngine": "Detektatutako motorra",
+        "DetectedKeywords": "Detektatutako gako-hitzak",
+        "DetectedSocial": "Detektatutako sare soziala",
+        "DisableSocialList": "Desgaitu Matomoren sare sozialen zerrenda",
+        "DuplicateHostnameInfo": "Kontuan izan ostalari-izenak esklusiboa izan behar duela. Bikoiztutako ostalari-izen batek lehena gainidatziko du.",
+        "EnableSocialList": "Aktibatu Matomoren sare sozialen zerrenda",
+        "Hostname": "Ostalari-izena",
+        "ManageSearchEngines": "Kudeatu bilatzaileak",
+        "ManageSocials": "Kudeatu sare sozialak",
+        "ManageSocialsAndEngines": "Kudeatu bilatzaileak eta sare sozialak",
+        "Parameters": "Parametroak",
+        "ProvideEngineData": "Eman bilatzailearen datuak.",
+        "ProvideSocialData": "Eman sare sozial berriaren datuak.",
+        "SearchEngineAdded": "bilatzaile pertsonalizatu berri bat gehitu da",
+        "SearchEngineRemoved": "bilatzaile pertsonalizatu berri bat kendu da",
+        "SearchEnginesAndSocialNetworks": "Bilatzaileak eta sare sozialak",
+        "SearchEnginesList": "Matomok ezagutzen dituen bilatzaileen zerrenda",
+        "SocialAdded": "sare sozial pertsonalizatu berri bat gehitu da",
+        "SocialListDisabled": "Kontuz: Matomon integratutako sare sozialen zerrenda desgaituta dago.",
+        "SocialRemoved": "sare sozial pertsonalizatu berri bat kendu da",
+        "SocialsList": "Matomok ezagutzen dituen sare sozialen zerrenda",
+        "UsingDefaultSocials": "Matomon integratutako sare sozialen zerrenda erabiltzen ari zara."
+    }
+}
