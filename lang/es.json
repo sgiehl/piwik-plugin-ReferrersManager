@@ -17,7 +17,7 @@
         "DisableSocialList": "Deshabilitar la lista de redes sociales de Matomo",
         "DuplicateHostnameInfo": "Tenga en cuenta que el nombre del host necesariamente debe ser único. Un nombre de host duplicado sobreescribirá al otro.",
         "EnableSocialList": "Habilitar la lista de redes sociales de Matomo",
-        "Hostname": "Hostname",
+        "Hostname": "Nombre del servidor",
         "HostnameWildcardDesc": "Para los motores de búsqueda específicos de una región, la URL, \"{}.example.com\" coincidirá con cualquier código de país ISO3166-1 alfa2 contra \"{}\". Del mismo modo, \"example.{}\" coincidirá contra los TLD de países válidos, pero deben utilizarse con moderación para evitar falsos positivos.",
         "ManageSearchEngines": "Administrar motores de búsqueda",
         "ManageSocials": "Administrar redes sociales",
