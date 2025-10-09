@@ -1,1 +1,5 @@
-{}
+{
+    "ReferrersManager": {
+        "HostnameWildcardDesc": "Za tražilice koje su specifične za regije, URL „{}.primjer.com” će odgovarati bilo kojem ISO3166-1 alpha2 kodu zemlje umjesto „{}”. Slično tome, „primjer.{}” će odgovarati valjanim državnim TLD-ovima, ali ga treba koristiti štedljivo kako bi se izbjegli lažno pozitivni rezultati."
+    }
+}
