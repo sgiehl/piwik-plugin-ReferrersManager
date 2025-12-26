@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="loginLdap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+<ruleset name="ReferrersManager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
 
     <description>Matomo Coding Standard for ReferrersManager plugin</description>
 
