@@ -67,7 +67,7 @@ describe("ReferrersManager", function () {
 
     it('should switch to social networks list', async function () {
         await page.click('a[href="#socialTab"]');
-        await page.mouse.click(0, 0);
+        await page.mouse.move(0, 0);
         await page.waitForNetworkIdle();
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('socials_list');
     });
@@ -125,5 +125,68 @@ describe("ReferrersManager", function () {
         await page.waitForNetworkIdle();
         await page.waitForTimeout(100);
         expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('socials_list');
+    });
+
+    it('should switch to AI assistants list', async function () {
+        await page.click('a[href="#aiAssistantTab"]');
+        await page.mouse.move(0, 0);
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('aiassistants_list');
+    });
+
+    it('should identify AI assistant correct', async function () {
+        await checkUrl('http://chat.openai.com', page);
+        expect(await page.screenshotSelector('.url-checker')).to.matchImage('aiassistant_identify');
+    });
+
+    it('should disable internal AI assistant list correct', async function () {
+        await page.click('#disableaiassistants');
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('aiassistant_disable');
+    });
+
+    it('should identify AI assistant with empty list', async function () {
+        await checkUrl('http://chat.openai.com', page);
+        expect(await page.screenshotSelector('.url-checker')).to.matchImage('aiassistant_identify_empty_list');
+    });
+
+    it('should open add AI assistant dialog', async function () {
+        await page.click('#aiAssistantTab .add-element');
+        await page.waitForTimeout(250);
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('aiassistant_add');
+    });
+
+    it('should save new AI assistant', async function () {
+        await page.type("#assistantName", 'test ai');
+        await page.type("#assistantHost", 'randomassistant.ai');
+        await page.click('#aiAssistantTab .matomo-save-button input[value=Save]');
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('aiassistant_list_new');
+    });
+
+    it('should identify new AI assistant correct', async function () {
+        await checkUrl('http://randomassistant.ai/123', page);
+        expect(await page.screenshotSelector('.url-checker')).to.matchImage('aiassistant_identify_new');
+    });
+
+    it('should enable internal AI assistant list correct', async function () {
+        await page.click('#enableaiassistants');
+        await page.waitForNetworkIdle();
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('aiassistant_enable');
+    });
+
+    it('should show remove AI assistant dialog correct', async function () {
+        await page.click('#aiAssistantTab .delete-element');
+        await page.waitForTimeout(500); // wait for animation
+        const modal = await page.$('.modal.open');
+        expect(await modal.screenshot()).to.matchImage('aiassistant_remove_dialog');
+    });
+
+    it('should remove new AI assistant correct', async function () {
+        await page.waitForSelector('.modal.open');
+        await (await page.jQuery(".modal.open a:contains(Yes)")).click();
+        await page.waitForNetworkIdle();
+        await page.waitForTimeout(100);
+        expect(await page.screenshotSelector('#referrersmanage')).to.matchImage('aiassistants_list');
     });
 });
