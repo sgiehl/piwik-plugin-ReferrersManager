@@ -1,8 +1,9 @@
 {
     "ReferrersManager": {
-        "SearchEnginesAndSocialNetworks": "Paieškos sistemos ir socialiniai tinklai",
         "AddSocial": "Pridėti naują socialinį tinklą",
+        "Hostname": "Pagrindinio kompiuterio vardas",
         "ManageSearchEngines": "Tvarkyti paieškos sistemas",
-        "Parameters": "Parametrai"
+        "Parameters": "Parametrai",
+        "SearchEnginesAndSocialNetworks": "Paieškos sistemos ir socialiniai tinklai"
     }
 }
