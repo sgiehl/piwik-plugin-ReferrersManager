@@ -1,12 +1,13 @@
 {% extends 'admin.twig' %}
 
-{% set title %}{{ 'ReferrersManager_ManageSocialsAndEngines'|translate }}{% endset %}
+{% set title %}{{ 'ReferrersManager_ManageSearchEnginesSocialsAndAIAssistants'|translate }}{% endset %}
 
 {% block content %}
 
     <div vue-entry="ReferrersManager.ManagePage"
          title="{{ title|json_encode }}"
          own-social-definitions="{{ ownSocialDefinitions|json_encode }}"
+         own-ai-assistant-definitions="{{ ownAIAssistantDefinitions|json_encode }}"
     ></div>
 
 {% endblock %}

@@ -8,4 +8,5 @@
 export { default as ManagePage } from './ManagePage/ManagePage.vue';
 export { default as ManageSearchEngines } from './ManageSearchEngines/ManageSearchEngines.vue';
 export { default as ManageSocials } from './ManageSocials/ManageSocials.vue';
+export { default as ManageAIAssistants } from './ManageAIAssistants/ManageAIAssistants.vue';
 export { default as URLChecker } from './URLChecker/URLChecker.vue';

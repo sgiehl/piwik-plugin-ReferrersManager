@@ -12,6 +12,7 @@ use Piwik\Cache;
 use Piwik\Container\StaticContainer;
 use Piwik\Option;
 use Piwik\Piwik;
+use Piwik\Plugins\Referrers\AIAssistant;
 use Piwik\Plugins\Referrers\SearchEngine;
 use Piwik\Plugins\Referrers\Social;
 
@@ -23,6 +24,8 @@ class Model
     const OPTION_KEY_DISABLE_DEFAULT_SOCIALS   = 'disable_default_socials';
     const OPTION_KEY_USERDEFINED_SOCIALS       = 'userdefined_socials';
     const OPTION_KEY_USERDEFINED_SEARCHENGINES = 'userdefined_searchengines';
+    const OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS = 'disable_default_ai_assistants';
+    const OPTION_KEY_USERDEFINED_AI_ASSISTANTS = 'userdefined_ai_assistants';
 
     public static function getInstance()
     {
@@ -61,6 +64,67 @@ class Model
         $cache   = Cache::getEagerCache();
         $cache->delete($cacheId);
         \Piwik\Tracker\Cache::deleteTrackerCache();
+    }
+
+    /**
+     * Returns if Matomo's built-in AI assistants list is used or not
+     *
+     * @return bool
+     */
+    public function areDefaultAIAssistantsDisabled()
+    {
+        return !!Option::get(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS);
+    }
+
+    /**
+     * Sets if Matomo's built-in AI assistants list should be used or not
+     *
+     * @param bool $disabled
+     */
+    public function setDefaultAIAssistantsDisabled($disabled = true)
+    {
+        Option::set(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS, $disabled);
+        $this->clearAIAssistantCache();
+    }
+
+    /**
+     * Clears cache for AI assistant data
+     */
+    public function clearAIAssistantCache()
+    {
+        Option::clearCachedOption(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS);
+        Option::delete(AIAssistant::OPTION_STORAGE_NAME);
+        $cacheId = 'AIAssistant-' . AIAssistant::OPTION_STORAGE_NAME;
+        $cache   = Cache::getEagerCache();
+        $cache->delete($cacheId);
+        \Piwik\Tracker\Cache::deleteTrackerCache();
+    }
+
+    /**
+     * Returns the list of userdefined AI assistants
+     *
+     * @return array
+     */
+    public function getUserDefinedAIAssistants()
+    {
+        $assistants = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_AI_ASSISTANTS), true);
+
+        if (!empty($assistants)) {
+            return (array)$assistants;
+        }
+
+        return [];
+    }
+
+    /**
+     * Sets user defined AI assistants
+     *
+     * @param array $assistantList
+     */
+    public function setUserDefinedAIAssistants($assistantList = [])
+    {
+        Option::set(self::OPTION_KEY_USERDEFINED_AI_ASSISTANTS, json_encode($assistantList));
+        $this->clearAIAssistantCache();
     }
 
     /**
@@ -210,6 +274,15 @@ class Model
     }
 
     /**
+     * Wrapper method to Matomo' internal method to return AI assistant data
+     * @return array
+     */
+    public function getAIAssistants()
+    {
+        return AIAssistant::getInstance()->getDefinitions();
+    }
+
+    /**
      * Returns all social informations known to Matomo
      *
      * @return array
@@ -247,6 +320,44 @@ class Model
         return $socialsLogos;
     }
 
+    /**
+     * Returns all AI assistant informations known to Matomo
+     *
+     * @return array
+     */
+    public function getAIAssistantDefinitions()
+    {
+        $mergedAssistants = [];
+
+        $urls = $this->getAIAssistants();
+
+        foreach ($urls as $url => $name) {
+            $mergedAssistants[urldecode($name)][] = $url;
+        }
+
+        ksort($mergedAssistants, SORT_LOCALE_STRING);
+
+        return $mergedAssistants;
+    }
+
+    /**
+     * Returns an array containing all logos for AI assistants
+     *
+     * @return array (name => logo-src)
+     */
+    public function getAIAssistantLogos()
+    {
+        $assistantLogos = [];
+
+        $urls = AIAssistant::getInstance()->getDefinitions();
+
+        foreach ($urls as $url => $name) {
+            $assistantLogos[urldecode($name)] = AIAssistant::getInstance()->getLogoFromUrl($url);
+        }
+
+        return $assistantLogos;
+    }
+
     public function detectSearchEngine($url)
     {
         $detectedEngine = SearchEngine::getInstance()->extractInformationFromUrl($url);
@@ -281,5 +392,23 @@ class Model
         }
 
         return $detectedSocial;
+    }
+
+    public function detectAIAssistant($url)
+    {
+        $detectedAssistant = AIAssistant::getInstance()->getAIAssistantFromDomain($url);
+
+        if (!empty($detectedAssistant) && $detectedAssistant != Piwik::translate('General_Unknown')) {
+            $image = AIAssistant::getInstance()->getLogoFromUrl($url);
+
+            $detectedAssistant = [
+                'name'  => $detectedAssistant,
+                'image' => $image
+            ];
+        } else {
+            $detectedAssistant = false;
+        }
+
+        return $detectedAssistant;
     }
 }

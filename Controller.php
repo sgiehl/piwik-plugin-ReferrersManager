@@ -32,6 +32,7 @@ class Controller extends ControllerAdmin
         $this->setBasicVariablesView($view);
 
         $view->ownSocialDefinitions = Model::getInstance()->areDefaultSocialsDisabled();
+        $view->ownAIAssistantDefinitions = Model::getInstance()->areDefaultAIAssistantsDisabled();
 
         return $view->render();
     }
@@ -51,6 +52,7 @@ class Controller extends ControllerAdmin
         return json_encode([
                                'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
                                'social'       => Model::getInstance()->detectSocial($urlToCheck),
+                               'aiassistant'  => Model::getInstance()->detectAIAssistant($urlToCheck),
                            ]);
     }
 
@@ -64,6 +66,8 @@ class Controller extends ControllerAdmin
 
         if ($type === 'socials') {
             Model::getInstance()->clearSocialCache();
+        } else if ($type === 'aiassistants') {
+            Model::getInstance()->clearAIAssistantCache();
         } else if ($type === 'searchengines') {
             Model::getInstance()->clearSearchEngineCache();
         }

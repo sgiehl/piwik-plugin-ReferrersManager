@@ -11,12 +11,15 @@
   <ContentBlock id="referrersmanage">
     <div class="row" ref="tabs">
       <ul class="tabs">
-        <li class="tab col s6">
+        <li class="tab col s4">
           <a href="#searchengineTab"
              class="active">{{ translate('ReferrersManager_ManageSearchEngines') }}</a>
         </li>
-        <li class="tab col s6">
+        <li class="tab col s4">
           <a href="#socialTab">{{ translate('ReferrersManager_ManageSocials') }}</a>
+        </li>
+        <li class="tab col s4">
+          <a href="#aiAssistantTab">{{ translate('ReferrersManager_ManageAIAssistants') }}</a>
         </li>
       </ul>
       <div id="searchengineTab" class="col s12">
@@ -24,6 +27,11 @@
       </div>
       <div id="socialTab" class="col s12">
         <ManageSocials :own-social-definitions="ownSocialDefinitions"></ManageSocials>
+      </div>
+      <div id="aiAssistantTab" class="col s12">
+        <ManageAIAssistants
+          :own-ai-assistant-definitions="ownAiAssistantDefinitions"
+        ></ManageAIAssistants>
       </div>
     </div>
 
@@ -45,6 +53,7 @@ import {
 import URLChecker from '../URLChecker/URLChecker';
 import ManageSearchEngines from '../ManageSearchEngines/ManageSearchEngines';
 import ManageSocials from '../ManageSocials/ManageSocials';
+import ManageAIAssistants from '../ManageAIAssistants/ManageAIAssistants';
 
 const { $ } = window;
 
@@ -52,6 +61,7 @@ export default defineComponent({
   props: {
     title: String,
     ownSocialDefinitions: Boolean,
+    ownAiAssistantDefinitions: Boolean,
   },
   mounted() {
     const tabs = this.$refs.tabs as HTMLElement;
@@ -64,6 +74,7 @@ export default defineComponent({
     URLChecker,
     ManageSearchEngines,
     ManageSocials,
+    ManageAIAssistants,
   },
 });
 </script>

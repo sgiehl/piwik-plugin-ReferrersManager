@@ -29,6 +29,7 @@ class ModelTest extends SystemTestCase
     {
         Cache::flushAll();
         \Piwik\Plugins\Referrers\SearchEngine::unsetInstance();
+        \Piwik\Plugins\Referrers\AIAssistant::unsetInstance();
     }
 
     public function testGetCustomSearchEnginesEmpty()
@@ -119,6 +120,54 @@ class ModelTest extends SystemTestCase
                 array('test.de' => 'Test'),
                 'http://xyz.test.de/xdga/ddf/?tsd=sssh&x=test',
                 'Test'
+            ),
+        );
+    }
+
+    public function testGetCustomAIAssistantsEmpty()
+    {
+        $assistants = Model::getInstance()->getUserDefinedAIAssistants();
+        $this->assertEquals(array(), $assistants);
+    }
+
+    public function testSetCustomAIAssistants()
+    {
+        $customAssistants = array('www.test.ai' => 'TestAI');
+        Model::getInstance()->setUserDefinedAIAssistants($customAssistants);
+        $assistants = Model::getInstance()->getUserDefinedAIAssistants();
+        $this->assertEquals($customAssistants, $assistants);
+
+        $allAssistants = Model::getInstance()->getAIAssistants();
+        $this->assertArrayHasKey('www.test.ai', $allAssistants);
+    }
+
+    /**
+     * @dataProvider getCustomAIAssistantsTestData
+     */
+    public function testCustomAIAssistantDetection($assistantsToAdd, $referrer, $result)
+    {
+        Model::getInstance()->setUserDefinedAIAssistants($assistantsToAdd);
+        $detectedAssistant = Model::getInstance()->detectAIAssistant($referrer);
+        $this->assertEquals($result, $detectedAssistant['name']);
+    }
+
+    public function getCustomAIAssistantsTestData()
+    {
+        return array(
+            array(
+                array('www.test.ai' => 'TestAI'),
+                'http://www.test.ai/xdga/ddf/?tsd=sssh&x=test',
+                'TestAI'
+            ),
+            array(
+                array('test.ai' => 'TestAI'),
+                'http://www.test.ai/xdga/ddf/?tsd=sssh&x=test',
+                'TestAI'
+            ),
+            array(
+                array('test.ai' => 'TestAI'),
+                'http://xyz.test.ai/xdga/ddf/?tsd=sssh&x=test',
+                'TestAI'
             ),
         );
     }

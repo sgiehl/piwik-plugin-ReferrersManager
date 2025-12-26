@@ -5,9 +5,9 @@
 -->
 
 <template>
-  <h3>{{ translate('ReferrersManager_CheckUrl') }}</h3>
+  <h3>{{ translate('ReferrersManager_CheckUrlWithAIAssistants') }}</h3>
 
-  <p>{{ translate('ReferrersManager_CheckUrlDesc') }}</p>
+  <p>{{ translate('ReferrersManager_CheckUrlDescWithAIAssistants') }}</p>
 
   <div class="url-checker">
     <input type="text" size="50" v-model="urlToCheck"
@@ -24,6 +24,9 @@
     <p class="socialresult">{{ translate('ReferrersManager_DetectedSocial') }}: <img
         :src="detectedSocialImg" height="16"/><span class="social"
                                                     v-text="detectedSocial"></span></p>
+    <p class="aiassistantresult">{{ translate('ReferrersManager_DetectedAIAssistant') }}: <img
+        :src="detectedAIAssistantImg" height="16"/><span class="aiassistant"
+                                                     v-text="detectedAIAssistant"></span></p>
   </div>
 </template>
 
@@ -43,6 +46,8 @@ interface URLCheckerDataState {
   detectedKeyword: string,
   detectedSocialImg: string,
   detectedSocial: string,
+  detectedAIAssistantImg: string,
+  detectedAIAssistant: string,
 }
 
 export default defineComponent({
@@ -54,6 +59,8 @@ export default defineComponent({
       detectedKeyword: '',
       detectedSocialImg: '',
       detectedSocial: '',
+      detectedAIAssistantImg: '',
+      detectedAIAssistant: '',
     };
   },
   components: {
@@ -69,6 +76,8 @@ export default defineComponent({
       this.detectedEngineImg = 'plugins/Morpheus/icons/dist/searchEngines/xx.png';
       this.detectedSocial = '';
       this.detectedSocialImg = 'plugins/Morpheus/icons/dist/socials/xx.png';
+      this.detectedAIAssistant = '';
+      this.detectedAIAssistantImg = 'plugins/Morpheus/icons/dist/aiAssistants/xx.png';
     },
     checkResult() {
       if (!/^https?:\/\//.test(this.urlToCheck)) {
@@ -99,6 +108,14 @@ export default defineComponent({
         } else {
           this.detectedSocial = '';
           this.detectedSocialImg = 'plugins/Morpheus/icons/dist/socials/xx.png';
+        }
+
+        if (response.aiassistant && response.aiassistant.name) {
+          this.detectedAIAssistant = response.aiassistant.name;
+          this.detectedAIAssistantImg = response.aiassistant.image;
+        } else {
+          this.detectedAIAssistant = '';
+          this.detectedAIAssistantImg = 'plugins/Morpheus/icons/dist/aiAssistants/xx.png';
         }
       });
     },

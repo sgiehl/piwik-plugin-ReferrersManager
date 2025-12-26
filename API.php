@@ -52,6 +52,16 @@ class API extends \Piwik\Plugin\API
     }
 
     /**
+     * Returns only user defined AI assistants
+     *
+     * @return array
+     */
+    public function getUserDefinedAIAssistants()
+    {
+        return $this->model->getUserDefinedAIAssistants();
+    }
+
+    /**
      * Returns all defined social networks
      *
      * @return array
@@ -59,6 +69,16 @@ class API extends \Piwik\Plugin\API
     public function getSocialDefinitions()
     {
         return $this->model->getSocialsDefinitions();
+    }
+
+    /**
+     * Returns all defined AI assistants
+     *
+     * @return array
+     */
+    public function getAIAssistantDefinitions()
+    {
+        return $this->model->getAIAssistantDefinitions();
     }
 
     /**
@@ -81,6 +101,17 @@ class API extends \Piwik\Plugin\API
     public function getSocialLogos()
     {
         return $this->model->getSocialsLogos();
+    }
+
+    /**
+     * Returns logo urls for available AI assistants
+     *
+     * @return array
+     * @internal
+     */
+    public function getAIAssistantLogos()
+    {
+        return $this->model->getAIAssistantLogos();
     }
 
     /**
@@ -195,6 +226,52 @@ class API extends \Piwik\Plugin\API
     }
 
     /**
+     * Adds a new user defined AI assistant
+     *
+     * @param string $name
+     * @param string $host
+     * @return bool
+     */
+    public function addAIAssistant(string $name, string $host)
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        if (empty($host) || empty($name)) {
+            return false;
+        }
+
+        $assistants        = $this->model->getUserDefinedAIAssistants();
+        $assistants[$host] = $name;
+        $this->model->setUserDefinedAIAssistants($assistants);
+        return true;
+    }
+
+    /**
+     * Removes a user defined AI assistant
+     *
+     * @param $host
+     * @return bool
+     */
+    public function removeAIAssistant(string $host)
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        if (empty($host)) {
+            return false;
+        }
+
+        $assistants = $this->model->getUserDefinedAIAssistants();
+
+        if (empty($assistants[$host])) {
+            return false; // does not exist
+        }
+
+        unset($assistants[$host]);
+        $this->model->setUserDefinedAIAssistants($assistants);
+        return true;
+    }
+
+    /**
      * Sets if default socials should be used or not
      *
      * @param bool $state
@@ -205,6 +282,20 @@ class API extends \Piwik\Plugin\API
         Piwik::checkUserHasSuperUserAccess();
 
         Model::getInstance()->setDefaultSocialsDisabled((bool)$state);
+        return true;
+    }
+
+    /**
+     * Sets if default AI assistants should be used or not
+     *
+     * @param bool $state
+     * @return bool
+     */
+    public function setDefaultAIAssistantsDisabled(bool $state = false): bool
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        Model::getInstance()->setDefaultAIAssistantsDisabled((bool)$state);
         return true;
     }
 }
