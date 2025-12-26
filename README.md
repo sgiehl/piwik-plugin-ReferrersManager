@@ -4,7 +4,7 @@
 
 ## Description
 
-This plugin allows to view and manage custom search engines and social networks that are recognized with Matomo.
+This plugin allows to view and manage custom search engines, social networks, and AI assistants that are recognized with Matomo.
 Note: You can find the configuration panel for this plugin within the global administration. There are no changes done to the Matomo frontend/dashboard.
 
 ### Requirements
@@ -13,9 +13,10 @@ Note: You can find the configuration panel for this plugin within the global adm
 
 ### Features
 
-- Shows a list of all search engines and social networks defined in Matomo core.
-- Ability to manage custom search engines and social networks
+- Shows a list of all search engines, social networks, and AI assistants defined in Matomo core.
+- Ability to manage custom search engines, social networks, and AI assistants
 - Ability to disable/enable Matomo's default social network list
+- Ability to disable/enable Matomo's default AI assistants list
 
 ## Support
 
@@ -24,4 +25,3 @@ Please direct any feedback to [stefan@matomo.org](mailto:matomo@matomo.org)
 ## Contribute
 
 Feel free to create issues and pull requests.
-

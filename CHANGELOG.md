@@ -1,5 +1,10 @@
 ## Changelog
 
+__5.1.0__
+
+* Add AI assistant management alongside search engines and social networks
+* Extend URL checker to detect AI assistants
+
 __5.0.0__
 
 * Migrate AngularJS components to Vue.js
