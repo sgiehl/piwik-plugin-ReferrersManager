@@ -29,6 +29,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getSearchEngineDefinitions(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getSearchEngineDefinitions();
     }
 
@@ -39,6 +41,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getUserDefinedSearchEngines(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getUserDefinedSearchEngines();
     }
 
@@ -49,6 +53,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getUserDefinedSocials(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getUserDefinedSocials();
     }
 
@@ -59,6 +65,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getUserDefinedAIAssistants(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getUserDefinedAIAssistants();
     }
 
@@ -69,6 +77,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getSocialDefinitions(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getSocialsDefinitions();
     }
 
@@ -79,6 +89,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getAIAssistantDefinitions(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getAIAssistantDefinitions();
     }
 
@@ -90,6 +102,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getSearchEngineLogos(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getSearchEngineLogos();
     }
 
@@ -101,6 +115,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getSocialLogos(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getSocialsLogos();
     }
 
@@ -112,6 +128,8 @@ class API extends \Piwik\Plugin\API
      */
     public function getAIAssistantLogos(): array
     {
+        Piwik::checkUserHasSomeViewAccess();
+
         return $this->model->getAIAssistantLogos();
     }
 
