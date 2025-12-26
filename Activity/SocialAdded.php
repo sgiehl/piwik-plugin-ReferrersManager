@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -36,8 +37,8 @@ class SocialAdded extends Activity
                     'data' => [
                         'name' => $finalAPIParameters['parameters']['name'],
                         'host' => $finalAPIParameters['parameters']['host'],
-                    ]
-                ]
+                    ],
+                ],
             ],
         ];
     }

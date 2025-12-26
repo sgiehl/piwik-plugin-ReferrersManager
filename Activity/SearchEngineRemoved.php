@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -38,8 +39,8 @@ class SearchEngineRemoved extends Activity
                     'data' => [
                         'name' => $name,
                         'host' => $host,
-                    ]
-                ]
+                    ],
+                ],
             ],
         ];
     }

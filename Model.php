@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -21,11 +22,11 @@ use Piwik\Plugins\Referrers\Social;
  */
 class Model
 {
-    const OPTION_KEY_DISABLE_DEFAULT_SOCIALS   = 'disable_default_socials';
-    const OPTION_KEY_USERDEFINED_SOCIALS       = 'userdefined_socials';
-    const OPTION_KEY_USERDEFINED_SEARCHENGINES = 'userdefined_searchengines';
-    const OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS = 'disable_default_ai_assistants';
-    const OPTION_KEY_USERDEFINED_AI_ASSISTANTS = 'userdefined_ai_assistants';
+    public const OPTION_KEY_DISABLE_DEFAULT_SOCIALS   = 'disable_default_socials';
+    public const OPTION_KEY_USERDEFINED_SOCIALS       = 'userdefined_socials';
+    public const OPTION_KEY_USERDEFINED_SEARCHENGINES = 'userdefined_searchengines';
+    public const OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS = 'disable_default_ai_assistants';
+    public const OPTION_KEY_USERDEFINED_AI_ASSISTANTS = 'userdefined_ai_assistants';
 
     public static function getInstance()
     {
@@ -37,7 +38,7 @@ class Model
      *
      * @return bool
      */
-    public function areDefaultSocialsDisabled()
+    public function areDefaultSocialsDisabled(): bool
     {
         return !!Option::get(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
     }
@@ -47,16 +48,16 @@ class Model
      *
      * @param bool $disabled
      */
-    public function setDefaultSocialsDisabled($disabled = true)
+    public function setDefaultSocialsDisabled(bool $disabled = true): void
     {
-        Option::set(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS, $disabled);
+        Option::set(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS, (string)(int)$disabled);
         $this->clearSocialCache();
     }
 
     /**
      * Clears cache for social data
      */
-    public function clearSocialCache()
+    public function clearSocialCache(): void
     {
         Option::clearCachedOption(self::OPTION_KEY_DISABLE_DEFAULT_SOCIALS);
         Option::delete(Social::OPTION_STORAGE_NAME);
@@ -71,7 +72,7 @@ class Model
      *
      * @return bool
      */
-    public function areDefaultAIAssistantsDisabled()
+    public function areDefaultAIAssistantsDisabled(): bool
     {
         return !!Option::get(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS);
     }
@@ -81,16 +82,16 @@ class Model
      *
      * @param bool $disabled
      */
-    public function setDefaultAIAssistantsDisabled($disabled = true)
+    public function setDefaultAIAssistantsDisabled(bool $disabled = true): void
     {
-        Option::set(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS, $disabled);
+        Option::set(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS, (string)(int)$disabled);
         $this->clearAIAssistantCache();
     }
 
     /**
      * Clears cache for AI assistant data
      */
-    public function clearAIAssistantCache()
+    public function clearAIAssistantCache(): void
     {
         Option::clearCachedOption(self::OPTION_KEY_DISABLE_DEFAULT_AI_ASSISTANTS);
         Option::delete(AIAssistant::OPTION_STORAGE_NAME);
@@ -105,7 +106,7 @@ class Model
      *
      * @return array
      */
-    public function getUserDefinedAIAssistants()
+    public function getUserDefinedAIAssistants(): array
     {
         $assistants = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_AI_ASSISTANTS), true);
 
@@ -121,7 +122,7 @@ class Model
      *
      * @param array $assistantList
      */
-    public function setUserDefinedAIAssistants($assistantList = [])
+    public function setUserDefinedAIAssistants(array $assistantList = []): void
     {
         Option::set(self::OPTION_KEY_USERDEFINED_AI_ASSISTANTS, json_encode($assistantList));
         $this->clearAIAssistantCache();
@@ -132,12 +133,11 @@ class Model
      *
      * @return array
      */
-    public function getUserDefinedSocials()
+    public function getUserDefinedSocials(): array
     {
         $socials = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SOCIALS), true);
 
         if (!empty($socials)) {
-
             return (array)$socials;
         }
 
@@ -149,7 +149,7 @@ class Model
      *
      * @param array $socialList
      */
-    public function setUserDefinedSocials($socialList = [])
+    public function setUserDefinedSocials(array $socialList = []): void
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SOCIALS, json_encode($socialList));
         $this->clearSocialCache();
@@ -160,12 +160,11 @@ class Model
      *
      * @return array
      */
-    public function getUserDefinedSearchEngines()
+    public function getUserDefinedSearchEngines(): array
     {
         $engines = json_decode(Option::get(self::OPTION_KEY_USERDEFINED_SEARCHENGINES), true);
 
         if (!empty($engines)) {
-
             // convert engines saved in legacy format
             foreach ($engines as $url => $definition) {
                 if (!array_key_exists('name', $definition) && isset($definition[0]) && isset($definition[1])) {
@@ -173,7 +172,7 @@ class Model
                         'name' => $definition[0],
                         'params' => $definition[1],
                         'backlink' => @$definition[2],
-                        'charsets' => @$definition[3]
+                        'charsets' => @$definition[3],
                     );
                 }
             }
@@ -189,7 +188,7 @@ class Model
      *
      * @param array $engineList
      */
-    public function setUserDefinedSearchEngines($engineList = [])
+    public function setUserDefinedSearchEngines(array $engineList = []): void
     {
         Option::set(self::OPTION_KEY_USERDEFINED_SEARCHENGINES, json_encode($engineList));
         $this->clearSearchEngineCache();
@@ -198,7 +197,7 @@ class Model
     /**
      * Clears cache for social data
      */
-    public function clearSearchEngineCache()
+    public function clearSearchEngineCache(): void
     {
         Option::clearCachedOption(self::OPTION_KEY_USERDEFINED_SEARCHENGINES);
         Option::delete(SearchEngine::OPTION_STORAGE_NAME);
@@ -212,7 +211,7 @@ class Model
      * Wrapper method to Matomo's internal method to return search engine data
      * @return array
      */
-    public function getSearchEngines()
+    public function getSearchEngines(): array
     {
         return \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getDefinitions();
     }
@@ -222,13 +221,13 @@ class Model
      *
      * @return array
      */
-    public function getSearchEngineDefinitions()
+    public function getSearchEngineDefinitions(): array
     {
         $mergedSearchInfos = [];
 
         $searchEngineInfos = $this->getSearchEngines();
 
-        foreach ($searchEngineInfos AS $url => $infos) {
+        foreach ($searchEngineInfos as $url => $infos) {
             $parameters = !is_array($infos['params']) ? $infos['params'] : implode(', ', $infos['params']);
             if (empty($mergedSearchInfos[$infos['name']])) {
                 $mergedSearchInfos[$infos['name']] = [];
@@ -251,13 +250,13 @@ class Model
      *
      * @return array (name => logo-src)
      */
-    public function getSearchEngineLogos()
+    public function getSearchEngineLogos(): array
     {
         $searchEngineLogos = [];
 
         $searchEngineNames = \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getNames();
 
-        foreach ($searchEngineNames AS $name => $url) {
+        foreach ($searchEngineNames as $name => $url) {
             $searchEngineLogos[$name] = \Piwik\Plugins\Referrers\SearchEngine::getInstance()->getLogoFromUrl($url);
         }
 
@@ -268,7 +267,7 @@ class Model
      * Wrapper method to Matomo' internal method to return search engine data
      * @return array
      */
-    public function getSocials()
+    public function getSocials(): array
     {
         return \Piwik\Plugins\Referrers\Social::getInstance()->getDefinitions();
     }
@@ -277,7 +276,7 @@ class Model
      * Wrapper method to Matomo' internal method to return AI assistant data
      * @return array
      */
-    public function getAIAssistants()
+    public function getAIAssistants(): array
     {
         return AIAssistant::getInstance()->getDefinitions();
     }
@@ -287,13 +286,13 @@ class Model
      *
      * @return array
      */
-    public function getSocialsDefinitions()
+    public function getSocialsDefinitions(): array
     {
         $mergedSocials = [];
 
         $urls = $this->getSocials();
 
-        foreach ($urls AS $url => $name) {
+        foreach ($urls as $url => $name) {
             $mergedSocials[urldecode($name)][] = $url;
         }
 
@@ -307,14 +306,13 @@ class Model
      *
      * @return array (name => logo-src)
      */
-    public function getSocialsLogos()
+    public function getSocialsLogos(): array
     {
         $socialsLogos = [];
 
         $urls = \Piwik\Plugins\Referrers\Social::getInstance()->getDefinitions();
 
-        foreach ($urls AS $url => $name) {
-
+        foreach ($urls as $url => $name) {
             $socialsLogos[urldecode($name)] = \Piwik\Plugins\Referrers\Social::getInstance()->getLogoFromUrl($url);
         }
         return $socialsLogos;
@@ -325,7 +323,7 @@ class Model
      *
      * @return array
      */
-    public function getAIAssistantDefinitions()
+    public function getAIAssistantDefinitions(): array
     {
         $mergedAssistants = [];
 
@@ -345,7 +343,7 @@ class Model
      *
      * @return array (name => logo-src)
      */
-    public function getAIAssistantLogos()
+    public function getAIAssistantLogos(): array
     {
         $assistantLogos = [];
 
@@ -366,8 +364,10 @@ class Model
             $detectedEngine['image'] = SearchEngine::getInstance()->getLogoFromUrl(SearchEngine::getInstance()->getUrlFromName($detectedEngine['name']));
 
             if ($detectedEngine['keywords'] === false) {
-                $detectedEngine['keywords'] = '<i>' . Piwik::translate('General_NotDefined',
-                        Piwik::translate('General_ColumnKeyword')) . '</i>';
+                $detectedEngine['keywords'] = '<i>' . Piwik::translate(
+                    'General_NotDefined',
+                    Piwik::translate('General_ColumnKeyword')
+                ) . '</i>';
             }
         }
 
@@ -379,15 +379,13 @@ class Model
         $detectedSocial = Social::getInstance()->getSocialNetworkFromDomain($url);
 
         if (!empty($detectedSocial) && $detectedSocial != Piwik::translate('General_Unknown')) {
-
             $image = Social::getInstance()->getLogoFromUrl($url);
 
             $detectedSocial = [
                 'name'  => $detectedSocial,
-                'image' => $image
+                'image' => $image,
             ];
         } else {
-
             $detectedSocial = false;
         }
 
@@ -403,7 +401,7 @@ class Model
 
             $detectedAssistant = [
                 'name'  => $detectedAssistant,
-                'image' => $image
+                'image' => $image,
             ];
         } else {
             $detectedAssistant = false;

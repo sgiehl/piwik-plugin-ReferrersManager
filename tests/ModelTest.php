@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -66,12 +67,12 @@ class ModelTest extends SystemTestCase
             array(
                 array('www.test.de' => array('name' => 'Test', 'params' => array('x'))),
                 'http://www.test.de/xdga/ddf/?tsd=sssh&x=test',
-                array('name' => 'Test', 'keywords' => 'test')
+                array('name' => 'Test', 'keywords' => 'test'),
             ),
             array(
                 array('test.de' => array('name' => 'Test', 'params' => array('x'))),
                 'http://www.test.de/xdga/ddf/?tsd=sssh&x=test',
-                false
+                false,
             ),
         );
     }
@@ -109,17 +110,17 @@ class ModelTest extends SystemTestCase
             array(
                 array('www.test.de' => 'Test'),
                 'http://www.test.de/xdga/ddf/?tsd=sssh&x=test',
-                'Test'
+                'Test',
             ),
             array(
                 array('test.de' => 'Test'),
                 'http://www.test.de/xdga/ddf/?tsd=sssh&x=test',
-                'Test'
+                'Test',
             ),
             array(
                 array('test.de' => 'Test'),
                 'http://xyz.test.de/xdga/ddf/?tsd=sssh&x=test',
-                'Test'
+                'Test',
             ),
         );
     }
@@ -157,17 +158,17 @@ class ModelTest extends SystemTestCase
             array(
                 array('www.test.ai' => 'TestAI'),
                 'http://www.test.ai/xdga/ddf/?tsd=sssh&x=test',
-                'TestAI'
+                'TestAI',
             ),
             array(
                 array('test.ai' => 'TestAI'),
                 'http://www.test.ai/xdga/ddf/?tsd=sssh&x=test',
-                'TestAI'
+                'TestAI',
             ),
             array(
                 array('test.ai' => 'TestAI'),
                 'http://xyz.test.ai/xdga/ddf/?tsd=sssh&x=test',
-                'TestAI'
+                'TestAI',
             ),
         );
     }

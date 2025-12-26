@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -42,7 +43,7 @@ class Controller extends ControllerAdmin
      *
      * @return string
      */
-    public function checkUrl()
+    public function checkUrl(): string
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -50,13 +51,13 @@ class Controller extends ControllerAdmin
 
         Json::sendHeaderJSON();
         return json_encode([
-                               'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
-                               'social'       => Model::getInstance()->detectSocial($urlToCheck),
-                               'aiassistant'  => Model::getInstance()->detectAIAssistant($urlToCheck),
-                           ]);
+            'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
+            'social' => Model::getInstance()->detectSocial($urlToCheck),
+            'aiassistant' => Model::getInstance()->detectAIAssistant($urlToCheck),
+        ]);
     }
 
-    public function refresh()
+    public function refresh(): int
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -66,9 +67,9 @@ class Controller extends ControllerAdmin
 
         if ($type === 'socials') {
             Model::getInstance()->clearSocialCache();
-        } else if ($type === 'aiassistants') {
+        } elseif ($type === 'aiassistants') {
             Model::getInstance()->clearAIAssistantCache();
-        } else if ($type === 'searchengines') {
+        } elseif ($type === 'searchengines') {
             Model::getInstance()->clearSearchEngineCache();
         }
 

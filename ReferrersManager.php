@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -18,7 +19,7 @@ class ReferrersManager extends Plugin
     /**
      * @see \Piwik\Plugin::registerEvents
      */
-    public function registerEvents()
+    public function registerEvents(): array
     {
         return array(
             'Referrer.addSearchEngineUrls'     => 'addSearchEngineUrls',
@@ -33,12 +34,12 @@ class ReferrersManager extends Plugin
      * Adds required CSS files
      * @param $stylesheets
      */
-    public function getStylesheetFiles(&$stylesheets)
+    public function getStylesheetFiles(array &$stylesheets): void
     {
         $stylesheets[] = "plugins/ReferrersManager/stylesheets/styles.less";
     }
 
-    public function isTrackerPlugin()
+    public function isTrackerPlugin(): bool
     {
         return true;
     }
@@ -47,35 +48,37 @@ class ReferrersManager extends Plugin
      * Adds the user defined search engines
      * @param $searchEngines
      */
-    public function addSearchEngineUrls(&$searchEngines)
+    public function addSearchEngineUrls(array &$searchEngines): void
     {
         try {
             $userEngines = Model::getInstance()->getUserDefinedSearchEngines();
             $searchEngines = array_merge($searchEngines, $userEngines);
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+        }
     }
 
     /**
      * Adds the user defined social networks
      * @param $socials
      */
-    public function addSocialUrls(&$socials)
+    public function addSocialUrls(array &$socials): void
     {
         try {
-            if(Model::getInstance()->areDefaultSocialsDisabled()) {
+            if (Model::getInstance()->areDefaultSocialsDisabled()) {
                 $socials = array();
             }
 
             $userSocials = Model::getInstance()->getUserDefinedSocials();
             $socials = array_merge($socials, $userSocials);
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+        }
     }
 
     /**
      * Adds the user defined AI assistants
      * @param $aiAssistants
      */
-    public function addAIAssistantUrls(&$aiAssistants)
+    public function addAIAssistantUrls(array &$aiAssistants): void
     {
         try {
             if (Model::getInstance()->areDefaultAIAssistantsDisabled()) {
@@ -84,10 +87,11 @@ class ReferrersManager extends Plugin
 
             $userAssistants = Model::getInstance()->getUserDefinedAIAssistants();
             $aiAssistants = array_merge($aiAssistants, $userAssistants);
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+        }
     }
 
-    public function getClientSideTranslationKeys(&$translationKeys)
+    public function getClientSideTranslationKeys(array &$translationKeys): void
     {
         $translationKeys[] = "ReferrersManager_PluginDescription";
         $translationKeys[] = "ReferrersManager_SearchEnginesSocialsAndAIAssistants";

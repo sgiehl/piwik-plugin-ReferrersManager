@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -26,7 +27,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getSearchEngineDefinitions()
+    public function getSearchEngineDefinitions(): array
     {
         return $this->model->getSearchEngineDefinitions();
     }
@@ -36,7 +37,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getUserDefinedSearchEngines()
+    public function getUserDefinedSearchEngines(): array
     {
         return $this->model->getUserDefinedSearchEngines();
     }
@@ -46,7 +47,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getUserDefinedSocials()
+    public function getUserDefinedSocials(): array
     {
         return $this->model->getUserDefinedSocials();
     }
@@ -56,7 +57,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getUserDefinedAIAssistants()
+    public function getUserDefinedAIAssistants(): array
     {
         return $this->model->getUserDefinedAIAssistants();
     }
@@ -66,7 +67,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getSocialDefinitions()
+    public function getSocialDefinitions(): array
     {
         return $this->model->getSocialsDefinitions();
     }
@@ -76,7 +77,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getAIAssistantDefinitions()
+    public function getAIAssistantDefinitions(): array
     {
         return $this->model->getAIAssistantDefinitions();
     }
@@ -87,7 +88,7 @@ class API extends \Piwik\Plugin\API
      * @return array
      * @internal
      */
-    public function getSearchEngineLogos()
+    public function getSearchEngineLogos(): array
     {
         return $this->model->getSearchEngineLogos();
     }
@@ -98,7 +99,7 @@ class API extends \Piwik\Plugin\API
      * @return array
      * @internal
      */
-    public function getSocialLogos()
+    public function getSocialLogos(): array
     {
         return $this->model->getSocialsLogos();
     }
@@ -109,7 +110,7 @@ class API extends \Piwik\Plugin\API
      * @return array
      * @internal
      */
-    public function getAIAssistantLogos()
+    public function getAIAssistantLogos(): array
     {
         return $this->model->getAIAssistantLogos();
     }
@@ -130,7 +131,7 @@ class API extends \Piwik\Plugin\API
         $parameters = '',
         string $backlink = '',
         string $charset = ''
-    ) {
+    ): bool {
         Piwik::checkUserHasSuperUserAccess();
 
         if (empty($host) || empty($name)) {
@@ -160,7 +161,7 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function removeSearchEngine(string $host)
+    public function removeSearchEngine(string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -186,7 +187,7 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function addSocial(string $name, string $host)
+    public function addSocial(string $name, string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -206,7 +207,7 @@ class API extends \Piwik\Plugin\API
      * @param $host
      * @return bool
      */
-    public function removeSocial(string $host)
+    public function removeSocial(string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -232,7 +233,7 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function addAIAssistant(string $name, string $host)
+    public function addAIAssistant(string $name, string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -252,7 +253,7 @@ class API extends \Piwik\Plugin\API
      * @param $host
      * @return bool
      */
-    public function removeAIAssistant(string $host)
+    public function removeAIAssistant(string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
