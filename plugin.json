@@ -6,7 +6,7 @@
     "license": "GPL v3+",
     "homepage": "https://github.com/sgiehl/piwik-plugin-ReferrersManager",
     "require": {
-        "matomo": ">=5.0.0-b1,<6.0.0-b1"
+        "matomo": ">=5.5.0,<6.0.0-b1"
     },
     "support": {
         "email": "stefan@matomo.org",
