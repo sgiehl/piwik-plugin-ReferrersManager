@@ -33,11 +33,11 @@ concurrency:
 
 jobs:
   PluginTests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
-        php: [ '7.2', '8.2' ]
+        php: [ '7.2', '8.5' ]
         target: ['minimum_required_matomo', 'maximum_supported_matomo']
     steps:
       - uses: actions/checkout@v3
@@ -54,7 +54,7 @@ jobs:
           artifacts-pass: ${{ secrets.ARTIFACTS_PASS }}
           upload-artifacts: ${{ matrix.php == '7.2' && matrix.target == 'maximum_supported_matomo' }}
   UI:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
         with:

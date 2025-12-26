@@ -17,9 +17,9 @@ if (!class_exists(Activity::class)) {
     return;
 }
 
-class SocialRemoved extends Activity
+class AIAssistantAdded extends Activity
 {
-    protected $eventName = 'API.ReferrersManager.removeSocial';
+    protected $eventName = 'API.ReferrersManager.addAIAssistant.end';
 
     /**
      * Returns data to be used for logging the event
@@ -29,20 +29,18 @@ class SocialRemoved extends Activity
      */
     public function extractParams($eventData)
     {
-        list($finalAPIParameters) = $eventData;
+        list($success, $finalAPIParameters) = $eventData;
 
-        $host = $finalAPIParameters['host'];
-
-        $userDefinedSocials = \Piwik\Plugins\ReferrersManager\API::getInstance()->getUserDefinedSocials();
-        $name               = $userDefinedSocials[$host];
+        // $finalAPIParameters = [ className, module, action, parameters ]
+        // $finalAPIParameters[parameters] = [ name, host ]
 
         return [
             'items' => [
                 [
-                    'type' => 'searchengine',
+                    'type' => 'aiassistant',
                     'data' => [
-                        'name' => $name,
-                        'host' => $host,
+                        'name' => $finalAPIParameters['parameters']['name'],
+                        'host' => $finalAPIParameters['parameters']['host'],
                     ],
                 ],
             ],
@@ -58,6 +56,6 @@ class SocialRemoved extends Activity
      */
     public function getTranslatedDescription($activityData, $performingUser)
     {
-        return Piwik::translate('ReferrersManager_SocialRemoved');
+        return Piwik::translate('ReferrersManager_AIAssistantAdded');
     }
 }

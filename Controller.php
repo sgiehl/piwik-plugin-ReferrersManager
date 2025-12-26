@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -24,7 +25,7 @@ class Controller extends ControllerAdmin
      *
      * @return string
      */
-    public function index()
+    public function index(): string
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -32,6 +33,7 @@ class Controller extends ControllerAdmin
         $this->setBasicVariablesView($view);
 
         $view->ownSocialDefinitions = Model::getInstance()->areDefaultSocialsDisabled();
+        $view->ownAIAssistantDefinitions = Model::getInstance()->areDefaultAIAssistantsDisabled();
 
         return $view->render();
     }
@@ -41,7 +43,7 @@ class Controller extends ControllerAdmin
      *
      * @return string
      */
-    public function checkUrl()
+    public function checkUrl(): string
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -49,12 +51,13 @@ class Controller extends ControllerAdmin
 
         Json::sendHeaderJSON();
         return json_encode([
-                               'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
-                               'social'       => Model::getInstance()->detectSocial($urlToCheck),
-                           ]);
+            'searchengine' => Model::getInstance()->detectSearchEngine($urlToCheck),
+            'social' => Model::getInstance()->detectSocial($urlToCheck),
+            'aiassistant' => Model::getInstance()->detectAIAssistant($urlToCheck),
+        ]);
     }
 
-    public function refresh()
+    public function refresh(): int
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -64,7 +67,9 @@ class Controller extends ControllerAdmin
 
         if ($type === 'socials') {
             Model::getInstance()->clearSocialCache();
-        } else if ($type === 'searchengines') {
+        } elseif ($type === 'aiassistants') {
+            Model::getInstance()->clearAIAssistantCache();
+        } elseif ($type === 'searchengines') {
             Model::getInstance()->clearSearchEngineCache();
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - Open source web analytics
  *
@@ -18,7 +19,7 @@ class Menu extends \Piwik\Plugin\Menu
     {
         if (Piwik::hasUserSuperUserAccess()) {
             $menu->addSystemItem(
-                'ReferrersManager_SearchEnginesAndSocialNetworks',
+                'ReferrersManager_SearchEnginesSocialsAndAIAssistants',
                 $this->urlForAction('index'),
                 $order = 20
             );

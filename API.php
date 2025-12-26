@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -26,7 +27,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getSearchEngineDefinitions()
+    public function getSearchEngineDefinitions(): array
     {
         return $this->model->getSearchEngineDefinitions();
     }
@@ -36,7 +37,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getUserDefinedSearchEngines()
+    public function getUserDefinedSearchEngines(): array
     {
         return $this->model->getUserDefinedSearchEngines();
     }
@@ -46,9 +47,19 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getUserDefinedSocials()
+    public function getUserDefinedSocials(): array
     {
         return $this->model->getUserDefinedSocials();
+    }
+
+    /**
+     * Returns only user defined AI assistants
+     *
+     * @return array
+     */
+    public function getUserDefinedAIAssistants(): array
+    {
+        return $this->model->getUserDefinedAIAssistants();
     }
 
     /**
@@ -56,9 +67,19 @@ class API extends \Piwik\Plugin\API
      *
      * @return array
      */
-    public function getSocialDefinitions()
+    public function getSocialDefinitions(): array
     {
         return $this->model->getSocialsDefinitions();
+    }
+
+    /**
+     * Returns all defined AI assistants
+     *
+     * @return array
+     */
+    public function getAIAssistantDefinitions(): array
+    {
+        return $this->model->getAIAssistantDefinitions();
     }
 
     /**
@@ -67,7 +88,7 @@ class API extends \Piwik\Plugin\API
      * @return array
      * @internal
      */
-    public function getSearchEngineLogos()
+    public function getSearchEngineLogos(): array
     {
         return $this->model->getSearchEngineLogos();
     }
@@ -78,9 +99,20 @@ class API extends \Piwik\Plugin\API
      * @return array
      * @internal
      */
-    public function getSocialLogos()
+    public function getSocialLogos(): array
     {
         return $this->model->getSocialsLogos();
+    }
+
+    /**
+     * Returns logo urls for available AI assistants
+     *
+     * @return array
+     * @internal
+     */
+    public function getAIAssistantLogos(): array
+    {
+        return $this->model->getAIAssistantLogos();
     }
 
     /**
@@ -99,7 +131,7 @@ class API extends \Piwik\Plugin\API
         $parameters = '',
         string $backlink = '',
         string $charset = ''
-    ) {
+    ): bool {
         Piwik::checkUserHasSuperUserAccess();
 
         if (empty($host) || empty($name)) {
@@ -129,7 +161,7 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function removeSearchEngine(string $host)
+    public function removeSearchEngine(string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -155,7 +187,7 @@ class API extends \Piwik\Plugin\API
      * @param string $host
      * @return bool
      */
-    public function addSocial(string $name, string $host)
+    public function addSocial(string $name, string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -175,7 +207,7 @@ class API extends \Piwik\Plugin\API
      * @param $host
      * @return bool
      */
-    public function removeSocial(string $host)
+    public function removeSocial(string $host): bool
     {
         Piwik::checkUserHasSuperUserAccess();
 
@@ -195,6 +227,52 @@ class API extends \Piwik\Plugin\API
     }
 
     /**
+     * Adds a new user defined AI assistant
+     *
+     * @param string $name
+     * @param string $host
+     * @return bool
+     */
+    public function addAIAssistant(string $name, string $host): bool
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        if (empty($host) || empty($name)) {
+            return false;
+        }
+
+        $assistants        = $this->model->getUserDefinedAIAssistants();
+        $assistants[$host] = $name;
+        $this->model->setUserDefinedAIAssistants($assistants);
+        return true;
+    }
+
+    /**
+     * Removes a user defined AI assistant
+     *
+     * @param $host
+     * @return bool
+     */
+    public function removeAIAssistant(string $host): bool
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        if (empty($host)) {
+            return false;
+        }
+
+        $assistants = $this->model->getUserDefinedAIAssistants();
+
+        if (empty($assistants[$host])) {
+            return false; // does not exist
+        }
+
+        unset($assistants[$host]);
+        $this->model->setUserDefinedAIAssistants($assistants);
+        return true;
+    }
+
+    /**
      * Sets if default socials should be used or not
      *
      * @param bool $state
@@ -205,6 +283,20 @@ class API extends \Piwik\Plugin\API
         Piwik::checkUserHasSuperUserAccess();
 
         Model::getInstance()->setDefaultSocialsDisabled((bool)$state);
+        return true;
+    }
+
+    /**
+     * Sets if default AI assistants should be used or not
+     *
+     * @param bool $state
+     * @return bool
+     */
+    public function setDefaultAIAssistantsDisabled(bool $state = false): bool
+    {
+        Piwik::checkUserHasSuperUserAccess();
+
+        Model::getInstance()->setDefaultAIAssistantsDisabled((bool)$state);
         return true;
     }
 }

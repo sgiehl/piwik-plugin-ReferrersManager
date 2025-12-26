@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -11,6 +12,10 @@ namespace Piwik\Plugins\ReferrersManager\Activity;
 
 use Piwik\Piwik;
 use Piwik\Plugins\ActivityLog\Activity\Activity;
+
+if (!class_exists(Activity::class)) {
+    return;
+}
 
 class SocialAdded extends Activity
 {
@@ -36,8 +41,8 @@ class SocialAdded extends Activity
                     'data' => [
                         'name' => $finalAPIParameters['parameters']['name'],
                         'host' => $finalAPIParameters['parameters']['host'],
-                    ]
-                ]
+                    ],
+                ],
             ],
         ];
     }

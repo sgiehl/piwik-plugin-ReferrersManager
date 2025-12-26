@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -21,7 +22,7 @@ class Model extends \Piwik\Plugins\ReferrersManager\Model
      * Wrapper method to Matomos internal method to return search engine data
      * @return array
      */
-    public function getSearchEngines()
+    public function getSearchEngines(): array
     {
         $searchEngines = file_get_contents(__DIR__ . '/../resources/searchEngines.yml');
         $searchEngines = SearchEngine::getInstance()->loadYmlData($searchEngines);
@@ -36,7 +37,7 @@ class Model extends \Piwik\Plugins\ReferrersManager\Model
      * Wrapper method to Matomos internal method to return search engine data
      * @return array
      */
-    public function getSocials()
+    public function getSocials(): array
     {
         $socials = file_get_contents(__DIR__ . '/../resources/socials.yml');
         $socials = Social::getInstance()->loadYmlData($socials);

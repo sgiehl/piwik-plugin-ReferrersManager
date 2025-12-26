@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -11,6 +12,10 @@ namespace Piwik\Plugins\ReferrersManager\Activity;
 
 use Piwik\Piwik;
 use Piwik\Plugins\ActivityLog\Activity\Activity;
+
+if (!class_exists(Activity::class)) {
+    return;
+}
 
 class SearchEngineRemoved extends Activity
 {
@@ -38,8 +43,8 @@ class SearchEngineRemoved extends Activity
                     'data' => [
                         'name' => $name,
                         'host' => $host,
-                    ]
-                ]
+                    ],
+                ],
             ],
         ];
     }

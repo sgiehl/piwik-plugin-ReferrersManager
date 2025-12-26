@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -18,11 +19,12 @@ class ReferrersManager extends Plugin
     /**
      * @see \Piwik\Plugin::registerEvents
      */
-    public function registerEvents()
+    public function registerEvents(): array
     {
         return array(
             'Referrer.addSearchEngineUrls'     => 'addSearchEngineUrls',
             'Referrer.addSocialUrls'           => 'addSocialUrls',
+            'Referrer.addAIAssistantUrls'      => 'addAIAssistantUrls',
             'AssetManager.getStylesheetFiles'  => 'getStylesheetFiles',
             'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
         );
@@ -32,12 +34,12 @@ class ReferrersManager extends Plugin
      * Adds required CSS files
      * @param $stylesheets
      */
-    public function getStylesheetFiles(&$stylesheets)
+    public function getStylesheetFiles(array &$stylesheets): void
     {
         $stylesheets[] = "plugins/ReferrersManager/stylesheets/styles.less";
     }
 
-    public function isTrackerPlugin()
+    public function isTrackerPlugin(): bool
     {
         return true;
     }
@@ -46,47 +48,66 @@ class ReferrersManager extends Plugin
      * Adds the user defined search engines
      * @param $searchEngines
      */
-    public function addSearchEngineUrls(&$searchEngines)
+    public function addSearchEngineUrls(array &$searchEngines): void
     {
         try {
             $userEngines = Model::getInstance()->getUserDefinedSearchEngines();
             $searchEngines = array_merge($searchEngines, $userEngines);
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+        }
     }
 
     /**
      * Adds the user defined social networks
      * @param $socials
      */
-    public function addSocialUrls(&$socials)
+    public function addSocialUrls(array &$socials): void
     {
         try {
-            if(Model::getInstance()->areDefaultSocialsDisabled()) {
+            if (Model::getInstance()->areDefaultSocialsDisabled()) {
                 $socials = array();
             }
 
             $userSocials = Model::getInstance()->getUserDefinedSocials();
             $socials = array_merge($socials, $userSocials);
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+        }
     }
 
-    public function getClientSideTranslationKeys(&$translationKeys)
+    /**
+     * Adds the user defined AI assistants
+     * @param $aiAssistants
+     */
+    public function addAIAssistantUrls(array &$aiAssistants): void
+    {
+        try {
+            if (Model::getInstance()->areDefaultAIAssistantsDisabled()) {
+                $aiAssistants = array();
+            }
+
+            $userAssistants = Model::getInstance()->getUserDefinedAIAssistants();
+            $aiAssistants = array_merge($aiAssistants, $userAssistants);
+        } catch (\Exception $e) {
+        }
+    }
+
+    public function getClientSideTranslationKeys(array &$translationKeys): void
     {
         $translationKeys[] = "ReferrersManager_PluginDescription";
-        $translationKeys[] = "ReferrersManager_SearchEnginesAndSocialNetworks";
+        $translationKeys[] = "ReferrersManager_SearchEnginesSocialsAndAIAssistants";
         $translationKeys[] = "ReferrersManager_AddSocial";
         $translationKeys[] = "ReferrersManager_Hostname";
         $translationKeys[] = "ReferrersManager_SearchEnginesList";
         $translationKeys[] = "ReferrersManager_SocialsList";
-        $translationKeys[] = "ReferrersManager_ManageSocialsAndEngines";
+        $translationKeys[] = "ReferrersManager_ManageSearchEnginesSocialsAndAIAssistants";
         $translationKeys[] = "ReferrersManager_ConfirmRemove";
         $translationKeys[] = "ReferrersManager_ManageSearchEngines";
         $translationKeys[] = "ReferrersManager_ManageSocials";
         $translationKeys[] = "ReferrersManager_DetectedEngine";
         $translationKeys[] = "ReferrersManager_DetectedKeywords";
         $translationKeys[] = "ReferrersManager_DetectedSocial";
-        $translationKeys[] = "ReferrersManager_CheckUrl";
-        $translationKeys[] = "ReferrersManager_CheckUrlDesc";
+        $translationKeys[] = "ReferrersManager_CheckUrlWithAIAssistants";
+        $translationKeys[] = "ReferrersManager_CheckUrlDescWithAIAssistants";
         $translationKeys[] = "ReferrersManager_CheckUrlSend";
         $translationKeys[] = "ReferrersManager_AddSearchEngine";
         $translationKeys[] = "ReferrersManager_Parameters";
@@ -103,5 +124,15 @@ class ReferrersManager extends Plugin
         $translationKeys[] = "ReferrersManager_DuplicateHostnameInfo";
         $translationKeys[] = "ReferrersManager_ProvideEngineData";
         $translationKeys[] = "ReferrersManager_HostnameWildcardDesc";
+        $translationKeys[] = "ReferrersManager_ManageAIAssistants";
+        $translationKeys[] = "ReferrersManager_AIAssistantsList";
+        $translationKeys[] = "ReferrersManager_AddAIAssistant";
+        $translationKeys[] = "ReferrersManager_DetectedAIAssistant";
+        $translationKeys[] = "ReferrersManager_AIAssistantListDisabled";
+        $translationKeys[] = "ReferrersManager_EnableAIAssistantList";
+        $translationKeys[] = "ReferrersManager_DisableAIAssistantList";
+        $translationKeys[] = "ReferrersManager_UsingDefaultAIAssistants";
+        $translationKeys[] = "ReferrersManager_ProvideAIAssistantData";
+        $translationKeys[] = "ReferrersManager_AddAIAssistantError";
     }
 }
