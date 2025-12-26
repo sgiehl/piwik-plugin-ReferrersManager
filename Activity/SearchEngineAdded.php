@@ -13,6 +13,10 @@ namespace Piwik\Plugins\ReferrersManager\Activity;
 use Piwik\Piwik;
 use Piwik\Plugins\ActivityLog\Activity\Activity;
 
+if (!class_exists(Activity::class)) {
+    return;
+}
+
 class SearchEngineAdded extends Activity
 {
     protected $eventName = 'API.ReferrersManager.addSearchEngine.end';

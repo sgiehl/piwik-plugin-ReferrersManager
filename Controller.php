@@ -25,7 +25,7 @@ class Controller extends ControllerAdmin
      *
      * @return string
      */
-    public function index()
+    public function index(): string
     {
         Piwik::checkUserHasSuperUserAccess();
 
