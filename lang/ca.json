@@ -20,7 +20,7 @@
         "ManageSearchEngines": "Gestiona els motors de cerca",
         "ManageSocials": "Gestionar les xarxes socials",
         "Parameters": "Paràmetres",
-        "PluginDescription": "Aquest connector permet visualitzar i gestionar els cercadors i les xarxes socials que es reconeixen amb Matomo.",
+        "PluginDescription": "Aquest connector permet visualitzar i gestionar els cercadors, les xarxes socials i els assistents IA que es reconeixen amb Matomo.",
         "ProvideEngineData": "Proporcioneu les dades del motor de cerca.",
         "ProvideSocialData": "Si us plau proporcioneu les dades de la nova xarxa social.",
         "SearchEngineAdded": "s'ha afegit un nou motor de cerca personalitzat",
