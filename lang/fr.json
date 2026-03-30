@@ -18,6 +18,7 @@
         "Hostname": "Nom d'hôte",
         "HostnameWildcardDesc": "Pour des moteurs de recherche spécifiques à la localisation, l'URL \"{}.exemple.com\" détectera n'importe quel code de pays de type ISO3166-1 alpha2 à la place de \"{}\". De manière similaire \"exemple.{}\" détectera les TLD valides de pays mais devrait être utilisé avec parcimonie pour éviter les faux positifs.",
         "ManageSearchEngines": "Gérer les moteurs de recherche",
+        "ManageSearchEnginesSocialsAndAIAssistants": "Gérer les moteurs de recherche, les réseaux sociaux et les assistants IA",
         "ManageSocials": "Gérer les réseaux sociaux",
         "Parameters": "Paramètres",
         "PluginDescription": "Ce composant permet de visualiser et de gérer les moteurs de recherche, les réseaux sociaux, et les assistants IA qui sont reconnus avec Matomo.",
