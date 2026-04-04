@@ -20,7 +20,7 @@
         "ManageSearchEngines": "Hantera sökmotorer",
         "ManageSocials": "Hantera sociala nätverk",
         "Parameters": "Parametrar",
-        "PluginDescription": "Detta tillägg ger tillgång till att lista och hantera sökmotorer och sociala nätverk som känns igen av Matomo.",
+        "PluginDescription": "Med detta tillägg kan du visa och hantera sökmotorer, sociala nätverk och AI-assistenter som känns igen av Matomo.",
         "ProvideEngineData": "Vänligen skriv in datan för sökmotorn.",
         "ProvideSocialData": "Vänligen skriv in datan för det nya sociala nätverket.",
         "SearchEngineAdded": "lagt till en ny anpassad sökmotor",
