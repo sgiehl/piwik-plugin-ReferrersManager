@@ -57,7 +57,9 @@ class ModelTest extends SystemTestCase
     {
         Model::getInstance()->setUserDefinedSearchEngines($enginesToAdd);
         $detectedEngines = Model::getInstance()->detectSearchEngine($referrer);
-        unset($detectedEngines['image']);
+        if (is_array($detectedEngines)) {
+            unset($detectedEngines['image']);
+        }
         $this->assertEquals($result, $detectedEngines);
     }
 

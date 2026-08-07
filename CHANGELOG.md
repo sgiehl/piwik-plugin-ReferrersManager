@@ -1,5 +1,9 @@
 ## Changelog
 
+__6.0.0__
+
+* Compatibility with Matomo 6
+
 __5.1.0__
 
 * Add AI assistant management alongside search engines and social networks

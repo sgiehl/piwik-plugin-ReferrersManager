@@ -29,7 +29,7 @@
         <span class="icon-reload"></span>{{ translate('General_Refresh') }}
     </span>
     <div class="search-detections">
-      <input type="text" v-model="searchText" value=""
+      <input type="text" v-model="searchText"
              :placeholder="translate('General_Search')"/>
     </div>
 
@@ -113,12 +113,12 @@ import { SaveButton } from 'CorePluginsAdmin';
 
 const { $ } = window;
 
-interface ManageSearchEnginesDataState {
+export interface ManageSocialsDataState {
 
-  socials: Record<string, unknown>,
+  socials: Record<string, string[]>,
   socialNames: string[],
   userDefinedSocials: Record<string, unknown>,
-  socialLogos: Record<string, unknown>,
+  socialLogos: Record<string, string>,
   newSocialData: Record<string, string>,
   busy: boolean,
   showSocialForm: boolean,
@@ -130,7 +130,7 @@ export default defineComponent({
   props: {
     ownSocialDefinitions: Boolean,
   },
-  data(): ManageSearchEnginesDataState {
+  data(): ManageSocialsDataState {
     return {
       socials: {},
       socialNames: [],
@@ -174,28 +174,26 @@ export default defineComponent({
 
       this.busy = true;
 
-      const promises = [];
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getSocialDefinitions',
-        },
-      ));
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getSocialLogos',
-        },
-      ));
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getUserDefinedSocials',
-        },
-      ));
+      const promises = [
+        AjaxHelper.fetch<Record<string, string[]>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getSocialDefinitions',
+          },
+        ),
+        AjaxHelper.fetch<Record<string, string>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getSocialLogos',
+          },
+        ),
+        AjaxHelper.fetch<Record<string, unknown>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getUserDefinedSocials',
+          },
+        ),
+      ] as const;
 
       Promise.all(promises).then(([searchEngines, logos, userDefinedData]) => {
         this.socials = searchEngines;

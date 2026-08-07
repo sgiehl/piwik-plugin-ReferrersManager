@@ -29,7 +29,7 @@
         <span class="icon-reload"></span>{{ translate('General_Refresh') }}
     </span>
     <div class="search-detections">
-      <input type="text" v-model="searchText" value=""
+      <input type="text" v-model="searchText"
              :placeholder="translate('General_Search')"/>
     </div>
 
@@ -113,11 +113,11 @@ import { SaveButton } from 'CorePluginsAdmin';
 
 const { $ } = window;
 
-interface ManageAIAssistantsDataState {
-  assistants: Record<string, unknown>,
+export interface ManageAIAssistantsDataState {
+  assistants: Record<string, string[]>,
   assistantNames: string[],
   userDefinedAIAssistants: Record<string, unknown>,
-  assistantLogos: Record<string, unknown>,
+  assistantLogos: Record<string, string>,
   newAIAssistantData: Record<string, string>,
   busy: boolean,
   showAIAssistantForm: boolean,
@@ -173,28 +173,26 @@ export default defineComponent({
 
       this.busy = true;
 
-      const promises = [];
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getAIAssistantDefinitions',
-        },
-      ));
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getAIAssistantLogos',
-        },
-      ));
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getUserDefinedAIAssistants',
-        },
-      ));
+      const promises = [
+        AjaxHelper.fetch<Record<string, string[]>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getAIAssistantDefinitions',
+          },
+        ),
+        AjaxHelper.fetch<Record<string, string>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getAIAssistantLogos',
+          },
+        ),
+        AjaxHelper.fetch<Record<string, unknown>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getUserDefinedAIAssistants',
+          },
+        ),
+      ] as const;
 
       Promise.all(promises).then(([assistants, logos, userDefinedData]) => {
         this.assistants = assistants;

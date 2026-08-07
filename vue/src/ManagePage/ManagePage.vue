@@ -50,10 +50,10 @@ import { defineComponent } from 'vue';
 import {
   ContentBlock,
 } from 'CoreHome';
-import URLChecker from '../URLChecker/URLChecker';
-import ManageSearchEngines from '../ManageSearchEngines/ManageSearchEngines';
-import ManageSocials from '../ManageSocials/ManageSocials';
-import ManageAIAssistants from '../ManageAIAssistants/ManageAIAssistants';
+import URLChecker from '../URLChecker/URLChecker.vue';
+import ManageSearchEngines from '../ManageSearchEngines/ManageSearchEngines.vue';
+import ManageSocials from '../ManageSocials/ManageSocials.vue';
+import ManageAIAssistants from '../ManageAIAssistants/ManageAIAssistants.vue';
 
 const { $ } = window;
 
