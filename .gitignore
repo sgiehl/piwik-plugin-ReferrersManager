@@ -1,1 +1,2 @@
 tests/UI/processed-ui-screenshots
+/vue/dist/*.umd.js
