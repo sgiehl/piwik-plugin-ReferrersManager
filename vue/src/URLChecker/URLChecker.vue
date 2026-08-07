@@ -39,7 +39,7 @@ import {
   SaveButton,
 } from 'CorePluginsAdmin';
 
-interface URLCheckerDataState {
+export interface URLCheckerDataState {
   urlToCheck: string,
   detectedEngineImg: string,
   detectedEngine: string,

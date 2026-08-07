@@ -20,7 +20,7 @@
         <span class="icon-reload"></span>{{ translate('General_Refresh') }}
     </span>
     <div class="search-detections">
-      <input type="text" v-model="searchText" value=""
+      <input type="text" v-model="searchText"
              :placeholder="translate('General_Search')"/>
     </div>
 
@@ -128,12 +128,19 @@ import { SaveButton } from 'CorePluginsAdmin';
 
 const { $ } = window;
 
-interface ManageSearchEnginesDataState {
+export interface SearchEngineDefinition {
+  url: string,
+  parameters: string,
+  backlink: string,
+  charset: string,
+}
 
-  searchEngines: Record<string, unknown>,
+export interface ManageSearchEnginesDataState {
+
+  searchEngines: Record<string, SearchEngineDefinition[]>,
   searchEngineNames: string[],
   userDefinedSearchEngines: Record<string, unknown>,
-  searchEngineLogos: Record<string, unknown>,
+  searchEngineLogos: Record<string, string>,
   newEngineData: Record<string, string>,
   busy: boolean,
   showEngineForm: boolean,
@@ -184,28 +191,26 @@ export default defineComponent({
 
       this.busy = true;
 
-      const promises = [];
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getSearchEngineDefinitions',
-        },
-      ));
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getSearchEngineLogos',
-        },
-      ));
-
-      promises.push(AjaxHelper.fetch<Record<string, unknown>>(
-        {
-          module: 'API',
-          method: 'ReferrersManager.getUserDefinedSearchEngines',
-        },
-      ));
+      const promises = [
+        AjaxHelper.fetch<Record<string, SearchEngineDefinition[]>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getSearchEngineDefinitions',
+          },
+        ),
+        AjaxHelper.fetch<Record<string, string>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getSearchEngineLogos',
+          },
+        ),
+        AjaxHelper.fetch<Record<string, unknown>>(
+          {
+            module: 'API',
+            method: 'ReferrersManager.getUserDefinedSearchEngines',
+          },
+        ),
+      ] as const;
 
       Promise.all(promises).then(([searchEngines, logos, userDefinedData]) => {
         this.searchEngines = searchEngines;
