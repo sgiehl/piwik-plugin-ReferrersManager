@@ -12,7 +12,7 @@
         "AddSocialError": "Fehler beim Hinzufügen des sozialen Netzwerks. Bitte überprüfen Sie Ihre Eingaben und probieren Sie es erneut.",
         "BacklinkPattern": "Link-Muster",
         "Charset": "Zeichensatz",
-        "CheckUrlDescWithAIAssistants": "Hier können Sie jede Verweis-URL einfügen, um zu überprüfen, ob Matomo diese als Suchmaschine, soziales Netzwerk und/oder einen KI-Assistenten erkennt",
+        "CheckUrlDescWithAIAssistants": "Hier können Sie jede Verweis-URL einfügen, um zu überprüfen, ob Matomo diese als Suchmaschine, als soziales Netzwerk und/oder als KI-Assistent erkennt",
         "CheckUrlSend": "URL überprüfen",
         "CheckUrlWithAIAssistants": "URL auf Informationen zu Suchmaschine, sozialem Netzwerk und KI-Assistenten überprüfen",
         "CommaSeparated": "(kommasepariert)",
