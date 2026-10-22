@@ -26,6 +26,7 @@
         "SearchEngineAdded": "lagt till en ny anpassad sökmotor",
         "SearchEngineRemoved": "tog bort en anpassad sökmotor",
         "SearchEnginesList": "Lista över alla sökmotorer som Matomo känner till",
+        "SearchEnginesSocialsAndAIAssistants": "Sökmotorer, sociala nätverk och AI-assistenter",
         "SocialAdded": "lagt till ett nytt anpassat socialt nätverk",
         "SocialListDisabled": "Noteringen: Matomo inbyggda listning av sociala nätverk är inaktiverad.",
         "SocialRemoved": "tog bort ett anpassat socialt nätverk",
