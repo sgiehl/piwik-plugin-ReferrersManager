@@ -20,7 +20,7 @@
         "DetectedAIAssistant": "Assistant IA détecté",
         "DetectedEngine": "Moteur détecté",
         "DetectedKeywords": "Mots-clés détectés",
-        "DetectedSocial": "Réseaux sociaux détectés",
+        "DetectedSocial": "Réseau social détecté",
         "DisableAIAssistantList": "Désactiver la liste d'assistants IA de Matomo",
         "DisableSocialList": "Désactiver la liste de réseaux sociaux de Matomo",
         "DuplicateHostnameInfo": "Gardez à l'esprit que le nom d'hôte doit être unique. Un duplicat écrasera l'autre.",
@@ -42,9 +42,9 @@
         "SearchEnginesList": "Liste de tous les moteurs de recherche connus de Matomo",
         "SearchEnginesSocialsAndAIAssistants": "Les moteurs de recherche, les réseaux sociaux, et les assistants IA",
         "SocialAdded": "réseau social personnalisé ajouté",
-        "SocialListDisabled": "Attention : la liste par défaut des résaux sociaux de Matomo est désactivée.",
+        "SocialListDisabled": "Attention : la liste par défaut des réseaux sociaux de Matomo est désactivée.",
         "SocialRemoved": "réseau social personnalisé supprimé",
-        "SocialsList": "List de tous les média sociaux connus de Matomo",
+        "SocialsList": "Liste de tous les réseaux sociaux connus de Matomo",
         "UsingDefaultAIAssistants": "Vous utilisez la liste intégrée d'assistants IA de Matomo.",
         "UsingDefaultSocials": "Vous utilisez la liste de réseaux sociaux fournie par Matomo."
     }
